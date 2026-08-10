@@ -64,17 +64,14 @@ the form shows an amber warning instead of failing silently.
 
 ## Publishing
 
-Not yet deployed. To put it on GitHub Pages the way the accountants page is:
+- **Repo:** https://github.com/ewong-max/ykcc-agents-workshop-landing —
+  `main` holds the source, `gh-pages` holds the built output.
+- **Live:** https://ewong-max.github.io/ykcc-agents-workshop-landing/
 
-```bash
-git init && git add -A && git commit -m "AI Agents workshop landing page"
-```
-
-Then create a repo on GitHub, add it as `origin`, push `main`, and run
-`npm run deploy` — that builds and pushes `dist/` to a `gh-pages` branch. Turn
-on Pages for that branch in the repo settings. `vite.config.ts` already uses a
-relative `base`, so the build works both at a domain root and under a
-`/repo-name/` sub-path.
+To push a change: commit to `main`, then run `npm run deploy`. That rebuilds
+and force-pushes `dist/` to `gh-pages`; the live page updates a minute or so
+later. `vite.config.ts` uses a relative `base`, so the build works both at a
+domain root and under the `/repo-name/` sub-path Pages serves it from.
 
 ## Still to fill in
 
