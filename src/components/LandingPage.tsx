@@ -364,10 +364,12 @@ export const LandingPage: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111113]/90 via-[#111113]/40 to-transparent p-6 flex flex-col justify-end text-white">
                   <h2 className="text-lg sm:text-xl font-bold leading-tight text-white mb-1">
-                    One worked example, carried across both days
+                    Like hiring a colleague who never forgets
                   </h2>
-                  <p className="text-xs text-[#D8D7D3]">
-                    {RUNNING_EXAMPLE.company} — {RUNNING_EXAMPLE.summary}
+                  <p className="text-xs text-[#D8D7D3] leading-relaxed">
+                    You write its job description once and show it one folder. From then on it opens
+                    your files, builds the spreadsheet or the report, and saves it where you asked —
+                    while you check the work instead of typing it.
                   </p>
                 </div>
               </div>
@@ -520,9 +522,14 @@ export const LandingPage: React.FC = () => {
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#111113] mt-3 tracking-tight">
               Six Builds, One Running Example
             </h2>
+            {/* The company is introduced here rather than in the hero, so that "its" below
+                has something to refer back to. */}
             <p className="text-sm sm:text-base text-[#555450] mt-2">
-              {RUNNING_EXAMPLE.yourRole} {RUNNING_EXAMPLE.arc}
+              Every lab runs on one imaginary Malaysian company:{' '}
+              <strong className="text-[#111113]">{RUNNING_EXAMPLE.company}</strong>.{' '}
+              {RUNNING_EXAMPLE.summary} {RUNNING_EXAMPLE.yourRole}
             </p>
+            <p className="text-xs sm:text-sm text-[#777672] mt-2">{RUNNING_EXAMPLE.arc}</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
