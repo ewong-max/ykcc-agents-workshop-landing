@@ -364,12 +364,12 @@ export const LandingPage: React.FC = () => {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#111113]/90 via-[#111113]/40 to-transparent p-6 flex flex-col justify-end text-white">
                   <h2 className="text-lg sm:text-xl font-bold leading-tight text-white mb-1">
-                    Like hiring a colleague who never forgets
+                    It does the work, not just the talking
                   </h2>
                   <p className="text-xs text-[#D8D7D3] leading-relaxed">
-                    You write its job description once and show it one folder. From then on it opens
-                    your files, builds the spreadsheet or the report, and saves it where you asked —
-                    while you check the work instead of typing it.
+                    Most people have only used AI as a chat window that gives advice. Over two days
+                    you’ll set one up to actually open your files, build the report and save it into
+                    your folder — finished work, not suggestions you still have to type up yourself.
                   </p>
                 </div>
               </div>
