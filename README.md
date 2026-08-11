@@ -48,6 +48,28 @@ run side by side.)
 | Who should attend | `#audience` | — |
 | FAQ | `#faq` | Part 0, Appendix D and the honest-limits sections |
 
+## The printed flyer
+
+`flyer/` holds a one-page A4 promotional flyer that matches the site's design.
+It is benefit-led rather than a syllabus — four benefit cards, what you go home
+with, and a QR code back to this page.
+
+```bash
+python flyer/build_flyer.py
+```
+
+That regenerates `flyer.html` (self-contained — logo and QR inlined) and renders
+`AI_Agents_Workshop_Flyer_A4.pdf` and `.png` with headless Chrome. The copy lives
+in the `BENEFITS`, `TAKEAWAYS` and `FACTS` lists at the top of the script.
+
+Needs `segno` (`pip install segno`) and Chrome at the path in `CHROME`.
+
+Two things to leave alone unless you re-test them: the QR needs its `border=4`
+quiet zone and its injected `viewBox`, or it silently stops scanning; and
+`.page > * { flex-shrink: 0 }` is what stops the flex column from squeezing a
+block and clipping its text. If you change the copy enough to overflow the page,
+the bottom will be cut off rather than flowing to page 2 — check the PNG.
+
 ## Where registrations go
 
 Submissions POST to the same Google Apps Script endpoint the accountants page
