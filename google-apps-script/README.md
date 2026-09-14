@@ -1,43 +1,41 @@
 # Where registrations go
 
-This page POSTs each registration to the **same Apps Script endpoint** the
-"AI Workshop for Accountants" page already uses, and tags every row with
-`workshop: "AI Agents for Business 101"` (the course's HRD Corp-registered
-title) and a `paymentMethod` of `"HRDC"` or `"Cash"`.
+Registrations for **AI Agents for Business 101** go to their own spreadsheet,
+[AI Agents for Business 2026 10 15 & 16](https://docs.google.com/spreadsheets/d/1TyQk5LlsZjYZ9kE4ZYCsOV9yKZ6G0t0E6Vwe9h9xkHI/edit),
+tab **Registrations**. This course no longer shares a sheet or a script with the
+AI Workshop for Accountants page.
 
-## You do not have to do anything
+The page POSTs each registration to the Apps Script in `Code.gs`, which appends
+one row. Columns are matched by the header text in row 1:
 
-The script that is deployed today ignores fields it does not know about, so
-registrations from this page will land in the existing **Registrations** tab
-alongside the accountants leads. Nothing breaks. You just cannot tell the two
-courses apart in the sheet.
+| Header                 | Filled with                                  |
+|------------------------|----------------------------------------------|
+| Submission Date & Time | Server time, Malaysia (dd/MM/yyyy HH:mm:ss)  |
+| Full Name              | Name                                         |
+| Email Address          | Email                                        |
+| Phone Number           | Phone                                        |
+| Company Name           | Company (`N/A` if left blank on the form)    |
+| HRD or Cash            | `HRD` or `Cash`                              |
 
-## Optional: give this course its own tab
+Any other column (e.g. a Status or Remarks column you add yourself) is left blank
+for you to fill in, and columns can be reordered freely.
 
-`Code.gs` in this folder is an updated, backward-compatible version of the
-deployed script. It adds **Workshop** and **Payment Method** columns and
-routes Agents-course registrations into a separate **Registrations - AI Agents**
-tab. Accountants registrations keep going to **Registrations** exactly as
-before (their rows simply carry a blank Payment Method).
+## First-time setup
 
-1. Open the leads spreadsheet →
-   [sheet](https://docs.google.com/spreadsheets/d/1iMYKZmw5QPenxchB5IoLC8NmLSkzT9AdcskNoHg-pck/edit).
-2. **Extensions → Apps Script**.
-3. Replace the whole of `Code.gs` with the version in this folder. Save.
-4. **Deploy → Manage deployments → ✏️ (edit) → Version: _New version_ → Deploy.**
+1. Open the spreadsheet above → **Extensions → Apps Script**.
+2. Replace the contents of `Code.gs` with the version in this folder. Save.
+3. **Deploy → New deployment → ⚙️ → Web app.**
+   - Execute as: **Me**
+   - Who has access: **Anyone**
+4. Deploy, approve the permissions prompt, and copy the **Web app URL** (ends in `/exec`).
+5. Put that URL in `APPS_SCRIPT_ENDPOINT` in `src/lib/leadSubmission.ts`, then
+   `npm run deploy`.
 
-Step 4 is the one everybody forgets. Editing the script changes nothing on the
-live site until you publish a new version of the **existing** deployment — and
-it must be the existing deployment, because creating a new one gives you a new
-`/exec` URL that neither landing page is pointing at.
+To confirm it is live, open the `/exec` URL in a browser — it should answer
+`{"ok":true,"message":"AI Agents for Business 101 registration endpoint is running."}`.
 
-### After updating
+## Changing the script later
 
-The new **Registrations - AI Agents** tab is created automatically on the first
-registration, with its header row. The old **Registrations** tab keeps its
-original 8 columns for existing rows; new accountants rows written by the
-updated script include the Workshop column, so add that heading to the old tab
-by hand if you want the columns to line up.
-
-To confirm the deployment is live, open the `/exec` URL in a browser — it should
-answer `{"ok":true,"message":"YKCC registration endpoint is running."}`.
+Use **Deploy → Manage deployments → ✏️ → Version: _New version_ → Deploy** on the
+*existing* deployment. Creating a new deployment mints a new `/exec` URL that the
+landing page is not pointing at.

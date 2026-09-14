@@ -5,17 +5,15 @@ import { InterestRegistration } from '../types';
  * there is no credential a public page can safely hold — so submissions are POSTed to a
  * Google Apps Script bound to this sheet, which appends the row on your behalf.
  *
- * This is the same sheet and the same endpoint as the AI Workshop for Accountants page.
- * Every lead carries a `workshop` field so the two courses can be told apart; see
- * google-apps-script/README.md for the (optional) script update that puts the Agents
- * course into its own tab.
+ * This course has its own sheet and script, separate from the AI Workshop for
+ * Accountants page — see google-apps-script/README.md.
  */
 export const SHEET_URL =
-  'https://docs.google.com/spreadsheets/d/1iMYKZmw5QPenxchB5IoLC8NmLSkzT9AdcskNoHg-pck/edit?usp=sharing';
+  'https://docs.google.com/spreadsheets/d/1TyQk5LlsZjYZ9kE4ZYCsOV9yKZ6G0t0E6Vwe9h9xkHI/edit';
 
 /** Paste the /exec URL from your Apps Script deployment here. */
 export const APPS_SCRIPT_ENDPOINT =
-  'https://script.google.com/macros/s/AKfycbyeFnBiKZCH0trEKQcB31CgTZ0i-Xv4T0_PkNvJNKj_j7mNBu3wIcdxt_lJdLRoROkd/exec';
+  'https://script.google.com/macros/s/AKfycbwrii7G-H3H-1_E8z6CQqi54YZpLrecZWSGycet1twleFT51l8HvtAVL9YqqDXufEFa/exec';
 
 export const isSubmissionConfigured = APPS_SCRIPT_ENDPOINT.length > 0;
 
@@ -37,8 +35,7 @@ export const buildLead = (input: LeadInput): InterestRegistration => ({
   email: input.email.trim(),
   phone: input.phone.trim(),
   companyName: input.companyName.trim() || 'N/A',
-  // Job Role is no longer collected on this page; the sheet's Job Role column
-  // is simply left blank for these rows (Code.gs already tolerates its absence).
+  // Job Role is no longer collected, and the sheet has no column for it.
   jobRole: '',
   paymentMethod: input.paymentMethod,
   submittedAt: new Date().toLocaleString(),
