@@ -15,7 +15,7 @@ import {
  */
 
 export const ORGANIZER_INFO = {
-  brandName: "YKCC / YK Group",
+  brandName: "YKCC",
   subBrand: "YKCC AI Training",
   // Registered with HRD Corp under this exact title — see HRD_CORP_INFO below.
   // Training providers may only market a claimable course under its registered title.
