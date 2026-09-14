@@ -20,14 +20,14 @@ export const APPS_SCRIPT_ENDPOINT =
 export const isSubmissionConfigured = APPS_SCRIPT_ENDPOINT.length > 0;
 
 /** Written into every registration so leads from the two landing pages stay separable. */
-export const WORKSHOP_NAME = 'AI Agents & Skills Configuration';
+export const WORKSHOP_NAME = 'AI Agents for Business 101';
 
 export interface LeadInput {
   fullName: string;
   email: string;
   phone: string;
   companyName: string;
-  jobRole: string;
+  paymentMethod: 'HRDC' | 'Cash';
 }
 
 export const buildLead = (input: LeadInput): InterestRegistration => ({
@@ -37,7 +37,10 @@ export const buildLead = (input: LeadInput): InterestRegistration => ({
   email: input.email.trim(),
   phone: input.phone.trim(),
   companyName: input.companyName.trim() || 'N/A',
-  jobRole: input.jobRole,
+  // Job Role is no longer collected on this page; the sheet's Job Role column
+  // is simply left blank for these rows (Code.gs already tolerates its absence).
+  jobRole: '',
+  paymentMethod: input.paymentMethod,
   submittedAt: new Date().toLocaleString(),
   status: 'New'
 });

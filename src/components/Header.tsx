@@ -29,7 +29,7 @@ export const Header: React.FC = () => {
             />
             <span className="min-w-0">
               <span className="block text-sm font-extrabold text-[#111113] leading-tight truncate group-hover:text-[#0284C7] transition-colors">
-                AI Agents &amp; Skills Configuration
+                AI Agents for Business 101
               </span>
               <span className="hidden sm:block text-[11px] font-medium text-[#777672] leading-tight truncate">
                 {ORGANIZER_INFO.brandName} · 2-Day Hands-On Training
@@ -55,7 +55,7 @@ export const Header: React.FC = () => {
               href="#register-interest"
               className="hidden sm:flex px-4 py-2 bg-[#0284C7] hover:bg-[#0369A1] text-white text-xs font-extrabold rounded-xl shadow-sm transition-colors items-center gap-1.5 whitespace-nowrap"
             >
-              Register Interest <ArrowRight className="w-3.5 h-3.5" />
+              Register Now <ArrowRight className="w-3.5 h-3.5" />
             </a>
 
             <button
@@ -93,7 +93,7 @@ export const Header: React.FC = () => {
               onClick={() => setMobileOpen(false)}
               className="mt-2 px-4 py-2.5 bg-[#0284C7] hover:bg-[#0369A1] text-white text-sm font-extrabold rounded-xl text-center transition-colors flex items-center justify-center gap-1.5"
             >
-              Register Interest <ArrowRight className="w-4 h-4" />
+              Register Now <ArrowRight className="w-4 h-4" />
             </a>
           </nav>
         )}

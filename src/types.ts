@@ -40,6 +40,8 @@ export interface InterestRegistration {
   phone: string;
   companyName: string;
   jobRole: string;
+  /** How the participant intends to pay — drives which fee tier and paperwork applies. */
+  paymentMethod: 'HRDC' | 'Cash';
   submittedAt: string;
   status: 'New' | 'Contacted' | 'Confirmed';
 }

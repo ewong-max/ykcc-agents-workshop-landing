@@ -2,7 +2,8 @@
 
 This page POSTs each registration to the **same Apps Script endpoint** the
 "AI Workshop for Accountants" page already uses, and tags every row with
-`workshop: "AI Agents & Skills Configuration"`.
+`workshop: "AI Agents for Business 101"` (the course's HRD Corp-registered
+title) and a `paymentMethod` of `"HRDC"` or `"Cash"`.
 
 ## You do not have to do anything
 
@@ -14,9 +15,10 @@ courses apart in the sheet.
 ## Optional: give this course its own tab
 
 `Code.gs` in this folder is an updated, backward-compatible version of the
-deployed script. It adds a **Workshop** column and routes Agents-course
-registrations into a separate **Registrations - AI Agents** tab. Accountants
-registrations keep going to **Registrations** exactly as before.
+deployed script. It adds **Workshop** and **Payment Method** columns and
+routes Agents-course registrations into a separate **Registrations - AI Agents**
+tab. Accountants registrations keep going to **Registrations** exactly as
+before (their rows simply carry a blank Payment Method).
 
 1. Open the leads spreadsheet →
    [sheet](https://docs.google.com/spreadsheets/d/1iMYKZmw5QPenxchB5IoLC8NmLSkzT9AdcskNoHg-pck/edit).

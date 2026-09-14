@@ -16,7 +16,7 @@ var SHEET_ID = '1iMYKZmw5QPenxchB5IoLC8NmLSkzT9AdcskNoHg-pck';
 
 /** Anything not listed here falls back to the original tab. */
 var TABS = {
-  'AI Agents & Skills Configuration': 'Registrations - AI Agents',
+  'AI Agents for Business 101': 'Registrations - AI Agents',
   'AI Workshop for Accountants': 'Registrations'
 };
 var DEFAULT_TAB = 'Registrations';
@@ -30,6 +30,7 @@ var HEADERS = [
   'Phone',
   'Company',
   'Job Role',
+  'Payment Method',
   'Status'
 ];
 
@@ -56,6 +57,7 @@ function doPost(e) {
       lead.phone,
       lead.companyName || '',
       lead.jobRole || '',
+      lead.paymentMethod || '',
       lead.status || 'New'
     ]);
 

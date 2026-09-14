@@ -17,20 +17,54 @@ import {
 export const ORGANIZER_INFO = {
   brandName: "YKCC / YK Group",
   subBrand: "YKCC AI Training",
-  title: "AI Agents & Skills Configuration",
+  // Registered with HRD Corp under this exact title — see HRD_CORP_INFO below.
+  // Training providers may only market a claimable course under its registered title.
+  title: "AI Agents for Business 101",
   subtitle: "Building AI Agents as Digital Colleagues for Business Productivity",
   tagline:
     "Two days of hands-on training that turns Claude from something you chat with into a colleague that opens your folders, builds your files and saves them where you asked.",
-  // Left blank deliberately, as on the accountants landing page: fill in YKCC's real
-  // details and they appear automatically in the footer contact block.
-  email: "",
-  phone: "",
-  address: "",
-  website: "",
+  email: "ykcc@yk.com.my",
+  phone: "03-6272 6933",
+  address: "No. 37, Jalan 9/62A, Bandar Menjalara, Kepong, 52200 Kuala Lumpur, Wilayah Persekutuan, Malaysia",
+  website: "www.yk.com.my",
   heroQuote:
     "A chatbot can tell you what should go in the report. An agent opens your folder, reads your data, builds the report, saves it, and tells you where it put it. The whole difference is the ability to act — and these two days are about controlling how it acts.",
   targetAudience:
     "Written for people who do not work in IT. If you can use email and Microsoft Office, you can do everything in this course."
+};
+
+/** Confirmed schedule and venue. */
+export const WORKSHOP_SCHEDULE = {
+  datesLabel: "15 & 16 October 2026",
+  timeLabel: "9:00 AM – 5:00 PM",
+  venueName: "YKCC / YK Group Training Centre",
+  venueAddress: "No. 37, Jalan 9/62A, Bandar Menjalara, Kepong, 52200 Kuala Lumpur, Wilayah Persekutuan"
+};
+
+/** Course fee — per participant. */
+export const PRICING = {
+  currency: "RM",
+  hrdcClaimable: 2500,
+  selfFunded: 2000,
+  groupDiscountPercent: 30,
+  groupDiscountNote:
+    "30% off for each additional participant registered from the same group of companies."
+};
+
+/**
+ * HRD Corp registration details, from the official Letter of Register Program
+ * (Application No 10001754409, dated 14/09/2026). Training providers may only
+ * market a claimable course using this registered title and programme number.
+ */
+export const HRD_CORP_INFO = {
+  registeredCourseTitle: "AI Agents for Business 101",
+  applicationNo: "10001754409",
+  programmeNo: "10001756328",
+  scheme: "SBL-Khas (Skim Bantuan Latihan Khas)",
+  mycoid: "19960102855",
+  trainer: "Wong Yew Choon",
+  validity: "9 September 2026 – 9 September 2027",
+  trainingHours: 14
 };
 
 /** The running example that every lab builds on — Section "The running example". */

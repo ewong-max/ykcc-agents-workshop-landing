@@ -2,7 +2,7 @@ import React from 'react';
 import { Mail, Phone, MapPin, Globe } from 'lucide-react';
 import { Header } from './components/Header';
 import { LandingPage } from './components/LandingPage';
-import { ORGANIZER_INFO } from './data/workshopData';
+import { HRD_CORP_INFO, ORGANIZER_INFO, WORKSHOP_SCHEDULE } from './data/workshopData';
 
 const FOOTER_LINKS = [
   { href: '#anatomy', label: 'What You Configure' },
@@ -11,7 +11,7 @@ const FOOTER_LINKS = [
   { href: '#prepare', label: 'Before You Start' },
   { href: '#audience', label: 'Who It’s For' },
   { href: '#faq', label: 'FAQ' },
-  { href: '#register-interest', label: 'Register Interest' }
+  { href: '#register-interest', label: 'Register Now' }
 ];
 
 // Rendered only once real details are filled into ORGANIZER_INFO — blank entries are
@@ -82,10 +82,11 @@ export default function App() {
                 The Workshop
               </h2>
               <ul className="space-y-2">
-                <li>2 days · 9:00 AM – 5:00 PM</li>
+                <li className="text-sky-400 font-semibold">
+                  {WORKSHOP_SCHEDULE.datesLabel} · {WORKSHOP_SCHEDULE.timeLabel}
+                </li>
                 <li>No coding background needed</li>
                 <li>Paid Claude plan required</li>
-                <li className="text-amber-400 font-semibold">Dates &amp; venue to be confirmed</li>
               </ul>
 
               {CONTACT_ENTRIES.length > 0 && (
@@ -107,7 +108,30 @@ export default function App() {
             </div>
           </div>
 
-          <div className="mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-[11px]">
+          <div className="mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center gap-4">
+            <div className="flex items-center gap-3 flex-shrink-0">
+              <img
+                src="./hrd-corp-claimable.png"
+                alt="HRD Corp Claimable"
+                className="h-12 w-12 sm:h-14 sm:w-14"
+              />
+              <img
+                src="./hrd-corp-registered.png"
+                alt="HRD Corp Registered Training Provider"
+                className="h-12 w-12 sm:h-14 sm:w-14"
+              />
+            </div>
+            <div className="text-[11px] text-slate-400 leading-relaxed">
+              <div className="font-bold text-slate-200">
+                Programme No: {HRD_CORP_INFO.programmeNo}
+              </div>
+              <div>
+                HRD Corp Claimable: {HRD_CORP_INFO.scheme} · MYCoID: {HRD_CORP_INFO.mycoid}
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-6 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-[11px]">
             <span>
               © {new Date().getFullYear()} {ORGANIZER_INFO.brandName}. All rights reserved.
             </span>

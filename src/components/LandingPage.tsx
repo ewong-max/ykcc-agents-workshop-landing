@@ -3,11 +3,14 @@ import {
   AGENT_PARTS,
   COURSE_HIGHLIGHTS,
   FAQ_ITEMS,
+  HRD_CORP_INFO,
   ORGANIZER_INFO,
   PREREQUISITES,
+  PRICING,
   PROMPT_RECIPE,
   RUNNING_EXAMPLE,
-  WORKSHOP_DAYS
+  WORKSHOP_DAYS,
+  WORKSHOP_SCHEDULE
 } from '../data/workshopData';
 import { InterestRegistration } from '../types';
 import { isSubmissionConfigured, buildLead, submitLeadToSheet } from '../lib/leadSubmission';
@@ -45,7 +48,7 @@ const EMPTY_FORM = {
   email: '',
   phone: '',
   companyName: '',
-  jobRole: 'Finance / Admin Executive'
+  paymentMethod: 'HRDC' as 'HRDC' | 'Cash'
 };
 
 /** Icons for the four parts of an AI colleague, in the same order as AGENT_PARTS. */
@@ -249,7 +252,7 @@ export const LandingPage: React.FC = () => {
   // endpoint — nothing is kept in the visitor's browser.
   const handleSubmitForm = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!formData.fullName || !formData.email || !formData.phone) return;
+    if (!formData.fullName || !formData.email || !formData.phone || !formData.companyName) return;
 
     setIsSubmitting(true);
     setSubmitError(null);
@@ -297,7 +300,7 @@ export const LandingPage: React.FC = () => {
                   <Bot className="w-4 h-4" /> 2-Day Practical Hands-On Training
                 </div>
                 <h1 className="text-3xl sm:text-5xl font-extrabold text-[#111113] tracking-tight leading-tight mb-3">
-                  AI Agents &amp; <span className="text-[#0284C7]">Skills Configuration</span>
+                  AI Agents for <span className="text-[#0284C7]">Business 101</span>
                 </h1>
                 <p className="text-base sm:text-xl font-semibold text-[#3D3C42] mb-4">
                   {ORGANIZER_INFO.subtitle}
@@ -323,7 +326,7 @@ export const LandingPage: React.FC = () => {
                   href="#register-interest"
                   className="w-full sm:w-auto px-8 py-3.5 bg-[#0284C7] hover:bg-[#0369A1] text-white text-base font-extrabold rounded-xl shadow-md transition-all flex items-center justify-center gap-2 whitespace-nowrap"
                 >
-                  Register Interest <ArrowRight className="w-5 h-5" />
+                  Register Now <ArrowRight className="w-5 h-5" />
                 </a>
                 <a
                   href="#agenda"
@@ -336,8 +339,8 @@ export const LandingPage: React.FC = () => {
               {/* Quick stats */}
               <div className="grid grid-cols-3 gap-3">
                 <div className="p-3 bg-white rounded-xl border border-[#E6E3DB] text-center shadow-xs">
-                  <div className="text-2xl font-extrabold text-[#0284C7]">2 Days</div>
-                  <div className="text-xs font-medium text-[#666562]">9:00 AM – 5:00 PM</div>
+                  <div className="text-2xl font-extrabold text-[#0284C7]">15–16 Oct</div>
+                  <div className="text-xs font-medium text-[#666562]">{WORKSHOP_SCHEDULE.timeLabel}</div>
                 </div>
                 <div className="p-3 bg-white rounded-xl border border-[#E6E3DB] text-center shadow-xs">
                   <div className="text-2xl font-extrabold text-[#111113]">0 Code</div>
@@ -853,13 +856,15 @@ export const LandingPage: React.FC = () => {
             <p className="text-xs text-[#555450]">
               Timings are indicative — the trainer moves at the pace of the room, and every step is in
               your handout so you can repeat it at your own desk afterwards.{' '}
-              <strong className="text-[#111113]">Workshop dates are still to be confirmed.</strong>
+              <strong className="text-[#111113]">
+                Workshop dates: {WORKSHOP_SCHEDULE.datesLabel}, {WORKSHOP_SCHEDULE.timeLabel}.
+              </strong>
             </p>
             <a
               href="#register-interest"
               className="px-6 py-2.5 bg-[#0284C7] hover:bg-[#0369A1] text-white text-xs font-extrabold rounded-xl shadow-sm transition-colors flex items-center gap-2 whitespace-nowrap"
             >
-              Register Interest <ArrowRight className="w-4 h-4" />
+              Register Now <ArrowRight className="w-4 h-4" />
             </a>
           </div>
         </div>
@@ -870,18 +875,61 @@ export const LandingPage: React.FC = () => {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-2xl mx-auto mb-8">
             <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200">
-              Register Interest · No Payment Required
+              Dates Confirmed · Seats Limited
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#111113] mt-2 tracking-tight">
-              Express Your Interest
+              Reserve Your Seat
             </h2>
             <p className="text-xs sm:text-sm text-[#555450] mt-2">
-              <span className="bg-yellow-200 text-yellow-950 font-extrabold px-2 py-0.5 rounded-md border border-yellow-300/80 shadow-xs inline-block">
-                Dates and venue are to be confirmed
+              <span className="bg-emerald-100 text-emerald-800 font-extrabold px-2 py-0.5 rounded-md border border-emerald-200 shadow-xs inline-block">
+                {WORKSHOP_SCHEDULE.datesLabel} · {WORKSHOP_SCHEDULE.timeLabel}
               </span>{' '}
-              (TBC). Register now for date updates, seat availability, and in-house corporate training
-              quotes.
+              at {WORKSHOP_SCHEDULE.venueAddress}. Register now to reserve a seat, or enquire about
+              in-house corporate training.
             </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
+            <div className="p-5 bg-[#FAF8F5] rounded-2xl border border-[#E6E3DB]">
+              <div className="text-xs font-bold text-[#0284C7] uppercase tracking-widest mb-2">
+                Course Fee (per participant)
+              </div>
+              <div className="space-y-1 text-sm text-[#333230]">
+                <div>
+                  <strong className="text-[#111113]">
+                    {PRICING.currency}{PRICING.hrdcClaimable.toLocaleString()}
+                  </strong>{' '}
+                  — HRD Corp claimable ({HRD_CORP_INFO.scheme})
+                </div>
+                <div>
+                  <strong className="text-[#111113]">
+                    {PRICING.currency}{PRICING.selfFunded.toLocaleString()}
+                  </strong>{' '}
+                  — self-funded / cash
+                </div>
+              </div>
+              <p className="text-[11px] text-[#777672] mt-2">{PRICING.groupDiscountNote}</p>
+            </div>
+
+            <div className="p-5 bg-[#FAF8F5] rounded-2xl border border-[#E6E3DB] flex items-center gap-4">
+              <img
+                src="./hrd-corp-claimable.png"
+                alt="HRD Corp Claimable"
+                className="h-16 w-16 flex-shrink-0"
+              />
+              <img
+                src="./hrd-corp-registered.png"
+                alt="HRD Corp Registered Training Provider"
+                className="h-16 w-16 flex-shrink-0"
+              />
+              <div className="text-[11px] text-[#555450] leading-relaxed">
+                <div className="font-bold text-[#111113]">
+                  Programme No: {HRD_CORP_INFO.programmeNo}
+                </div>
+                <div>{HRD_CORP_INFO.scheme}</div>
+                <div>MYCoID: {HRD_CORP_INFO.mycoid}</div>
+              </div>
+            </div>
           </div>
 
           <div className="bg-[#FAF8F5] rounded-3xl p-6 sm:p-10 border-2 border-[#E6E3DB] shadow-lg">
@@ -894,8 +942,7 @@ export const LandingPage: React.FC = () => {
                   Thank You, {lastSubmittedLead.fullName}!
                 </h3>
                 <p className="text-sm text-[#44433F] max-w-lg mx-auto">
-                  Your interest in <strong>AI Agents &amp; Skills Configuration</strong> has been
-                  recorded.
+                  Your registration for <strong>{ORGANIZER_INFO.title}</strong> has been recorded.
                 </p>
 
                 <div className="bg-white p-5 rounded-2xl border border-[#E6E3DB] max-w-md mx-auto text-left text-xs space-y-2 text-[#333230]">
@@ -909,15 +956,21 @@ export const LandingPage: React.FC = () => {
                   <div><strong>Email:</strong> {lastSubmittedLead.email}</div>
                   <div><strong>Phone:</strong> {lastSubmittedLead.phone}</div>
                   <div><strong>Company:</strong> {lastSubmittedLead.companyName}</div>
-                  <div><strong>Job Role:</strong> {lastSubmittedLead.jobRole}</div>
+                  <div>
+                    <strong>Payment Method:</strong>{' '}
+                    {lastSubmittedLead.paymentMethod === 'HRDC'
+                      ? 'HRD Corp Claimable'
+                      : 'Self-Funded / Cash'}
+                  </div>
                 </div>
 
                 <div className="p-4 bg-amber-50 rounded-xl border border-amber-200 text-xs text-amber-900 max-w-md mx-auto space-y-2">
                   <strong className="block">What happens next?</strong>
                   <p>
-                    Our training team will email you as soon as the exact dates, venue and seat
-                    reservations are finalised. In the meantime, work through “Before You Start” below —
-                    arriving with setup done puts you ahead of the room.
+                    Our training team will contact you to confirm your seat and payment method, and
+                    send joining instructions ahead of {WORKSHOP_SCHEDULE.datesLabel}. In the meantime,
+                    work through “Before You Start” below — arriving with setup done puts you ahead of
+                    the room.
                   </p>
                 </div>
 
@@ -996,7 +1049,7 @@ export const LandingPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label htmlFor="reg-phone" className="block text-xs font-bold text-[#222126] mb-1">
                       Phone Number <span className="text-red-500">*</span>
@@ -1017,12 +1070,13 @@ export const LandingPage: React.FC = () => {
 
                   <div>
                     <label htmlFor="reg-company" className="block text-xs font-bold text-[#222126] mb-1">
-                      Company Name
+                      Company Name <span className="text-red-500">*</span>
                     </label>
                     <input
                       id="reg-company"
                       name="companyName"
                       type="text"
+                      required
                       autoComplete="organization"
                       placeholder="e.g. Sinar Jaya Trading Sdn Bhd"
                       value={formData.companyName}
@@ -1030,28 +1084,64 @@ export const LandingPage: React.FC = () => {
                       className="w-full px-3.5 py-2.5 bg-white rounded-xl border border-[#DCD8CF] text-xs focus:ring-2 focus:ring-[#0284C7] focus:border-transparent outline-none"
                     />
                   </div>
+                </div>
 
-                  <div>
-                    <label htmlFor="reg-role" className="block text-xs font-bold text-[#222126] mb-1">
-                      Job Role
-                    </label>
-                    <select
-                      id="reg-role"
-                      name="jobRole"
-                      value={formData.jobRole}
-                      onChange={(e) => setFormData({ ...formData, jobRole: e.target.value })}
-                      className="w-full px-3.5 py-2.5 bg-white rounded-xl border border-[#DCD8CF] text-xs focus:ring-2 focus:ring-[#0284C7] focus:border-transparent outline-none"
+                <div>
+                  <label className="block text-xs font-bold text-[#222126] mb-2">
+                    Payment Method <span className="text-red-500">*</span>
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    <label
+                      htmlFor="reg-payment-hrdc"
+                      className={`flex items-center justify-between gap-3 px-4 py-3 rounded-xl border-2 cursor-pointer transition-colors ${
+                        formData.paymentMethod === 'HRDC'
+                          ? 'border-[#0284C7] bg-sky-50'
+                          : 'border-[#DCD8CF] bg-white hover:bg-[#F7F5F0]'
+                      }`}
                     >
-                      <option value="Finance / Admin Executive">Finance / Admin Executive</option>
-                      <option value="Accountant / Accounts Executive">Accountant / Accounts Executive</option>
-                      <option value="Finance Manager / Director">Finance Manager / Director</option>
-                      <option value="Operations / Office Manager">Operations / Office Manager</option>
-                      <option value="HR / Administration">HR / Administration</option>
-                      <option value="Audit / Tax Professional">Audit / Tax Professional</option>
-                      <option value="Business Owner / Partner">Business Owner / Partner</option>
-                      <option value="Other">Other</option>
-                    </select>
+                      <span className="flex items-center gap-2 text-xs font-bold text-[#222126]">
+                        <input
+                          id="reg-payment-hrdc"
+                          type="radio"
+                          name="paymentMethod"
+                          value="HRDC"
+                          checked={formData.paymentMethod === 'HRDC'}
+                          onChange={() => setFormData({ ...formData, paymentMethod: 'HRDC' })}
+                          className="accent-[#0284C7]"
+                        />
+                        HRD Corp Claimable
+                      </span>
+                      <span className="text-xs font-extrabold text-[#0284C7]">
+                        {PRICING.currency}{PRICING.hrdcClaimable.toLocaleString()}
+                      </span>
+                    </label>
+
+                    <label
+                      htmlFor="reg-payment-cash"
+                      className={`flex items-center justify-between gap-3 px-4 py-3 rounded-xl border-2 cursor-pointer transition-colors ${
+                        formData.paymentMethod === 'Cash'
+                          ? 'border-[#0284C7] bg-sky-50'
+                          : 'border-[#DCD8CF] bg-white hover:bg-[#F7F5F0]'
+                      }`}
+                    >
+                      <span className="flex items-center gap-2 text-xs font-bold text-[#222126]">
+                        <input
+                          id="reg-payment-cash"
+                          type="radio"
+                          name="paymentMethod"
+                          value="Cash"
+                          checked={formData.paymentMethod === 'Cash'}
+                          onChange={() => setFormData({ ...formData, paymentMethod: 'Cash' })}
+                          className="accent-[#0284C7]"
+                        />
+                        Self-Funded / Cash
+                      </span>
+                      <span className="text-xs font-extrabold text-[#0284C7]">
+                        {PRICING.currency}{PRICING.selfFunded.toLocaleString()}
+                      </span>
+                    </label>
                   </div>
+                  <p className="text-[11px] text-[#777672] mt-2">{PRICING.groupDiscountNote}</p>
                 </div>
 
                 <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-[#E6E3DB]">
@@ -1278,7 +1368,7 @@ export const LandingPage: React.FC = () => {
                 Ready to stop building the same report by hand?
               </h2>
               <p className="text-xs sm:text-sm text-[#C5C4C0] max-w-2xl mx-auto">
-                Register your interest and we will email you the moment dates are confirmed. Corporate
+                Register now to reserve your seat for {WORKSHOP_SCHEDULE.datesLabel}. Corporate
                 in-house batches can be run at your office with the labs adapted to your own files.
               </p>
               <div className="pt-2">
@@ -1286,7 +1376,7 @@ export const LandingPage: React.FC = () => {
                   href="#register-interest"
                   className="inline-flex px-8 py-3 bg-[#0284C7] hover:bg-[#0369A1] text-white text-sm font-extrabold rounded-xl shadow-md transition-all items-center gap-2"
                 >
-                  Register Interest <ArrowRight className="w-4 h-4" />
+                  Register Now <ArrowRight className="w-4 h-4" />
                 </a>
               </div>
             </div>
