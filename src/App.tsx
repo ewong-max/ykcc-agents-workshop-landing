@@ -2,20 +2,11 @@ import React from 'react';
 import { Mail, Phone, MapPin, Globe } from 'lucide-react';
 import { Header } from './components/Header';
 import { LandingPage } from './components/LandingPage';
-import { HRD_CORP_INFO, ORGANIZER_INFO, WORKSHOP_SCHEDULE } from './data/workshopData';
+import { HRD_CORP_INFO, ORGANIZER_INFO } from './data/workshopData';
+import { LanguageProvider, useLanguage } from './i18n';
 
-const FOOTER_LINKS = [
-  { href: '#anatomy', label: 'What You Configure' },
-  { href: '#labs', label: 'Labs' },
-  { href: '#agenda', label: 'Agenda' },
-  { href: '#prepare', label: 'Before You Start' },
-  { href: '#audience', label: 'Who It’s For' },
-  { href: '#faq', label: 'FAQ' },
-  { href: '#register-interest', label: 'Register Now' }
-];
-
-// Rendered only once real details are filled into ORGANIZER_INFO — blank entries are
-// skipped rather than shown as placeholders.
+// Contact details are language-neutral, so the rows are built once here and the
+// footer only supplies the wording around them.
 const CONTACT_ENTRIES = [
   { icon: Mail, value: ORGANIZER_INFO.email, href: `mailto:${ORGANIZER_INFO.email}` },
   { icon: Phone, value: ORGANIZER_INFO.phone, href: `tel:${ORGANIZER_INFO.phone}` },
@@ -23,14 +14,16 @@ const CONTACT_ENTRIES = [
   { icon: MapPin, value: ORGANIZER_INFO.address, href: null }
 ].filter((entry) => entry.value);
 
-export default function App() {
+const Site: React.FC = () => {
+  const { t } = useLanguage();
+
   return (
     <div className="min-h-screen bg-[#FAF8F5] text-slate-900 font-sans antialiased selection:bg-sky-500 selection:text-white">
       <a
         href="#top"
         className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-3 focus:left-3 focus:px-4 focus:py-2 focus:bg-[#0284C7] focus:text-white focus:rounded-lg focus:text-sm focus:font-bold"
       >
-        Skip to main content
+        {t.header.skipToContent}
       </a>
 
       <Header />
@@ -48,45 +41,47 @@ export default function App() {
                 {/* White chip: the logo's letterforms are knocked out, so it needs a light
                     backing to stay legible on the dark footer. */}
                 <span className="inline-flex items-center justify-center bg-white rounded-lg px-2.5 py-1.5">
-                  <img src="./yk-logo.png" alt="YK Group" className="h-5 w-auto" />
+                  <img src="./yk-logo.png" alt={t.footer.logoAlt} className="h-5 w-auto" />
                 </span>
                 <span className="font-bold text-slate-100 text-sm">{ORGANIZER_INFO.brandName}</span>
               </div>
-              <p className="leading-relaxed max-w-md text-slate-400">
-                {ORGANIZER_INFO.tagline}
-              </p>
-              <p className="text-slate-500 text-[11px]">
-                Registration details are kept confidential in line with Malaysia’s PDPA.
-              </p>
+              <p className="leading-relaxed max-w-md text-slate-400">{t.tagline}</p>
+              <p className="text-slate-500 text-[11px]">{t.footer.pdpaLine}</p>
             </div>
 
             {/* Quick links */}
             <div>
               <h2 className="text-slate-200 font-bold mb-3 text-[11px] uppercase tracking-widest">
-                Explore
+                {t.footer.exploreHeading}
               </h2>
               <ul className="space-y-2">
-                {FOOTER_LINKS.map((link) => (
+                {t.nav.map((link) => (
                   <li key={link.href}>
                     <a href={link.href} className="hover:text-sky-400 transition-colors">
                       {link.label}
                     </a>
                   </li>
                 ))}
+                <li>
+                  <a href="#register-interest" className="hover:text-sky-400 transition-colors">
+                    {t.header.registerCta}
+                  </a>
+                </li>
               </ul>
             </div>
 
             {/* Workshop facts */}
             <div>
               <h2 className="text-slate-200 font-bold mb-3 text-[11px] uppercase tracking-widest">
-                The Workshop
+                {t.footer.workshopHeading}
               </h2>
               <ul className="space-y-2">
                 <li className="text-sky-400 font-semibold">
-                  {WORKSHOP_SCHEDULE.datesLabel} · {WORKSHOP_SCHEDULE.timeLabel}
+                  {t.schedule.datesLabel} · {t.schedule.timeLabel}
                 </li>
-                <li>No coding background needed</li>
-                <li>Paid Claude plan required</li>
+                {t.footer.facts.map((fact) => (
+                  <li key={fact}>{fact}</li>
+                ))}
               </ul>
 
               {CONTACT_ENTRIES.length > 0 && (
@@ -112,33 +107,40 @@ export default function App() {
             <div className="flex items-center gap-3 flex-shrink-0">
               <img
                 src="./hrd-corp-claimable.png"
-                alt="HRD Corp Claimable"
+                alt={t.registration.claimableBadgeAlt}
                 className="h-12 w-12 sm:h-14 sm:w-14"
               />
               <img
                 src="./hrd-corp-registered.png"
-                alt="HRD Corp Registered Training Provider"
+                alt={t.registration.registeredBadgeAlt}
                 className="h-12 w-12 sm:h-14 sm:w-14"
               />
             </div>
             <div className="text-[11px] text-slate-400 leading-relaxed">
               <div className="font-bold text-slate-200">
-                Programme No: {HRD_CORP_INFO.programmeNo}
+                {t.footer.programmeNoLabel} {HRD_CORP_INFO.programmeNo}
               </div>
               <div>
-                HRD Corp Claimable: {HRD_CORP_INFO.scheme} · MYCoID: {HRD_CORP_INFO.mycoid}
+                {t.footer.claimableLine} {HRD_CORP_INFO.scheme} · {t.registration.mycoidLabel}{' '}
+                {HRD_CORP_INFO.mycoid}
               </div>
             </div>
           </div>
 
           <div className="mt-6 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-slate-500 text-[11px]">
-            <span>
-              © {new Date().getFullYear()} {ORGANIZER_INFO.brandName}. All rights reserved.
-            </span>
-            <span>AI produces the draft. You review it. You sign it.</span>
+            <span>{t.footer.copyright(new Date().getFullYear())}</span>
+            <span>{t.footer.signOff}</span>
           </div>
         </div>
       </footer>
     </div>
+  );
+};
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <Site />
+    </LanguageProvider>
   );
 }
