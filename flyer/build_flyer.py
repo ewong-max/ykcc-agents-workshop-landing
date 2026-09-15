@@ -91,7 +91,7 @@ LANGS = {
         "doc_title": "AI Agents for Business 101 — Workshop Flyer",
         "org": "YKCC",
         "org_sub": "Practical AI training",
-        "chip": "2-Day Hands-On Workshop · HRD Corp Claimable",
+        "chip": "2-Day Hands-On Workshop · HRD Corp",
         "title_line1": "AI Agents for",
         "title_line2": "Business 101",
         "standfirst": "Building AI agents as digital colleagues for business productivity.",
@@ -100,21 +100,20 @@ LANGS = {
                   "two days you will set one up to actually open your files, build the report, "
                   "and save it into your folder — finished work, not suggestions you still have "
                   "to type up yourself.",
-        "section_label": "What changes on Monday morning",
+        "section_label": "Configure an AI agent to:",
+        # (bold lead, rest of the line)
         "benefits": [
-            ("The report that ate your day",
-             "The monthly pack, the management report, the board deck — drafted from your own "
-             "figures in minutes, so your time goes on checking the numbers instead of keying "
-             "them in."),
-            ("No coding. No jargon.",
-             "If you can use email and Excel, you can do this. You give instructions in ordinary "
-             "English, and every technical word is explained in plain language before it is used."),
-            ("Real files, not text on a screen",
-             "Excel workbooks with working formulas. Word documents in your house style. Slide "
-             "decks with speaker notes. Saved straight into your own folder, ready to send."),
-            ("You are still the one who signs",
-             "It takes away the typing, not the judgement. You will know exactly what to check, "
-             "and exactly what your AI colleague must never be trusted to decide."),
+            ("Analyse your financial reports",
+             " and explain them to you in plain English, Chinese or Bahasa Malaysia"),
+            ("Estimate your CP204 tax:",
+             " forecast the full year from your accounts to date and work out the tax payable"),
+            ("Prepare presentations", " for board meetings and client pitches"),
+            ("Draft letters, quotations, contracts and agreements",
+             " automatically, in your own format"),
+            ("Turn photos and PDFs",
+             " of invoices and receipts into Excel listings and expense claim forms"),
+            ("Build your second brain:",
+             " teach your AI agent what you know about your clients, HR, products and projects"),
         ],
         "takeaways_h": "You go<br>home with",
         "takeaways": [
@@ -126,15 +125,16 @@ LANGS = {
             ("15–16 Oct 2026", "9:00 AM – 5:00 PM"),
             ("Hands-on", "Bring your laptop"),
             ("0 Code", "No IT background"),
-            ("HRD Corp", "Claimable · SBL-Khas"),
+            ("HRD Corp", "SBL-Khas"),
         ],
         "cta_h": "Register now to reserve your seat",
-        "cta_badge": "HRDC claimable RM2,500 &nbsp;|&nbsp; Self-funded RM2,000",
-        "cta_p": f"Venue: {VENUE}. 30% off for each additional participant from the same "
-                 "group of companies. In-house batches available on request.",
+        "cta_badge": "HRDC RM2,500 &nbsp;|&nbsp; CASH RM2,250",
+        "cta_p": f"Venue: {VENUE}.<br><strong>Group offer:</strong> the first participant pays "
+                 "the full fee; the 2nd participant onwards from the same group of companies "
+                 "gets 30% off. In-house batches available on request.",
         "hrd_line": f"HRD Corp Programme No. {HRD_PROGRAMME_NO} · MYCoID {MYCOID}",
         "qr_label": "SCAN TO REGISTER",
-        "foot_left": "Requires a laptop and a paid Claude plan (Pro, Max, Team or Enterprise).",
+        "foot_left": "Requires a laptop.",
         "foot_right": f"Enquiries: {PHONE} · {EMAIL}",
     },
     "zh": {
@@ -146,7 +146,7 @@ LANGS = {
         "doc_title": "AI Agents for Business 101 — 工作坊宣传单",
         "org": "YKCC",
         "org_sub": "实用 AI 培训",
-        "chip": "两天实操工作坊 · HRD Corp 可申报",
+        "chip": "两天实操工作坊 · HRD Corp",
         # The registered HRD Corp title stays in English; the standfirst carries the
         # Chinese name of the course.
         "title_line1": "AI Agents for",
@@ -156,20 +156,14 @@ LANGS = {
         "hook_p": "大多数人只把 AI 当成一个给建议的聊天窗口。这两天，你将亲手设置一个能真正打开你的"
                   "档案、生成报告、并存入你指定文件夹的 AI 同事 —— 交到你手上的是完成的档案，"
                   "而不是还要你自己重新打一遍的建议。",
-        "section_label": "星期一早上，有什么不一样",
+        "section_label": "配置你的 AI 智能代理，帮你：",
         "benefits": [
-            ("那份耗掉你一整天的报告",
-             "每月业绩报表、管理报告、董事会简报 —— 几分钟内就从你自己的数据生成。"
-             "你的时间花在核对数字，而不是逐格输入。"),
-            ("不必写程式，也没有术语",
-             "只要你会用电邮和 Excel，就学得会。你用日常语言下指令，"
-             "每一个技术名词都会先用白话解释清楚，才拿来用。"),
-            ("交给你的是真档案，不是屏幕上的文字",
-             "有公式的 Excel 工作簿、符合公司格式的 Word 文件、附讲稿的简报档，"
-             "直接存进你自己的文件夹，随时可以寄出。"),
-            ("签名的人，还是你",
-             "它省掉的是打字，不是判断。你会清楚知道哪些一定要复核，"
-             "也会清楚知道哪些事绝不能交给它决定。"),
+            ("分析财务报表", "，并用浅白的中文、英文或马来文向你解释"),
+            ("预估 CP204 税款", "：根据年初至今的账目推算全年盈利，算出应缴税额"),
+            ("准备简报资料", "，用于董事会会议及客户提案"),
+            ("自动拟备信函、报价单、合约及协议", "，格式由你决定"),
+            ("把发票、收据的照片或 PDF", " 转换成 Excel 清单及报销单"),
+            ("打造你的第二大脑", "：把客户、人事、产品及项目知识，全部教给你的 AI 智能代理"),
         ],
         "takeaways_h": "你可以<br>带走",
         "takeaways": [
@@ -181,17 +175,15 @@ LANGS = {
             ("10月15–16日", "2026 · 上午 9:00 – 下午 5:00"),
             ("实操为主", "请自备手提电脑"),
             ("零程式", "无需 IT 背景"),
-            ("HRD Corp 可申报", "SBL-Khas 计划"),
+            ("HRD Corp", "SBL-Khas 计划"),
         ],
         "cta_h": "立即报名，预留座位",
-        "cta_badge": "HRDC 可申报 RM2,500 &nbsp;｜&nbsp; 自费 RM2,000",
-        "cta_p": f"地点：{VENUE}。同一集团公司每增加一位学员，每位享 30% 折扣。"
-                 "也可安排企业内部培训。",
+        "cta_badge": "HRDC RM2,500 &nbsp;｜&nbsp; 现金 CASH RM2,250",
+        "cta_p": f"地点：{VENUE}。<br><strong>团体优惠：</strong>第一位学员付全额；"
+                 "同一集团公司的第二位起，每位享七折（即减 30%）。<br>也可安排企业内部培训。",
         "hrd_line": f"HRD Corp 课程编号 Programme No. {HRD_PROGRAMME_NO} · MYCoID {MYCOID}",
         "qr_label": "扫描报名",
-        # Ends on the closing bracket deliberately: a full-width ） followed by 。
-        # leaves an ugly gap.
-        "foot_left": "需自备手提电脑，以及付费 Claude 账户（Pro、Max、Team 或 Enterprise）",
+        "foot_left": "需自备手提电脑。",
         "foot_right": f"查询：{PHONE} · {EMAIL}",
     },
 }
@@ -201,13 +193,9 @@ def build_html(lang: str) -> str:
     L = LANGS[lang]
     cjk = lang == "zh"
 
-    benefit_cards = "\n".join(
-        f"""      <div class="benefit">
-        <div class="benefit-num">{i:02d}</div>
-        <h3>{title}</h3>
-        <p>{body}</p>
-      </div>"""
-        for i, (title, body) in enumerate(L["benefits"], start=1)
+    benefit_items = "\n".join(
+        f"        <li><strong>{lead}</strong>{rest}</li>"
+        for lead, rest in L["benefits"]
     )
 
     takeaway_items = "\n".join(f"        <li>{t}</li>" for t in L["takeaways"])
@@ -226,6 +214,10 @@ def build_html(lang: str) -> str:
     hook_p_lh = "1.75" if cjk else "1.55"
     benefit_p_size = "9pt" if cjk else "8.6pt"
     benefit_p_lh = "1.7" if cjk else "1.5"
+    benefit_li_size = "11pt" if cjk else "10.5pt"
+    benefit_gap = "2.6mm" if cjk else "2.4mm"
+    # Centres the dot on the first line for each language's line-height.
+    bullet_top = "2.4mm" if cjk else "1.9mm"
     heavy = "700" if cjk else "800"
     title_lh = "1.15" if cjk else "1.05"
     h3_lh = "1.3" if cjk else "1.25"
@@ -364,35 +356,31 @@ def build_html(lang: str) -> str:
     color: #0284C7;
   }}
   .benefits {{
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 2.8mm;
-    margin-top: 2.2mm;
-  }}
-  .benefit {{
+    list-style: none;
     background: #fff;
     border: 0.35mm solid #E6E3DB;
     border-radius: 3.2mm;
-    padding: 2.8mm 4.2mm;
+    padding: 4.2mm 5mm;
+    margin-top: 2.2mm;
+    display: grid;
+    gap: {benefit_gap};
   }}
-  .benefit-num {{
-    font-size: 7.5pt;
-    font-weight: 800;
-    color: #fff;
-    background: #262629;
-    width: 6.4mm; height: 6.4mm;
-    border-radius: 1.8mm;
-    display: flex; align-items: center; justify-content: center;
-    margin-bottom: 1.6mm;
+  .benefits li {{
+    font-size: {benefit_li_size};
+    line-height: {benefit_p_lh};
+    color: #3D3C42;
+    padding-left: 6mm;
+    position: relative;
   }}
-  .benefit h3 {{
-    font-size: 10.5pt;
-    font-weight: {heavy};
-    color: #111113;
-    line-height: {h3_lh};
-    margin-bottom: 1.4mm;
+  .benefits li::before {{
+    content: "";
+    position: absolute;
+    left: 0.6mm; top: {bullet_top};
+    width: 2.4mm; height: 2.4mm;
+    border-radius: 50%;
+    background: #0284C7;
   }}
-  .benefit p {{ font-size: {benefit_p_size}; line-height: {benefit_p_lh}; color: #555450; }}
+  .benefits li strong {{ color: #111113; font-weight: {heavy}; }}
 
   /* ---- takeaways ---- */
   .takeaways {{
@@ -507,7 +495,6 @@ def build_html(lang: str) -> str:
   <div class="masthead">
     <img src="{logo_data_uri()}" alt="YK Group">
     <div class="masthead-right">
-      <img class="hrd" src="{png_data_uri("hrd-corp-claimable.png")}" alt="HRD Corp Claimable">
       <img class="hrd" src="{png_data_uri("hrd-corp-registered.png")}" alt="HRD Corp Registered Training Provider">
       <div class="org">{L["org"]}<span>{L["org_sub"]}</span></div>
     </div>
@@ -526,9 +513,9 @@ def build_html(lang: str) -> str:
 
   <div>
     <span class="section-label">{L["section_label"]}</span>
-    <div class="benefits">
-{benefit_cards}
-    </div>
+    <ul class="benefits">
+{benefit_items}
+    </ul>
   </div>
 
   <div class="takeaways">

@@ -9,7 +9,7 @@ export const en: SiteContent = {
   htmlLang: 'en',
   documentTitle: 'AI Agents for Business 101 | YKCC',
   metaDescription:
-    'A 2-day hands-on workshop for non-technical office staff: configure an AI agent as a digital colleague, then use it to build real Excel, Word and PowerPoint files, extract data from scanned invoices, and set work to run automatically. HRD Corp claimable. No coding required.',
+    'A 2-day hands-on workshop for non-technical office staff: configure an AI agent as a digital colleague, then use it to build real Excel, Word and PowerPoint files, extract data from scanned invoices, and set work to run automatically. No coding required.',
 
   courseTitleLead: 'AI Agents for',
   courseTitleAccent: 'Business 101',
@@ -156,13 +156,12 @@ export const en: SiteContent = {
     introVenueSuffix: '.',
     introSuffix: 'Register now to reserve a seat, or enquire about in-house corporate training.',
     feeTitle: 'Course Fee (per participant)',
-    feeHrdcSuffix: '— HRD Corp claimable',
-    feeCashSuffix: '— self-funded / cash',
+    feeHrdcSuffix: '— HRDC',
+    feeCashSuffix: '— CASH',
     groupDiscountNote:
-      '30% off for each additional participant registered from the same group of companies.',
+      'Group offer: the first participant pays the full fee; the 2nd participant onwards from the same group of companies gets 30% off.',
     programmeNoLabel: 'Programme No: ',
     mycoidLabel: 'MYCoID: ',
-    claimableBadgeAlt: 'HRD Corp Claimable',
     registeredBadgeAlt: 'HRD Corp Registered Training Provider',
     labels: {
       fullName: 'Full Name',
@@ -177,8 +176,8 @@ export const en: SiteContent = {
       phone: 'e.g. +60 12-345 6789',
       company: 'e.g. Sinar Jaya Trading Sdn Bhd'
     },
-    paymentHrdc: 'HRD Corp Claimable',
-    paymentCash: 'Self-Funded / Cash',
+    paymentHrdc: 'HRDC',
+    paymentCash: 'CASH',
     pdpaNote: '🔒 Your details are kept confidential under PDPA by YKCC.',
     submitIdle: 'Submit Registration',
     submitting: 'Submitting...',
@@ -257,7 +256,6 @@ export const en: SiteContent = {
     workshopHeading: 'The Workshop',
     facts: ['No coding background needed', 'Paid Claude plan required'],
     programmeNoLabel: 'Programme No: ',
-    claimableLine: 'HRD Corp Claimable: ',
     copyright: (year: number) => `© ${year} YKCC. All rights reserved.`,
     signOff: 'AI produces the draft. You review it. You sign it.'
   },

@@ -25,8 +25,8 @@ export const WORKSHOP_VENUE = {
 /** Course fee — per participant. */
 export const PRICING = {
   currency: 'RM',
-  hrdcClaimable: 2500,
-  selfFunded: 2000,
+  hrdc: 2500,
+  cash: 2250,
   groupDiscountPercent: 30
 };
 

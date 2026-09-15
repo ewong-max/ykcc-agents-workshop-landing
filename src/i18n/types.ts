@@ -157,7 +157,6 @@ export interface SiteContent {
     groupDiscountNote: string;
     programmeNoLabel: string;
     mycoidLabel: string;
-    claimableBadgeAlt: string;
     registeredBadgeAlt: string;
     labels: {
       fullName: string;
@@ -239,7 +238,6 @@ export interface SiteContent {
     workshopHeading: string;
     facts: string[];
     programmeNoLabel: string;
-    claimableLine: string;
     copyright: (year: number) => string;
     signOff: string;
   };

@@ -712,11 +712,11 @@ export const LandingPage: React.FC = () => {
               </div>
               <div className="space-y-1 text-sm text-[#333230]">
                 <div>
-                  <strong className="text-[#111113]">{money(PRICING.hrdcClaimable)}</strong>{' '}
+                  <strong className="text-[#111113]">{money(PRICING.hrdc)}</strong>{' '}
                   {t.registration.feeHrdcSuffix} ({HRD_CORP_INFO.scheme})
                 </div>
                 <div>
-                  <strong className="text-[#111113]">{money(PRICING.selfFunded)}</strong>{' '}
+                  <strong className="text-[#111113]">{money(PRICING.cash)}</strong>{' '}
                   {t.registration.feeCashSuffix}
                 </div>
               </div>
@@ -724,11 +724,6 @@ export const LandingPage: React.FC = () => {
             </div>
 
             <div className="p-5 bg-[#FAF8F5] rounded-2xl border border-[#E6E3DB] flex items-center gap-4">
-              <img
-                src="./hrd-corp-claimable.png"
-                alt={t.registration.claimableBadgeAlt}
-                className="h-16 w-16 flex-shrink-0"
-              />
               <img
                 src="./hrd-corp-registered.png"
                 alt={t.registration.registeredBadgeAlt}
@@ -934,7 +929,7 @@ export const LandingPage: React.FC = () => {
                         {t.registration.paymentHrdc}
                       </span>
                       <span className="text-xs font-extrabold text-[#0284C7] whitespace-nowrap">
-                        {money(PRICING.hrdcClaimable)}
+                        {money(PRICING.hrdc)}
                       </span>
                     </label>
 
@@ -959,7 +954,7 @@ export const LandingPage: React.FC = () => {
                         {t.registration.paymentCash}
                       </span>
                       <span className="text-xs font-extrabold text-[#0284C7] whitespace-nowrap">
-                        {money(PRICING.selfFunded)}
+                        {money(PRICING.cash)}
                       </span>
                     </label>
                   </div>

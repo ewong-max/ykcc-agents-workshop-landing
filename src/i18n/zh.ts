@@ -14,7 +14,7 @@ export const zh: SiteContent = {
   htmlLang: 'zh-Hans',
   documentTitle: 'AI Agents for Business 101 | YKCC 两天实操工作坊',
   metaDescription:
-    '专为非 IT 背景的办公室职员设计的两天实操工作坊：把 AI 配置成会做事的数码同事，让它直接打开你的文件夹、生成 Excel、Word 与 PowerPoint 文件、从扫描版发票中提取数据，并按时自动完成工作。可申请 HRD Corp 培训津贴，全程无需编程。',
+    '专为非 IT 背景的办公室职员设计的两天实操工作坊：把 AI 配置成会做事的数码同事，让它直接打开你的文件夹、生成 Excel、Word 与 PowerPoint 文件、从扫描版发票中提取数据，并按时自动完成工作。全程无需编程。',
 
   courseTitleLead: 'AI Agents for',
   courseTitleAccent: 'Business 101',
@@ -159,12 +159,11 @@ export const zh: SiteContent = {
     introVenueSuffix: '。',
     introSuffix: '立即报名以预留名额，或洽询企业内训方案。',
     feeTitle: '课程费用（每位学员）',
-    feeHrdcSuffix: '—— 可申请 HRD Corp 培训津贴',
-    feeCashSuffix: '—— 自费 / 现金',
-    groupDiscountNote: '同一集团公司每增加一位学员，可享 30% 折扣。',
+    feeHrdcSuffix: '—— HRDC',
+    feeCashSuffix: '—— 现金 CASH',
+    groupDiscountNote: '团体优惠：第一位学员付全额；同一集团公司的第二位起，每位享七折（即减 30%）。',
     programmeNoLabel: '课程编号：',
     mycoidLabel: 'MYCoID：',
-    claimableBadgeAlt: 'HRD Corp Claimable 可申请津贴',
     registeredBadgeAlt: 'HRD Corp 注册培训机构',
     labels: {
       fullName: '姓名',
@@ -179,8 +178,8 @@ export const zh: SiteContent = {
       phone: '例如：+60 12-345 6789',
       company: '例如：Sinar Jaya Trading Sdn Bhd'
     },
-    paymentHrdc: 'HRD Corp 津贴',
-    paymentCash: '自费 / 现金',
+    paymentHrdc: 'HRDC',
+    paymentCash: '现金 CASH',
     pdpaNote: '🔒 你的个人资料将由 YKCC 依据马来西亚 PDPA 严格保密。',
     submitIdle: '提交报名',
     submitting: '提交中...',
@@ -259,7 +258,6 @@ export const zh: SiteContent = {
     workshopHeading: '课程资讯',
     facts: ['无需 IT 或编程背景', '需自备付费版 Claude 账号'],
     programmeNoLabel: '课程编号：',
-    claimableLine: 'HRD Corp 可申请津贴：',
     copyright: (year: number) => `© ${year} YKCC. 版权所有。`,
     signOff: 'AI 负责起草，你负责审核，你负责签名。'
   },

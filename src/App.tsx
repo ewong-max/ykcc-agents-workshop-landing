@@ -106,11 +106,6 @@ const Site: React.FC = () => {
           <div className="mt-8 pt-6 border-t border-slate-800 flex flex-col sm:flex-row items-center gap-4">
             <div className="flex items-center gap-3 flex-shrink-0">
               <img
-                src="./hrd-corp-claimable.png"
-                alt={t.registration.claimableBadgeAlt}
-                className="h-12 w-12 sm:h-14 sm:w-14"
-              />
-              <img
                 src="./hrd-corp-registered.png"
                 alt={t.registration.registeredBadgeAlt}
                 className="h-12 w-12 sm:h-14 sm:w-14"
@@ -121,7 +116,7 @@ const Site: React.FC = () => {
                 {t.footer.programmeNoLabel} {HRD_CORP_INFO.programmeNo}
               </div>
               <div>
-                {t.footer.claimableLine} {HRD_CORP_INFO.scheme} · {t.registration.mycoidLabel}{' '}
+                {HRD_CORP_INFO.scheme} · {t.registration.mycoidLabel}{' '}
                 {HRD_CORP_INFO.mycoid}
               </div>
             </div>
