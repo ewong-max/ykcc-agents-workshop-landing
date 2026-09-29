@@ -42,6 +42,8 @@ export interface InterestRegistration {
   jobRole: string;
   /** How the participant intends to pay — drives which fee tier and paperwork applies. */
   paymentMethod: 'HRDC' | 'Cash';
+  /** Which run of the course, as written into the sheet (see BATCHES in data/workshopData). */
+  trainingDate: string;
   submittedAt: string;
   status: 'New' | 'Contacted' | 'Confirmed';
 }

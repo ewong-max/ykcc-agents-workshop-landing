@@ -16,9 +16,12 @@ one row. Columns are matched by the header text in row 1:
 | Phone Number           | Phone                                        |
 | Company Name           | Company (`N/A` if left blank on the form)    |
 | HRD or Cash            | `HRD` or `Cash`                              |
+| Training Date          | `15 & 16 Oct 2026 (Mandarin)` or `27 & 28 Oct 2026 (English)` |
 
 Any other column (e.g. a Status or Remarks column you add yourself) is left blank
-for you to fill in, and columns can be reordered freely.
+for you to fill in, and columns can be reordered freely. If **Training Date** is
+missing from row 1, the script adds it as a new last column on the next
+registration.
 
 ## First-time setup
 

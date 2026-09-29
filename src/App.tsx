@@ -76,9 +76,12 @@ const Site: React.FC = () => {
                 {t.footer.workshopHeading}
               </h2>
               <ul className="space-y-2">
-                <li className="text-sky-400 font-semibold">
-                  {t.schedule.datesLabel} · {t.schedule.timeLabel}
-                </li>
+                {t.schedule.batches.map((batch) => (
+                  <li key={batch.id} className="text-sky-400 font-semibold">
+                    {batch.datesLabel} · {batch.languageLabel}
+                  </li>
+                ))}
+                <li className="text-sky-400 font-semibold">{t.schedule.timeLabel}</li>
                 {t.footer.facts.map((fact) => (
                   <li key={fact}>{fact}</li>
                 ))}

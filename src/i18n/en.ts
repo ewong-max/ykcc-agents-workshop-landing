@@ -23,8 +23,20 @@ export const en: SiteContent = {
     'Written for people who do not work in IT. If you can use email and Microsoft Office, you can do everything in this course.',
 
   schedule: {
-    datesLabel: '15 & 16 October 2026',
-    datesShort: '15–16 Oct',
+    batches: [
+      {
+        id: 'oct15',
+        datesLabel: '15 & 16 October 2026',
+        datesShort: '15–16 Oct',
+        languageLabel: 'Conducted in Mandarin'
+      },
+      {
+        id: 'oct27',
+        datesLabel: '27 & 28 October 2026',
+        datesShort: '27–28 Oct',
+        languageLabel: 'Conducted in English'
+      }
+    ],
     timeLabel: '9:00 AM – 5:00 PM'
   },
 
@@ -53,7 +65,7 @@ export const en: SiteContent = {
     ctaPrimary: 'Register Now',
     ctaSecondary: 'See the full 2-day agenda',
     stats: [
-      { value: '15–16 Oct', label: '9:00 AM – 5:00 PM' },
+      { value: '2 Batches', label: 'Oct 15–16 (Mandarin) · Oct 27–28 (English)' },
       { value: '0 Code', label: 'No IT background needed' },
       { value: '26 Prompts', label: 'Yours to keep and reuse' }
     ],
@@ -145,7 +157,8 @@ export const en: SiteContent = {
     minuteSuffix: 'min',
     footnote:
       'Timings are indicative — the trainer moves at the pace of the room, and every step is in your handout so you can repeat it at your own desk afterwards.',
-    footnoteDates: 'Workshop dates: 15 & 16 October 2026, 9:00 AM – 5:00 PM.',
+    footnoteDates:
+      'Workshop dates: 15 & 16 October 2026 (Mandarin) or 27 & 28 October 2026 (English), 9:00 AM – 5:00 PM.',
     cta: 'Register Now'
   },
 
@@ -168,7 +181,8 @@ export const en: SiteContent = {
       email: 'Business Email',
       phone: 'Phone Number',
       company: 'Company Name',
-      paymentMethod: 'Payment Method'
+      paymentMethod: 'Payment Method',
+      batch: 'Training Dates'
     },
     placeholders: {
       fullName: 'e.g. Tan Wei Ming',
@@ -176,6 +190,7 @@ export const en: SiteContent = {
       phone: 'e.g. +60 12-345 6789',
       company: 'e.g. Sinar Jaya Trading Sdn Bhd'
     },
+    batchNote: 'Both batches cover the same course. Only the dates and the language of instruction differ.',
     paymentHrdc: 'HRDC',
     paymentCash: 'CASH',
     pdpaNote: '🔒 Your details are kept confidential under PDPA by YKCC.',
@@ -196,11 +211,12 @@ export const en: SiteContent = {
       email: 'Email: ',
       phone: 'Phone: ',
       company: 'Company: ',
-      paymentMethod: 'Payment Method: '
+      paymentMethod: 'Payment Method: ',
+      batch: 'Training Dates: '
     },
     nextTitle: 'What happens next?',
     nextBody:
-      'Our training team will contact you to confirm your seat and payment method, and send joining instructions ahead of 15 & 16 October 2026. In the meantime, work through “Before You Start” below — arriving with setup done puts you ahead of the room.',
+      'Our training team will contact you to confirm your seat and payment method, and send joining instructions ahead of the dates you chose. In the meantime, work through “Before You Start” below — arriving with setup done puts you ahead of the room.',
     registerAnother: 'Register Another Person / Team'
   },
 
@@ -245,7 +261,7 @@ export const en: SiteContent = {
     intro: 'Everything you need to know before booking a seat.',
     finalCtaHeading: 'Ready to stop building the same report by hand?',
     finalCtaBody:
-      'Register now to reserve your seat for 15 & 16 October 2026. Corporate in-house batches can be run at your office with the labs adapted to your own files.',
+      'Register now to reserve your seat on 15 & 16 October 2026 (Mandarin) or 27 & 28 October 2026 (English). Corporate in-house batches can be run at your office with the labs adapted to your own files.',
     finalCta: 'Register Now'
   },
 

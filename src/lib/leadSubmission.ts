@@ -1,3 +1,4 @@
+import { BATCHES, BatchId } from '../data/workshopData';
 import { InterestRegistration } from '../types';
 
 /**
@@ -26,7 +27,12 @@ export interface LeadInput {
   phone: string;
   companyName: string;
   paymentMethod: 'HRDC' | 'Cash';
+  batch: BatchId;
 }
+
+/** English label for the chosen batch, so the sheet reads the same for both site languages. */
+const batchSheetLabel = (batch: BatchId): string =>
+  BATCHES.find((b) => b.id === batch)?.sheetLabel ?? '';
 
 export const buildLead = (input: LeadInput): InterestRegistration => ({
   id: 'agents-' + Date.now(),
@@ -38,6 +44,7 @@ export const buildLead = (input: LeadInput): InterestRegistration => ({
   // Job Role is no longer collected, and the sheet has no column for it.
   jobRole: '',
   paymentMethod: input.paymentMethod,
+  trainingDate: batchSheetLabel(input.batch),
   submittedAt: new Date().toLocaleString(),
   status: 'New'
 });

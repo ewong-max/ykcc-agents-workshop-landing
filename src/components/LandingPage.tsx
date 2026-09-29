@@ -1,5 +1,11 @@
 import React, { useState } from 'react';
-import { HRD_CORP_INFO, PRICING, WORKSHOP_VENUE } from '../data/workshopData';
+import {
+  BatchId,
+  DEFAULT_BATCH,
+  HRD_CORP_INFO,
+  PRICING,
+  WORKSHOP_VENUE
+} from '../data/workshopData';
 import { useLanguage } from '../i18n';
 import { InterestRegistration } from '../types';
 import { isSubmissionConfigured, buildLead, submitLeadToSheet } from '../lib/leadSubmission';
@@ -32,12 +38,28 @@ import {
   Zap
 } from 'lucide-react';
 
+/**
+ * ?batch=oct27 preselects that run of the course, so a link sent to someone who
+ * wants the English batch opens with it already chosen. Anything else falls back
+ * to the first batch.
+ */
+const batchFromQuery = (): BatchId => {
+  if (typeof window === 'undefined') return DEFAULT_BATCH;
+  try {
+    const wanted = new URLSearchParams(window.location.search).get('batch');
+    return wanted === 'oct15' || wanted === 'oct27' ? wanted : DEFAULT_BATCH;
+  } catch {
+    return DEFAULT_BATCH;
+  }
+};
+
 const EMPTY_FORM = {
   fullName: '',
   email: '',
   phone: '',
   companyName: '',
-  paymentMethod: 'HRDC' as 'HRDC' | 'Cash'
+  paymentMethod: 'HRDC' as 'HRDC' | 'Cash',
+  batch: batchFromQuery()
 };
 
 /** Icons for the four parts of an AI colleague, in the same order as t.agentParts. */
@@ -697,9 +719,15 @@ export const LandingPage: React.FC = () => {
               {t.registration.heading}
             </h2>
             <p className="text-xs sm:text-sm text-[#555450] mt-2">
-              <span className="bg-emerald-100 text-emerald-800 font-extrabold px-2 py-0.5 rounded-md border border-emerald-200 shadow-xs inline-block">
-                {t.schedule.datesLabel} · {t.schedule.timeLabel}
-              </span>{' '}
+              {t.schedule.batches.map((batch) => (
+                <span
+                  key={batch.id}
+                  className="bg-emerald-100 text-emerald-800 font-extrabold px-2 py-0.5 rounded-md border border-emerald-200 shadow-xs inline-block mr-1.5 mb-1"
+                >
+                  {batch.datesLabel} · {batch.languageLabel}
+                </span>
+              ))}{' '}
+              <span className="inline-block mr-1">{t.schedule.timeLabel}.</span>
               {t.registration.introAt} {WORKSHOP_VENUE.address}
               {t.registration.introVenueSuffix} {t.registration.introSuffix}
             </p>
@@ -781,6 +809,10 @@ export const LandingPage: React.FC = () => {
                   <div>
                     <strong>{t.registration.summaryLabels.company}</strong>
                     {lastSubmittedLead.companyName}
+                  </div>
+                  <div>
+                    <strong>{t.registration.summaryLabels.batch}</strong>
+                    {lastSubmittedLead.trainingDate}
                   </div>
                   <div>
                     <strong>{t.registration.summaryLabels.paymentMethod}</strong>
@@ -901,6 +933,46 @@ export const LandingPage: React.FC = () => {
                       className="w-full px-3.5 py-2.5 bg-white rounded-xl border border-[#DCD8CF] text-xs focus:ring-2 focus:ring-[#0284C7] focus:border-transparent outline-none"
                     />
                   </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold text-[#222126] mb-2">
+                    {t.registration.labels.batch} <span className="text-red-500">*</span>
+                  </label>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                    {t.schedule.batches.map((batch) => (
+                      <label
+                        key={batch.id}
+                        htmlFor={`reg-batch-${batch.id}`}
+                        className={`flex items-start gap-2 px-4 py-3 rounded-xl border-2 cursor-pointer transition-colors ${
+                          formData.batch === batch.id
+                            ? 'border-[#0284C7] bg-sky-50'
+                            : 'border-[#DCD8CF] bg-white hover:bg-[#F7F5F0]'
+                        }`}
+                      >
+                        <input
+                          id={`reg-batch-${batch.id}`}
+                          type="radio"
+                          name="batch"
+                          value={batch.id}
+                          checked={formData.batch === batch.id}
+                          onChange={() =>
+                            setFormData({ ...formData, batch: batch.id as BatchId })
+                          }
+                          className="accent-[#0284C7] mt-0.5"
+                        />
+                        <span className="min-w-0">
+                          <span className="block text-xs font-bold text-[#222126]">
+                            {batch.datesLabel}
+                          </span>
+                          <span className="block text-[11px] text-[#0284C7] font-semibold mt-0.5">
+                            {batch.languageLabel}
+                          </span>
+                        </span>
+                      </label>
+                    ))}
+                  </div>
+                  <p className="text-[11px] text-[#777672] mt-2">{t.registration.batchNote}</p>
                 </div>
 
                 <div>

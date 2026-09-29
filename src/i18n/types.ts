@@ -60,8 +60,13 @@ export interface SiteContent {
   targetAudience: string;
 
   schedule: {
-    datesLabel: string;
-    datesShort: string;
+    /** One entry per BATCHES id in ../data/workshopData.ts, in the same order. */
+    batches: {
+      id: string;
+      datesLabel: string;
+      datesShort: string;
+      languageLabel: string;
+    }[];
     timeLabel: string;
   };
 
@@ -164,6 +169,7 @@ export interface SiteContent {
       phone: string;
       company: string;
       paymentMethod: string;
+      batch: string;
     };
     placeholders: {
       fullName: string;
@@ -171,6 +177,7 @@ export interface SiteContent {
       phone: string;
       company: string;
     };
+    batchNote: string;
     paymentHrdc: string;
     paymentCash: string;
     pdpaNote: string;
@@ -191,6 +198,7 @@ export interface SiteContent {
       phone: string;
       company: string;
       paymentMethod: string;
+      batch: string;
     };
     nextTitle: string;
     nextBody: string;

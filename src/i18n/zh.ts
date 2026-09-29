@@ -28,8 +28,20 @@ export const zh: SiteContent = {
     '专为非 IT 背景人士撰写。只要你会用电邮和 Microsoft Office，这门课的每一个步骤你都做得到。',
 
   schedule: {
-    datesLabel: '2026年10月15日及16日',
-    datesShort: '10月15–16日',
+    batches: [
+      {
+        id: 'oct15',
+        datesLabel: '2026年10月15日及16日',
+        datesShort: '10月15–16日',
+        languageLabel: '华语授课'
+      },
+      {
+        id: 'oct27',
+        datesLabel: '2026年10月27日及28日',
+        datesShort: '10月27–28日',
+        languageLabel: '英语授课'
+      }
+    ],
     timeLabel: '上午9:00 – 下午5:00'
   },
 
@@ -58,7 +70,7 @@ export const zh: SiteContent = {
     ctaPrimary: '立即报名',
     ctaSecondary: '查看完整两天议程',
     stats: [
-      { value: '10月15–16日', label: '上午9:00 – 下午5:00' },
+      { value: '两个梯次', label: '10月15–16日（华语）· 10月27–28日（英语）' },
       { value: '零编程', label: '无需 IT 背景' },
       { value: '26 组提示词', label: '课后带回、随时重用' }
     ],
@@ -148,7 +160,8 @@ export const zh: SiteContent = {
     minuteSuffix: '分钟',
     footnote:
       '时间仅供参考——讲师会按现场进度调整，而每一个步骤学员手册里都有，回到办公桌后你可以自行重做一遍。',
-    footnoteDates: '课程日期：2026年10月15日及16日，上午9:00 – 下午5:00。',
+    footnoteDates:
+      '课程日期：2026年10月15日及16日（华语）或 10月27日及28日（英语），上午9:00 – 下午5:00。',
     cta: '立即报名'
   },
 
@@ -170,7 +183,8 @@ export const zh: SiteContent = {
       email: '公司电邮',
       phone: '联络电话',
       company: '公司名称',
-      paymentMethod: '付款方式'
+      paymentMethod: '付款方式',
+      batch: '培训日期'
     },
     placeholders: {
       fullName: '例如：Tan Wei Ming',
@@ -178,6 +192,7 @@ export const zh: SiteContent = {
       phone: '例如：+60 12-345 6789',
       company: '例如：Sinar Jaya Trading Sdn Bhd'
     },
+    batchNote: '两个梯次课程内容完全相同，只是日期与授课语言不同。',
     paymentHrdc: 'HRDC',
     paymentCash: '现金 CASH',
     pdpaNote: '🔒 你的个人资料将由 YKCC 依据马来西亚 PDPA 严格保密。',
@@ -198,11 +213,12 @@ export const zh: SiteContent = {
       email: '电邮：',
       phone: '电话：',
       company: '公司：',
-      paymentMethod: '付款方式：'
+      paymentMethod: '付款方式：',
+      batch: '培训日期：'
     },
     nextTitle: '接下来会怎样？',
     nextBody:
-      '我们的培训团队将与你联系，确认座位与付款方式，并在 2026年10月15日及16日 课程开始前寄出出席须知。在这之前，请先完成下方的「课前准备」——带着设定好的电脑来上课，你会比全场快一步。',
+      '我们的培训团队将与你联系，确认座位与付款方式，并在你所选梯次开课前寄出出席须知。在这之前，请先完成下方的「课前准备」——带着设定好的电脑来上课，你会比全场快一步。',
     registerAnother: '为另一位同事 / 团队报名'
   },
 
@@ -247,7 +263,7 @@ export const zh: SiteContent = {
     intro: '报名前你需要知道的一切。',
     finalCtaHeading: '准备好不再每个月手工重做同一份报告了吗？',
     finalCtaBody:
-      '立即报名，预留 2026年10月15日及16日 的座位。企业内训梯次可安排在贵公司举行，实操内容也能改用你们自己的文件。',
+      '立即报名，预留 2026年10月15日及16日（华语）或 10月27日及28日（英语）的座位。企业内训梯次可安排在贵公司举行，实操内容也能改用你们自己的文件。',
     finalCta: '立即报名'
   },
 

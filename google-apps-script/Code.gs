@@ -23,8 +23,15 @@ var DEFAULT_HEADERS = [
   'Email Address',
   'Phone Number',
   'Company Name',
-  'HRD or Cash'
+  'HRD or Cash',
+  'Training Date'
 ];
+
+/**
+ * Headers added to an existing sheet if they are not there yet, so a new field on
+ * the form starts landing in the sheet without anyone editing row 1 by hand.
+ */
+var ENSURE_HEADERS = ['Training Date'];
 
 function doPost(e) {
   var lock = LockService.getScriptLock();
@@ -49,7 +56,8 @@ function doPost(e) {
       // into the number 123456789 and the leading zero is lost.
       'Phone Number': "'" + lead.phone,
       'Company Name': lead.companyName || '',
-      'HRD or Cash': lead.paymentMethod === 'HRDC' ? 'HRD' : (lead.paymentMethod || '')
+      'HRD or Cash': lead.paymentMethod === 'HRDC' ? 'HRD' : (lead.paymentMethod || ''),
+      'Training Date': lead.trainingDate || ''
     };
 
     // Two people submitting in the same instant must not overwrite each other's row.
@@ -83,7 +91,19 @@ function getSheet_() {
     sheet.appendRow(DEFAULT_HEADERS);
     sheet.setFrozenRows(1);
     sheet.getRange(1, 1, 1, DEFAULT_HEADERS.length).setFontWeight('bold');
+    return sheet;
   }
+
+  var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0].map(function (h) {
+    return String(h).trim();
+  });
+
+  ENSURE_HEADERS.forEach(function (name) {
+    if (headers.indexOf(name) !== -1) return;
+    var col = sheet.getLastColumn() + 1;
+    sheet.getRange(1, col).setValue(name).setFontWeight('bold');
+    headers.push(name);
+  });
 
   return sheet;
 }

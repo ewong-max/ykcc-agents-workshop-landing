@@ -17,6 +17,23 @@ export const ORGANIZER_INFO = {
   website: 'www.yk.com.my'
 };
 
+/**
+ * The scheduled runs of the same HRD Corp programme. The two differ only in dates
+ * and the language the class is conducted in.
+ *
+ * `sheetLabel` is what gets written into the registration sheet, so it stays in
+ * English for both site languages — one column you can sort and filter.
+ * The dates shown on the page live in ../i18n/*.ts, keyed by `id`.
+ */
+export const BATCHES = [
+  { id: 'oct15', sheetLabel: '15 & 16 Oct 2026 (Mandarin)' },
+  { id: 'oct27', sheetLabel: '27 & 28 Oct 2026 (English)' }
+] as const;
+
+export type BatchId = (typeof BATCHES)[number]['id'];
+
+export const DEFAULT_BATCH: BatchId = 'oct15';
+
 /** Venue. The address is not translated — it is what you give a driver or type into Maps. */
 export const WORKSHOP_VENUE = {
   address: 'No. 37, Jalan 9/62A, Bandar Menjalara, Kepong, 52200 Kuala Lumpur, Wilayah Persekutuan'
