@@ -107,6 +107,9 @@ LANGS = {
              " and explain them to you in plain English, Chinese or Bahasa Malaysia"),
             ("Estimate your CP204 tax:",
              " forecast the full year from your accounts to date and work out the tax payable"),
+            ("Put HR on evidence:",
+             " score a 16-factor personality questionnaire for job candidates, and write a "
+             "staff performance review from your own sales and collection figures"),
             ("Prepare presentations", " for board meetings and client pitches"),
             ("Draft letters, quotations, contracts and agreements",
              " automatically, in your own format"),
@@ -122,8 +125,8 @@ LANGS = {
             "A step-by-step handbook so you can do it all again at your desk",
         ],
         "facts": [
-            ("15–16 Oct 2026", "Mandarin · 9:00 AM – 5:00 PM"),
             ("27–28 Oct 2026", "English · 9:00 AM – 5:00 PM"),
+            ("5–6 Nov 2026", "Mandarin · 9:00 AM – 5:00 PM"),
             ("0 Code", "No IT background"),
             ("HRD Corp", "SBL-Khas"),
         ],
@@ -160,6 +163,8 @@ LANGS = {
         "benefits": [
             ("分析财务报表", "，并用浅白的中文、英文或马来文向你解释"),
             ("预估 CP204 税款", "：根据年初至今的账目推算全年盈利，算出应缴税额"),
+            ("让人事决策有凭有据",
+             "：为应征者评分 16 项性格因素问卷，并根据自己的销售与收款数据撰写员工绩效评估"),
             ("准备简报资料", "，用于董事会会议及客户提案"),
             ("自动拟备信函、报价单、合约及协议", "，格式由你决定"),
             ("把发票、收据的照片或 PDF", " 转换成 Excel 清单及报销单"),
@@ -172,8 +177,8 @@ LANGS = {
             "一本逐步操作手册，回到座位可以自己重做一遍",
         ],
         "facts": [
-            ("10月15–16日", "华语 · 上午 9:00 – 下午 5:00"),
             ("10月27–28日", "英语 · 上午 9:00 – 下午 5:00"),
+            ("11月5–6日", "华语 · 上午 9:00 – 下午 5:00"),
             ("零程式", "无需 IT 背景"),
             ("HRD Corp", "SBL-Khas 计划"),
         ],
@@ -215,7 +220,7 @@ def build_html(lang: str) -> str:
     benefit_p_size = "9pt" if cjk else "8.6pt"
     benefit_p_lh = "1.7" if cjk else "1.5"
     benefit_li_size = "11pt" if cjk else "10.5pt"
-    benefit_gap = "2.6mm" if cjk else "2.4mm"
+    benefit_gap = "2.1mm" if cjk else "2.0mm"
     # Centres the dot on the first line for each language's line-height.
     bullet_top = "2.4mm" if cjk else "1.9mm"
     heavy = "700" if cjk else "800"
@@ -254,7 +259,7 @@ def build_html(lang: str) -> str:
     padding: 9mm 12mm 8mm;
     display: flex;
     flex-direction: column;
-    gap: 2.6mm;
+    gap: 2.2mm;
     overflow: hidden;
   }}
   /* Without this the flex column squeezes the tallest block (the dark hook) to make
@@ -319,7 +324,7 @@ def build_html(lang: str) -> str:
     background: #202024;
     color: #F3F2EE;
     border-radius: 4mm;
-    padding: 4.2mm 6mm;
+    padding: 3.6mm 6mm;
     position: relative;
     overflow: hidden;
   }}
@@ -400,7 +405,7 @@ def build_html(lang: str) -> str:
     white-space: nowrap;
     padding-top: 0.6mm;
   }}
-  .takeaways ul {{ list-style: none; display: grid; gap: 1.7mm; }}
+  .takeaways ul {{ list-style: none; display: grid; gap: 1.4mm; }}
   .takeaways li {{
     font-size: 9pt;
     color: #E0DFDC;

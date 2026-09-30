@@ -25,16 +25,16 @@ export const en: SiteContent = {
   schedule: {
     batches: [
       {
-        id: 'oct15',
-        datesLabel: '15 & 16 October 2026',
-        datesShort: '15–16 Oct',
-        languageLabel: 'Conducted in Mandarin'
-      },
-      {
         id: 'oct27',
         datesLabel: '27 & 28 October 2026',
         datesShort: '27–28 Oct',
         languageLabel: 'Conducted in English'
+      },
+      {
+        id: 'nov05',
+        datesLabel: '5 & 6 November 2026',
+        datesShort: '5–6 Nov',
+        languageLabel: 'Conducted in Mandarin'
       }
     ],
     timeLabel: '9:00 AM – 5:00 PM'
@@ -65,7 +65,7 @@ export const en: SiteContent = {
     ctaPrimary: 'Register Now',
     ctaSecondary: 'See the full 2-day agenda',
     stats: [
-      { value: '2 Batches', label: 'Oct 15–16 (Mandarin) · Oct 27–28 (English)' },
+      { value: '2 Batches', label: 'Oct 27–28 (English) · Nov 5–6 (Mandarin)' },
       { value: '0 Code', label: 'No IT background needed' },
       { value: '26 Prompts', label: 'Yours to keep and reuse' }
     ],
@@ -158,7 +158,7 @@ export const en: SiteContent = {
     footnote:
       'Timings are indicative — the trainer moves at the pace of the room, and every step is in your handout so you can repeat it at your own desk afterwards.',
     footnoteDates:
-      'Workshop dates: 15 & 16 October 2026 (Mandarin) or 27 & 28 October 2026 (English), 9:00 AM – 5:00 PM.',
+      'Workshop dates: 27 & 28 October 2026 (English) or 5 & 6 November 2026 (Mandarin), 9:00 AM – 5:00 PM.',
     cta: 'Register Now'
   },
 
@@ -261,7 +261,7 @@ export const en: SiteContent = {
     intro: 'Everything you need to know before booking a seat.',
     finalCtaHeading: 'Ready to stop building the same report by hand?',
     finalCtaBody:
-      'Register now to reserve your seat on 15 & 16 October 2026 (Mandarin) or 27 & 28 October 2026 (English). Corporate in-house batches can be run at your office with the labs adapted to your own files.',
+      'Register now to reserve your seat on 27 & 28 October 2026 (English) or 5 & 6 November 2026 (Mandarin). Corporate in-house batches can be run at your office with the labs adapted to your own files.',
     finalCta: 'Register Now'
   },
 

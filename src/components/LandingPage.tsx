@@ -47,7 +47,7 @@ const batchFromQuery = (): BatchId => {
   if (typeof window === 'undefined') return DEFAULT_BATCH;
   try {
     const wanted = new URLSearchParams(window.location.search).get('batch');
-    return wanted === 'oct15' || wanted === 'oct27' ? wanted : DEFAULT_BATCH;
+    return wanted === 'oct27' || wanted === 'nov05' ? wanted : DEFAULT_BATCH;
   } catch {
     return DEFAULT_BATCH;
   }

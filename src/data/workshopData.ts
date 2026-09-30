@@ -26,13 +26,13 @@ export const ORGANIZER_INFO = {
  * The dates shown on the page live in ../i18n/*.ts, keyed by `id`.
  */
 export const BATCHES = [
-  { id: 'oct15', sheetLabel: '15 & 16 Oct 2026 (Mandarin)' },
-  { id: 'oct27', sheetLabel: '27 & 28 Oct 2026 (English)' }
+  { id: 'oct27', sheetLabel: '27 & 28 Oct 2026 (English)' },
+  { id: 'nov05', sheetLabel: '5 & 6 Nov 2026 (Mandarin)' }
 ] as const;
 
 export type BatchId = (typeof BATCHES)[number]['id'];
 
-export const DEFAULT_BATCH: BatchId = 'oct15';
+export const DEFAULT_BATCH: BatchId = 'oct27';
 
 /** Venue. The address is not translated — it is what you give a driver or type into Maps. */
 export const WORKSHOP_VENUE = {
