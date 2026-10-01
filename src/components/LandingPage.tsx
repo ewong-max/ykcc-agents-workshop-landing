@@ -47,7 +47,10 @@ const batchFromQuery = (): BatchId => {
   if (typeof window === 'undefined') return DEFAULT_BATCH;
   try {
     const wanted = new URLSearchParams(window.location.search).get('batch');
-    return wanted === 'oct27' || wanted === 'nov05' ? wanted : DEFAULT_BATCH;
+    // 'nov05' was the Mandarin batch's first id, before the room clash moved it
+    // to 4-5 November; links already sent out keep working.
+    if (wanted === 'nov05') return 'nov04';
+    return wanted === 'oct27' || wanted === 'nov04' ? wanted : DEFAULT_BATCH;
   } catch {
     return DEFAULT_BATCH;
   }

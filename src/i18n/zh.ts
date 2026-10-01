@@ -36,9 +36,9 @@ export const zh: SiteContent = {
         languageLabel: '英语授课'
       },
       {
-        id: 'nov05',
-        datesLabel: '2026年11月5日及6日',
-        datesShort: '11月5–6日',
+        id: 'nov04',
+        datesLabel: '2026年11月4日及5日',
+        datesShort: '11月4–5日',
         languageLabel: '华语授课'
       }
     ],
@@ -70,7 +70,7 @@ export const zh: SiteContent = {
     ctaPrimary: '立即报名',
     ctaSecondary: '查看完整两天议程',
     stats: [
-      { value: '两个梯次', label: '10月27–28日（英语）· 11月5–6日（华语）' },
+      { value: '两个梯次', label: '10月27–28日（英语）· 11月4–5日（华语）' },
       { value: '零编程', label: '无需 IT 背景' },
       { value: '26 组提示词', label: '课后带回、随时重用' }
     ],
@@ -161,7 +161,7 @@ export const zh: SiteContent = {
     footnote:
       '时间仅供参考——讲师会按现场进度调整，而每一个步骤学员手册里都有，回到办公桌后你可以自行重做一遍。',
     footnoteDates:
-      '课程日期：2026年10月27日及28日（英语）或 11月5日及6日（华语），上午9:00 – 下午5:00。',
+      '课程日期：2026年10月27日及28日（英语）或 11月4日及5日（华语），上午9:00 – 下午5:00。',
     cta: '立即报名'
   },
 
@@ -263,7 +263,7 @@ export const zh: SiteContent = {
     intro: '报名前你需要知道的一切。',
     finalCtaHeading: '准备好不再每个月手工重做同一份报告了吗？',
     finalCtaBody:
-      '立即报名，预留 2026年10月27日及28日（英语）或 11月5日及6日（华语）的座位。企业内训梯次可安排在贵公司举行，实操内容也能改用你们自己的文件。',
+      '立即报名，预留 2026年10月27日及28日（英语）或 11月4日及5日（华语）的座位。企业内训梯次可安排在贵公司举行，实操内容也能改用你们自己的文件。',
     finalCta: '立即报名'
   },
 

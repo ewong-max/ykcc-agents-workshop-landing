@@ -27,7 +27,7 @@ export const ORGANIZER_INFO = {
  */
 export const BATCHES = [
   { id: 'oct27', sheetLabel: '27 & 28 Oct 2026 (English)' },
-  { id: 'nov05', sheetLabel: '5 & 6 Nov 2026 (Mandarin)' }
+  { id: 'nov04', sheetLabel: '4 & 5 Nov 2026 (Mandarin)' }
 ] as const;
 
 export type BatchId = (typeof BATCHES)[number]['id'];
