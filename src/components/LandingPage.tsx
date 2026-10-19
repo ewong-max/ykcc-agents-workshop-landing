@@ -30,10 +30,11 @@ import {
   RefreshCw,
   ScrollText,
   Send,
+  Server,
   ShieldCheck,
   Smartphone,
   Sparkles,
-  Terminal,
+  Table2,
   Users,
   Zap
 } from 'lucide-react';
@@ -68,18 +69,27 @@ const EMPTY_FORM = {
 /** Icons for the four parts of an AI colleague, in the same order as t.agentParts. */
 const AGENT_PART_ICONS = [ScrollText, Sparkles, Plug, Brain];
 
+/** Icons for the trainer's credential cards, in the same order as t.trainer.credentials. */
+const TRAINER_ICONS = [Landmark, Server, Table2, Sparkles];
+
+const TRAINER_PHOTO = './img/trainer.webp';
+
 /** Icons for the audience cards, in the same order as t.audienceRoles. */
 const AUDIENCE_ICONS = [FileSpreadsheet, Building2, Users, Landmark];
 
 /** Imagery is language-neutral, so it is index-matched to t.featuredLabs rather than duplicated. */
 const LAB_IMAGES = [
   'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1516383740770-fbcc5ccbece0?auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1531482615713-2afd69097998?auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1200&q=80',
-  'https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1200&q=80'
+  'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1200&q=80',
+  'https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1200&q=80',
+  './img/lab-dashboard.webp',
+  'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&w=1200&q=80',
+  './img/lab-multiagent.webp'
 ];
+
 
 const HERO_IMAGE =
   'https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1200&q=80';
@@ -367,14 +377,8 @@ export const LandingPage: React.FC = () => {
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#111113] mt-3 tracking-tight">
               {t.labs.heading}
             </h2>
-            {/* The company is introduced here rather than in the hero, so that "its" below
-                has something to refer back to. */}
-            <p className="text-sm sm:text-base text-[#555450] mt-2">
-              {t.labs.introLead}{' '}
-              <strong className="text-[#111113]">{t.runningExample.company}</strong>.{' '}
-              {t.runningExample.summary} {t.runningExample.yourRole}
-            </p>
-            <p className="text-xs sm:text-sm text-[#777672] mt-2">{t.runningExample.arc}</p>
+            <p className="text-sm sm:text-base text-[#555450] mt-2">{t.labs.intro}</p>
+            <p className="text-xs sm:text-sm text-[#777672] mt-2">{t.labs.subIntro}</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
@@ -383,46 +387,48 @@ export const LandingPage: React.FC = () => {
               role="tablist"
               aria-label={t.labs.tablistLabel}
               aria-orientation="vertical"
-              className="lg:col-span-5 space-y-3"
+              className="lg:col-span-5 space-y-2.5"
             >
               {t.featuredLabs.map((item, index) => {
                 const isSelected = selectedLab === index;
                 return (
                   <button
-                    key={item.code}
+                    key={item.title}
                     type="button"
                     role="tab"
                     aria-selected={isSelected}
                     onClick={() => setSelectedLab(index)}
-                    className={`w-full p-4 rounded-2xl border text-left transition-all flex items-start gap-3 ${
+                    className={`w-full p-3.5 rounded-2xl border text-left transition-all flex items-start gap-3 ${
                       isSelected
                         ? 'bg-white border-[#0284C7] shadow-md ring-2 ring-[#0284C7]/20'
                         : 'bg-white border-[#E6E3DB] hover:border-[#B0ADA4] hover:bg-slate-50'
                     }`}
                   >
                     <div
-                      className={`w-10 h-10 rounded-xl flex items-center justify-center font-black text-xs flex-shrink-0 ${
+                      className={`w-9 h-9 rounded-xl flex items-center justify-center font-black text-xs flex-shrink-0 ${
                         isSelected ? 'bg-[#0284C7] text-white shadow-xs' : 'bg-[#262629] text-white'
                       }`}
                     >
-                      0{index + 1}
+                      {String(index + 1).padStart(2, '0')}
                     </div>
 
                     <div className="flex-1 min-w-0">
-                      <div className="flex items-center justify-between gap-2 mb-1">
-                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#0284C7] bg-sky-50 px-2 py-0.5 rounded border border-sky-100 whitespace-nowrap">
-                          {item.code} · {item.day}
-                        </span>
-                        <span className="text-[11px] font-semibold text-[#777672] truncate">
-                          {item.category}
+                      <div className="flex items-center justify-between gap-2">
+                        <h3 className="text-sm font-bold text-[#111113] line-clamp-1">{item.title}</h3>
+                        <span className="text-[10px] font-bold uppercase tracking-wider text-[#777672] whitespace-nowrap">
+                          {item.day}
                         </span>
                       </div>
-                      <h3 className="text-xs sm:text-sm font-bold text-[#111113] line-clamp-1">
-                        {item.title}
-                      </h3>
-                      <p className="text-[11px] text-[#666562] line-clamp-1 mt-0.5">
-                        {item.keyOutcome}
-                      </p>
+                      <div className="mt-1.5 flex flex-wrap gap-1">
+                        {item.beneficiaries.map((who) => (
+                          <span
+                            key={who}
+                            className="text-[10px] font-semibold text-[#0369A1] bg-sky-50 border border-sky-100 px-1.5 py-0.5 rounded"
+                          >
+                            {who}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </button>
                 );
@@ -433,17 +439,16 @@ export const LandingPage: React.FC = () => {
             <div
               role="tabpanel"
               aria-live="polite"
-              className="lg:col-span-7 bg-[#202024] text-white rounded-3xl p-6 sm:p-8 border border-[#38383D] shadow-2xl relative overflow-hidden"
+              className="lg:col-span-7 bg-[#202024] text-white rounded-3xl p-6 sm:p-8 border border-[#38383D] shadow-2xl relative overflow-hidden lg:sticky lg:top-24"
             >
               <div className="absolute top-0 right-0 w-64 h-64 bg-[#0284C7]/10 blur-3xl rounded-full pointer-events-none" />
 
-              <div className="relative space-y-6">
-                <div className="relative rounded-2xl overflow-hidden h-48 border border-[#3A3A3E] bg-[#141416]">
+              <div className="relative space-y-5">
+                <div className="relative rounded-2xl overflow-hidden h-40 border border-[#3A3A3E] bg-[#141416]">
                   <img
                     src={LAB_IMAGES[selectedLab]}
                     alt=""
                     referrerPolicy="no-referrer"
-                    loading="lazy"
                     decoding="async"
                     onError={(e) => {
                       e.currentTarget.style.visibility = 'hidden';
@@ -453,7 +458,7 @@ export const LandingPage: React.FC = () => {
                   <div className="absolute inset-0 bg-gradient-to-t from-[#111113] via-[#111113]/50 to-transparent p-4 flex flex-col justify-end">
                     <div className="flex items-center justify-between gap-2">
                       <span className="px-3 py-1 bg-[#0284C7] text-white font-extrabold text-xs rounded-md uppercase tracking-wider whitespace-nowrap">
-                        {lab.code} · {lab.day}
+                        {lab.day}
                       </span>
                       <span className="text-xs font-semibold text-amber-300 bg-amber-950/80 px-2.5 py-0.5 rounded border border-amber-500/30 whitespace-nowrap">
                         ⏱ {lab.duration}
@@ -462,40 +467,45 @@ export const LandingPage: React.FC = () => {
                   </div>
                 </div>
 
-                <div>
-                  <span className="text-xs font-bold text-sky-400 uppercase tracking-widest">
-                    {lab.category}
-                  </span>
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-white mt-1">{lab.title}</h3>
-                  <p className="text-xs sm:text-sm text-[#D5D4D0] mt-2 leading-relaxed">
-                    {lab.description}
-                  </p>
-                </div>
+                <h3 className="text-xl sm:text-2xl font-extrabold text-white">{lab.title}</h3>
 
-                <div className="bg-[#141416] p-4 rounded-xl border border-[#333338] space-y-2">
-                  <div className="flex items-center justify-between gap-2 text-xs font-bold text-amber-400">
-                    <span className="flex items-center gap-1.5">
-                      <Terminal className="w-4 h-4 text-amber-400 flex-shrink-0" />{' '}
-                      {t.labs.promptBoxTitle}
+                <div className="space-y-4">
+                  <div>
+                    <span className="flex items-center gap-1.5 text-xs font-bold text-amber-400 uppercase tracking-widest">
+                      <AlertTriangle className="w-3.5 h-3.5 flex-shrink-0" /> {t.labs.purposeLabel}
                     </span>
-                    <span className="text-[10px] text-[#777672] whitespace-nowrap">
-                      {t.labs.promptBoxNote}
-                    </span>
+                    <p className="text-xs sm:text-sm text-[#D5D4D0] mt-1.5 leading-relaxed">{lab.purpose}</p>
                   </div>
-                  <pre className="text-[11px] sm:text-xs text-[#E0DFDC] bg-[#1C1C20] p-3 rounded-lg overflow-x-auto whitespace-pre-wrap font-mono border border-[#2B2B30]">
-                    {lab.samplePrompt}
-                  </pre>
+                  <div>
+                    <span className="flex items-center gap-1.5 text-xs font-bold text-sky-400 uppercase tracking-widest">
+                      <Sparkles className="w-3.5 h-3.5 flex-shrink-0" /> {t.labs.howLabel}
+                    </span>
+                    <p className="text-xs sm:text-sm text-[#D5D4D0] mt-1.5 leading-relaxed">{lab.how}</p>
+                  </div>
+                  <div className="p-3.5 bg-emerald-950/40 border border-emerald-500/30 rounded-xl">
+                    <span className="flex items-center gap-1.5 text-xs font-bold text-emerald-400 uppercase tracking-widest">
+                      <CheckCircle2 className="w-3.5 h-3.5 flex-shrink-0" /> {t.labs.helpsLabel}
+                    </span>
+                    <p className="text-xs sm:text-sm text-emerald-100 mt-1.5 leading-relaxed">{lab.helps}</p>
+                  </div>
+                  <div>
+                    <span className="flex items-center gap-1.5 text-xs font-bold text-[#A5A4A0] uppercase tracking-widest">
+                      <Users className="w-3.5 h-3.5 flex-shrink-0" /> {t.labs.beneficiariesLabel}
+                    </span>
+                    <div className="mt-2 flex flex-wrap gap-1.5">
+                      {lab.beneficiaries.map((who) => (
+                        <span
+                          key={who}
+                          className="text-xs font-semibold text-white bg-[#0284C7]/25 border border-[#0284C7]/50 px-2.5 py-1 rounded-lg"
+                        >
+                          {who}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 </div>
 
-                <div className="p-3.5 bg-emerald-950/40 border border-emerald-500/30 rounded-xl text-xs text-emerald-300 font-semibold flex items-start gap-2">
-                  <ShieldCheck className="w-4 h-4 text-emerald-400 flex-shrink-0 mt-0.5" />
-                  <span>
-                    <strong>{t.labs.checkpointLabel}</strong>
-                    {lab.keyOutcome}
-                  </span>
-                </div>
-
-                <div className="pt-2 flex items-center justify-between gap-3">
+                <div className="pt-1 flex items-center justify-between gap-3">
                   <a
                     href="#register-interest"
                     className="px-5 py-2.5 bg-[#0284C7] hover:bg-[#0369A1] text-white font-bold text-xs rounded-xl shadow transition-all flex items-center gap-2"
@@ -552,6 +562,60 @@ export const LandingPage: React.FC = () => {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* TRAINER */}
+      <section id="trainer" className="py-12 sm:py-16 border-b border-[#E6E3DB] bg-white overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-10 items-center">
+            <div className="md:col-span-4 relative flex justify-center items-end">
+              <span
+                aria-hidden="true"
+                className="absolute left-1/2 bottom-0 -translate-x-1/2 w-[88%] aspect-square rounded-full bg-[radial-gradient(circle_at_50%_40%,rgba(2,132,199,0.22),rgba(2,132,199,0.06)_65%,transparent_72%)]"
+              />
+              <img
+                src={TRAINER_PHOTO}
+                alt={t.trainer.imageAlt}
+                loading="lazy"
+                decoding="async"
+                className="relative w-full max-w-[18rem] md:max-w-[20rem] h-auto [mask-image:linear-gradient(to_bottom,#000_80%,transparent_100%)]"
+              />
+            </div>
+
+            <div className="md:col-span-8">
+              <span className="text-xs font-bold text-[#0284C7] uppercase tracking-widest bg-sky-50 px-3 py-1 rounded-full border border-sky-100">
+                {t.trainer.eyebrow}
+              </span>
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#111113] mt-3 tracking-tight">
+                {t.trainer.name}
+              </h2>
+              <p className="text-base sm:text-lg font-bold text-[#0284C7] mt-1">{t.trainer.title}</p>
+              <p className="text-sm sm:text-base text-[#555450] mt-3 leading-relaxed max-w-3xl">
+                {t.trainer.bio}
+              </p>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mt-6">
+                {t.trainer.credentials.map((item, index) => {
+                  const Icon = TRAINER_ICONS[index];
+                  return (
+                    <div
+                      key={item.title}
+                      className="bg-[#FAF8F5] rounded-2xl border border-[#E6E3DB] p-4 flex items-start gap-3"
+                    >
+                      <span className="w-9 h-9 rounded-xl bg-[#262629] text-white flex items-center justify-center flex-shrink-0">
+                        <Icon className="w-4 h-4" />
+                      </span>
+                      <div className="min-w-0">
+                        <h3 className="text-sm font-bold text-[#111113]">{item.title}</h3>
+                        <p className="text-xs text-[#555450] leading-relaxed mt-0.5">{item.desc}</p>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -683,9 +747,12 @@ export const LandingPage: React.FC = () => {
                           <span
                             key={stage.id}
                             title={`${stage.title} — ${stage.description}`}
-                            className="text-[10px] font-bold text-[#0284C7] bg-sky-50 border border-sky-200 px-2 py-0.5 rounded-md"
+                            className="text-[11px] text-[#0369A1] bg-sky-50 border border-sky-200 px-2 py-0.5 rounded-md"
                           >
-                            {stage.promptCode} · {stage.durationMinutes} {t.agenda.minuteSuffix}
+                            <strong>{stage.promptCode}</strong> · {stage.title}{' '}
+                            <span className="text-[#777672]">
+                              · {stage.durationMinutes} {t.agenda.minuteSuffix}
+                            </span>
                           </span>
                         ))}
                       </div>

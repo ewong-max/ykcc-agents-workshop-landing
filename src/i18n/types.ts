@@ -11,16 +11,23 @@ import {
 /** The two languages this site ships in. */
 export type Lang = 'en' | 'zh';
 
-/** One of the six featured hands-on builds. Images live in the component, index-matched. */
+/**
+ * One featured class exercise, described by what it is for and who it helps
+ * rather than by the fictional case it runs on. Images live in the component,
+ * index-matched.
+ */
 export interface FeaturedLab {
-  code: string;
   day: string;
-  title: string;
-  category: string;
   duration: string;
-  description: string;
-  keyOutcome: string;
-  samplePrompt: string;
+  title: string;
+  /** Why the exercise exists — the business problem it solves. */
+  purpose: string;
+  /** How it is done in class. */
+  how: string;
+  /** What changes for the business afterwards. */
+  helps: string;
+  /** Roles / departments that benefit. */
+  beneficiaries: string[];
 }
 
 /** One "who should attend" card. Icons live in the component, index-matched. */
@@ -116,11 +123,13 @@ export interface SiteContent {
   labs: {
     eyebrow: string;
     heading: string;
-    introLead: string;
+    intro: string;
+    subIntro: string;
     tablistLabel: string;
-    promptBoxTitle: string;
-    promptBoxNote: string;
-    checkpointLabel: string;
+    purposeLabel: string;
+    howLabel: string;
+    helpsLabel: string;
+    beneficiariesLabel: string;
     cta: string;
     counter: (current: number, total: number) => string;
   };
@@ -129,6 +138,17 @@ export interface SiteContent {
     eyebrow: string;
     heading: string;
     intro: string;
+  };
+
+  /** Trainer introduction, matching slide 2 of the training deck. */
+  trainer: {
+    eyebrow: string;
+    name: string;
+    title: string;
+    bio: string;
+    imageAlt: string;
+    /** Icons live in the component, index-matched. */
+    credentials: { title: string; desc: string }[];
   };
 
   agenda: {
@@ -248,13 +268,6 @@ export interface SiteContent {
     programmeNoLabel: string;
     copyright: (year: number) => string;
     signOff: string;
-  };
-
-  runningExample: {
-    company: string;
-    summary: string;
-    yourRole: string;
-    arc: string;
   };
 
   agentParts: AgentPart[];

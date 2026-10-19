@@ -4,23 +4,25 @@ import { SiteContent } from './types';
  * English content. This is the source of truth for wording; zh.ts mirrors it
  * one-for-one, so anything added here needs a matching entry there (TypeScript
  * will refuse to compile if it is missing).
+ *
+ * Curriculum follows the YK AI Training slide deck (yk-ai-training.vercel.app).
  */
 export const en: SiteContent = {
   htmlLang: 'en',
   documentTitle: 'AI Agents for Business 101 | YKCC',
   metaDescription:
-    'A 2-day hands-on workshop for non-technical office staff: configure an AI agent as a digital colleague, then use it to build real Excel, Word and PowerPoint files, extract data from scanned invoices, and set work to run automatically. No coding required.',
+    'A 2-day hands-on workshop for Malaysian SME teams: pick the right AI use cases, set Claude up as a digital colleague, analyse your own business data, then build dashboards, web pages and small apps — and scale up to a team of AI agents. No coding required.',
 
   courseTitleLead: 'AI Agents for',
   courseTitleAccent: 'Business 101',
 
   subtitle: 'Building AI Agents as Digital Colleagues for Business Productivity',
   tagline:
-    'Two days of hands-on training that turns Claude from something you chat with into a colleague that opens your folders, builds your files and saves them where you asked.',
+    'Two days that take you from “chatting with AI” to delegating real work to it — your files, your data, your tools — and reviewing the result.',
   heroQuote:
-    'A chatbot can tell you what should go in the report. An agent opens your folder, reads your data, builds the report, saves it, and tells you where it put it. The whole difference is the ability to act — and these two days are about controlling how it acts.',
+    'A chatbot answers questions. Set up properly, Claude remembers your context, reaches your tools, acts on your files and the web, runs on a schedule, and scales into a team. Your job shifts from typing every step to writing the brief and checking the result — exactly how you would manage a capable analyst.',
   targetAudience:
-    'Written for people who do not work in IT. If you can use email and Microsoft Office, you can do everything in this course.',
+    'Written for people who do not work in IT. If you can use email and Microsoft Office, you can do everything in this course — including the day you build a web page.',
 
   schedule: {
     batches: [
@@ -51,99 +53,132 @@ export const en: SiteContent = {
   },
 
   nav: [
-    { href: '#anatomy', label: 'What You Configure' },
+    { href: '#anatomy', label: 'The Approach' },
     { href: '#labs', label: 'Labs' },
+    { href: '#trainer', label: 'Trainer' },
     { href: '#agenda', label: 'Agenda' },
     { href: '#prepare', label: 'Before You Start' },
-    { href: '#audience', label: 'Who It’s For' },
     { href: '#faq', label: 'FAQ' }
   ],
 
   hero: {
     badge: '2-Day Practical Hands-On Training',
-    quoteFooter: 'Written for people who do not work in IT',
+    quoteFooter: 'Stop chatting. Start delegating.',
     ctaPrimary: 'Register Now',
     ctaSecondary: 'See the full 2-day agenda',
     stats: [
       { value: '2 Batches', label: 'Oct 27–28 (English) · Nov 4–5 (Mandarin)' },
-      { value: '0 Code', label: 'No IT background needed' },
-      { value: '26 Prompts', label: 'Yours to keep and reuse' }
+      { value: '48 Labs', label: 'Copy-paste prompts in your pack' },
+      { value: '0 Code', label: 'No IT background needed' }
     ],
-    imageAlt:
-      'Colleagues working through hands-on exercises on their laptops during a training session',
-    visualTitle: 'It does the work, not just the talking',
+    imageAlt: 'Colleagues working through hands-on exercises on their laptops during a training session',
+    visualTitle: 'Shown live, then done by you',
     visualBody:
-      'Most people have only used AI as a chat window that gives advice. Over two days you’ll set one up to actually open your files, build the report and save it into your folder — finished work, not suggestions you still have to type up yourself.',
+      'Every topic is shown live first, then you do it yourself on your own machine. You leave with things that work — not notes about things that might.',
     takeawaysTitle: 'What you leave with',
     takeawaysNote: 'Built by you, in the room',
     takeaways: [
       {
-        lead: 'A configured AI colleague',
+        lead: 'An AI plan for your business',
         rest:
-          '— your own system prompt, one connected folder, and standing instructions it applies to every task from then on.'
+          '— four worksheets that score your pain points on Impact × Ease and redesign one process with a human sign-off built in.'
       },
       {
-        lead: 'Real files on your own laptop',
+        lead: 'A working Claude setup',
         rest:
-          '— a workbook with live formulas, a one-page management report, a reusable Word template, an 8-slide board deck and an invoice register built from a scanned PDF.'
+          '— projects with standing instructions, your own Skills, connectors, browser control and a routine that runs on a clock.'
       },
       {
-        lead: 'A handout with every step in it',
+        lead: 'Things you can share',
         rest:
-          '— 26 prompts, a plain-English glossary, a troubleshooting appendix, and a Monday-morning plan for the first month.'
+          '— a live dashboard, a landing page, a small web tool published as an Artifact, and a team of agents that reviews the month-end close.'
+      },
+      {
+        lead: 'The full participant pack',
+        rest: '— the slide deck, all 48 labs with copy-paste prompts, lab files and ready-made Skills.'
       }
     ]
   },
 
   anatomy: {
-    eyebrow: 'The Core of the Course',
-    heading: 'What You Actually Configure',
+    eyebrow: 'The Mental Model',
+    heading: 'Four Layers of Leverage',
     intro:
-      'Think about hiring a new admin executive on Monday morning. Four things have to be true for that person to be useful — and an AI colleague needs exactly the same four. Learn the four names and half the jargon in this industry stops being frightening.',
-    partLabel: (index: number) => `Part ${index}`,
-    humanEquivalentPrefix: 'A new colleague would call this:'
+      'A chatbot is one layer: you ask, it answers. Everything in this course adds another layer on top, until Claude behaves less like a search box and more like a colleague you brief and review.',
+    partLabel: (index: number) => `Layer ${index}`,
+    humanEquivalentPrefix: 'You learn it through:'
   },
 
   recipe: {
-    eyebrow: 'Module 3 · Prompt Engineering',
-    heading: 'The five-part recipe',
+    eyebrow: 'AI for Better Decisions',
+    heading: 'Ask like a business owner, not a programmer',
     intro:
-      'You will not need all five parts every time — but when something comes back wrong, the missing part is nearly always on this list.',
+      'A question we work through in class. It works because it gives Claude a role, the facts, the output you want — and asks it what it still needs before it starts.',
     sideNote: 'Role · Task · Input · Output · Rules',
-    warningTitle: 'The single most common beginner mistake',
+    warningTitle: 'Technical questions get technical answers',
     warningBody:
-      'People spend an hour typing one very long, very clever request — then wonder why the second request comes back wrong. A brilliant one-off request is a chatbot. A good system prompt is a colleague. Put your effort into the job description.'
+      '“Create a pivot table by customer” gets you a pivot table. “Which customers are buying less than last year, and by how much?” gets you a decision. Ask the business question and let Claude work out the spreadsheet.'
   },
 
   labs: {
-    eyebrow: 'Hands on the keyboard',
-    heading: 'Six Builds, One Running Example',
-    introLead: 'Every lab runs on one imaginary Malaysian company:',
-    tablistLabel: 'Hands-on labs and modules',
-    promptBoxTitle: 'The kind of prompt you write in class',
-    promptBoxNote: 'Plain English · zero code',
-    checkpointLabel: 'Checkpoint: ',
+    eyebrow: 'Class Exercises',
+    heading: 'What You Will Practise — and Who It Helps',
+    intro:
+      'Every exercise is built around a job that eats time in a real Malaysian SME. For each one you will see why it matters, how it is done in class, and which part of the business gets the benefit.',
+    subIntro: 'Pick an exercise to see the details. All of them are in your participant pack to repeat at your desk.',
+    tablistLabel: 'Class exercises',
+    purposeLabel: 'Why it matters',
+    howLabel: 'How we do it in class',
+    helpsLabel: 'How it helps',
+    beneficiariesLabel: 'Who benefits',
     cta: 'Register for the next batch',
     counter: (current: number, total: number) => `${current} of ${total}`
   },
 
   benefits: {
     eyebrow: 'Why This Course Is Different',
-    heading: 'An Agent Is Something You Configure',
+    heading: 'Strategy First, Then the Tools',
     intro:
-      'Most AI training teaches you to ask better questions. This one teaches you to set up a colleague once, so you stop having to ask.'
+      'Most AI training starts with the tool. This one starts with your business — which problems are worth solving — and only then shows you how to hand them to Claude.'
+  },
+
+  trainer: {
+    eyebrow: 'Your Trainer',
+    name: 'Wong Yew Choon',
+    title: 'Tax, e-Invoicing, SST & GST Specialist',
+    bio:
+      'An accountant who has spent his career making tax rules and systems work for real businesses, now learning AI alongside you, with a practical, no-jargon approach.',
+    imageAlt: 'Trainer Wong Yew Choon',
+    credentials: [
+      {
+        title: 'Tax & compliance',
+        desc: 'Has guided hundreds of businesses through the implementation of GST, SST and e-Invoicing.'
+      },
+      {
+        title: 'ERP implementation',
+        desc: 'Prior experience in new ERP implementation in a multinational company.'
+      },
+      {
+        title: 'Excel & data analysis',
+        desc: 'VBA, Excel reporting, business data analysis and process improvement.'
+      },
+      {
+        title: 'Learning AI, like you',
+        desc: 'Started this year: first self-taught from YouTube, then through formal classes.'
+      }
+    ]
   },
 
   agenda: {
     eyebrow: 'Full Curriculum',
     heading: 'The Complete 2-Day Agenda',
     intro:
-      'Every module, hour by hour, straight from the participant handout — so you know exactly what your team walks away with before you commit a seat.',
+      'Day 1 sets Claude up and points it at your data. Day 2 makes things you can share, then scales up to a team of agents.',
     daySelectLabel: 'Select workshop day',
     dayLabel: (day: number) => `Day ${day}`,
     sessionsLabel: 'sessions',
-    stagesLabel: 'guided stages',
-    handoutLabel: 'Handout: ',
+    stagesLabel: 'labs & demos',
+    handoutLabel: 'Slides: ',
     formatLabels: {
       Lecture: 'Lecture',
       'Hands-on': 'Hands-on',
@@ -156,7 +191,7 @@ export const en: SiteContent = {
     teaBreak: 'Refreshment break',
     minuteSuffix: 'min',
     footnote:
-      'Timings are indicative — the trainer moves at the pace of the room, and every step is in your handout so you can repeat it at your own desk afterwards.',
+      'Timings are indicative. The pack holds 48 labs — more than two days can cover — so the trainer picks the ones that fit the room, and every lab is in your pack to repeat at your own desk.',
     footnoteDates:
       'Workshop dates: 27 & 28 October 2026 (English) or 4 & 5 November 2026 (Mandarin), 9:00 AM – 5:00 PM.',
     cta: 'Register Now'
@@ -188,7 +223,7 @@ export const en: SiteContent = {
       fullName: 'e.g. Tan Wei Ming',
       email: 'e.g. name@yourcompany.com.my',
       phone: 'e.g. +60 12-345 6789',
-      company: 'e.g. Sinar Jaya Trading Sdn Bhd'
+      company: 'e.g. Maju Jaya Trading Sdn Bhd'
     },
     batchNote: 'Both batches cover the same course. Only the dates and the language of instruction differ.',
     paymentHrdc: 'HRDC',
@@ -216,50 +251,50 @@ export const en: SiteContent = {
     },
     nextTitle: 'What happens next?',
     nextBody:
-      'Our training team will contact you to confirm your seat and payment method, and send joining instructions ahead of the dates you chose. In the meantime, work through “Before You Start” below — arriving with setup done puts you ahead of the room.',
+      'Our training team will contact you to confirm your seat and payment method, and send joining instructions ahead of the dates you chose. In the meantime, work through “Before You Start” below — the Cowork setup step needs administrator rights, so sort it out with IT now rather than on the day.',
     registerAnother: 'Register Another Person / Team'
   },
 
   prepare: {
-    eyebrow: 'Part 0 · Before You Start',
+    eyebrow: 'Before You Start',
     heading: 'Arrive With This Done',
     intro:
-      'Six things to sort out before Day 1. Most of them can be fixed in ten minutes — except the one that needs your IT department, which is exactly why it is on this page and not in the welcome pack.',
-    folderEyebrow: 'Section 0.5',
+      'Six things to sort out before Day 1. Almost everyone who gets stuck in the first hour is missing one of these — usually administrator rights.',
+    folderEyebrow: 'Good habit',
     folderTitle: 'Create one clean folder',
     folderBodyBefore:
-      'Your AI colleague can only see folders you specifically show it — it cannot browse your whole computer. In ',
+      'Claude only sees the folders you choose to show it — never your whole computer. In ',
     folderBodyMiddle: ', create a folder named exactly ',
     folderBodyAfter: ' with three folders inside it:',
     folderItems: [
-      { name: '01 Data', note: '— things you gave it' },
-      { name: '02 Outputs', note: '— things it made for you' },
+      { name: '01 Data', note: '— files you give it' },
+      { name: '02 Outputs', note: '— files it makes for you' },
       { name: '03 Templates', note: '— your reusable house styles' }
     ],
     folderNote:
-      'Keeping them apart is a habit that saves real time later — you never have to ask “is this the file I gave it, or the file it made?”',
-    switchTitle: 'The one switch everybody forgets',
-    switchBodyBefore: 'Claude ships with ',
-    switchBodyPath: 'Code execution and file creation',
+      'Unzip the participant pack into 01 Data on the morning of Day 1 and every lab file is where the prompts expect it.',
+    switchTitle: 'The one step everybody forgets',
+    switchBodyBefore: 'Cowork runs your tasks in a small virtual machine on your laptop, and Windows ships with ',
+    switchBodyPath: 'Virtual Machine Platform',
     switchBodyAfter:
-      ' switched off. Nothing in this course works until you turn it on: your profile picture › Settings › Capabilities › switch it ON. It takes twenty seconds, and forgetting it is the single most common reason a participant gets stuck.',
+      ' switched off. It is a one-off fix — two lines pasted into Terminal (Admin), then a restart — and we send you the exact lines with your joining instructions. Without administrator rights it cannot be done.',
     switchNote:
-      'On Team and Enterprise plans your organisation’s Claude administrator controls this setting. If it is greyed out, ask them to enable it before Day 1.'
+      'Virtual desktops (VDI) and some locked-down corporate images cannot run Cowork at all. If that is your laptop, test it before Day 1 or bring a personal one.'
   },
 
   audience: {
     eyebrow: 'Who Should Attend',
-    heading: 'For the People Who Build the Reports',
+    heading: 'For the People Who Run the Numbers and the Paperwork',
     managerNoteTitle: 'A note for managers evaluating this for a team.',
     managerNoteBody:
-      'Day 2 covers Dispatch — giving a phone the ability to act on a work computer. The course teaches it alongside the security conversation you should have first: check your IT policy, lock your phone, and adopt the sensible finance-department rule of using it to read and summarise, never to send or approve. In-house corporate batches can have that section tailored to your own policy.'
+      'The course shows Claude acting on the web, reading your connected apps and — as an experimental lab — taking instructions over Telegram or WhatsApp. Every one of those is taught with the same golden rule: AI prepares, a human approves. Nothing is sent, paid or filed without a person checking it first. In-house batches can tailor these sections to your own IT policy.'
   },
 
   faq: {
     eyebrow: 'Got Questions?',
     heading: 'Frequently Asked Questions',
     intro: 'Everything you need to know before booking a seat.',
-    finalCtaHeading: 'Ready to stop building the same report by hand?',
+    finalCtaHeading: 'Ready to stop doing it all by hand?',
     finalCtaBody:
       'Register now to reserve your seat on 27 & 28 October 2026 (English) or 4 & 5 November 2026 (Mandarin). Corporate in-house batches can be run at your office with the labs adapted to your own files.',
     finalCta: 'Register Now'
@@ -273,46 +308,33 @@ export const en: SiteContent = {
     facts: ['No coding background needed', 'Paid Claude plan required'],
     programmeNoLabel: 'Programme No: ',
     copyright: (year: number) => `© ${year} YKCC. All rights reserved.`,
-    signOff: 'AI produces the draft. You review it. You sign it.'
-  },
-
-  runningExample: {
-    company: 'Sinar Jaya Trading Sdn Bhd',
-    summary:
-      'A small distributor of office and industrial supplies based in Petaling Jaya, with customers in five regions across Malaysia.',
-    yourRole:
-      'You are its Finance and Admin Executive. Your manager keeps asking for reports, and you keep building them by hand.',
-    arc:
-      'Over two days you train an AI colleague to do that work for you — a sales report in Excel, a management report in Word, a pitch deck in PowerPoint, and supplier invoice data entry from scanned PDFs.'
+    signOff: 'AI prepares. A human approves.'
   },
 
   agentParts: [
     {
-      humanEquivalent:
-        'A job description: who they are, what they may and may not do, how you like things done',
-      technicalName: 'System prompt',
+      technicalName: 'Context',
       meaning:
-        'A block of text you write once. Claude reads it before every single task, forever. In Claude it is the box marked Instructions.'
+        'Projects, memory and a CLAUDE.md file of standing instructions, so Claude knows your business before you type a word — and you stop re-explaining yourself every Monday.',
+      humanEquivalent: 'Projects, CLAUDE.md, Skills and an Obsidian knowledge base'
     },
     {
-      humanEquivalent:
-        'Training on your specific procedures — how your company does an invoice reconciliation',
-      technicalName: 'Skills',
+      technicalName: 'Action',
       meaning:
-        'Packaged know-how. The Excel, Word, PowerPoint and PDF skills are built in and always available. You can add your own on top.'
+        'Claude opens and saves real files, works inside Excel and PowerPoint, fills web forms in Chrome, and builds dashboards and tools you can click.',
+      humanEquivalent: 'Cowork, Claude for Excel, Claude for Chrome, Artifacts and Claude Design'
     },
     {
-      humanEquivalent:
-        'Access to systems — the shared drive, the accounting system, the email account',
-      technicalName: 'Tools and connectors',
+      technicalName: 'Reach',
       meaning:
-        'Permission for Claude to reach a folder, a website, or an app such as Gmail or SharePoint. You grant this; it is never automatic.'
+        'Permissioned links to Gmail, Drive, Calendar and your own systems. You grant each one; nothing is connected automatically.',
+      humanEquivalent: 'Connectors, plugins and MCP'
     },
     {
-      humanEquivalent: 'Memory of what happened last week',
-      technicalName: 'Memory and project context',
+      technicalName: 'Scale',
       meaning:
-        'Claude remembers within a project, so you stop re-explaining yourself every Monday morning.'
+        'Work that runs itself on a clock, and a lead agent that hands parts of a big job to specialist agents and checks what comes back.',
+      humanEquivalent: 'Routines, Dispatch and multi-agent teams'
     }
   ],
 
@@ -321,106 +343,106 @@ export const en: SiteContent = {
       number: 1,
       name: 'Role',
       question: 'Who should Claude be?',
-      example: 'You are a management accountant preparing a board pack.'
+      example: 'As a senior business analyst…'
     },
     {
       number: 2,
       name: 'Task',
       question: 'What exactly must be done?',
-      example: 'Summarise the six months of sales by region and by salesperson.'
+      example: 'Advise how you would analyse the financial performance of a forklift rental client.'
     },
     {
       number: 3,
       name: 'Input',
-      question: 'What should it work from?',
-      example: 'Use only the CSV in 01 Data. Do not use anything else.'
+      question: 'What are the facts?',
+      example: 'The client has 412 forklifts and earns more than RM6 million in rental a year.'
     },
     {
       number: 4,
       name: 'Output',
       question: 'What must come back?',
-      example: 'One Excel file with three sheets: Summary, By Region, By Salesperson.'
+      example: 'Your analysis framework, and the list of information you need from me.'
     },
     {
       number: 5,
       name: 'Rules',
       question: 'What are the limits?',
-      example:
-        'Use formulas, not typed values. If a region name is misspelt, flag it — do not silently merge it.'
+      example: 'Ask before you assume. Flag anything that must be checked against current tax and SST rules.'
     }
   ],
 
   courseHighlights: [
     {
-      title: 'An Agent, Not a Chatbot',
-      subtitle: 'The four parts, taught properly',
+      title: 'Strategy Before Tools',
+      subtitle: 'Find the work worth automating',
       description:
-        'System prompt, skills, tools and connectors, memory. Learn the four names and half the jargon in this industry stops being frightening — then configure all four yourself.',
-      metric: '4 Parts',
-      metricLabel: 'Configured by you on Day 1'
+        'Four worksheets take you from “where are we today?” to a scored list of pain points and one redesigned process — so the first thing you automate is the one that pays back.',
+      metric: 'W1–W4',
+      metricLabel: 'Impact × Ease, filled in for your business'
     },
     {
-      title: 'Written for Non-IT Staff',
-      subtitle: 'Every step, including the small ones',
+      title: 'Delegate, Don’t Chat',
+      subtitle: '14 capabilities, one operating system',
       description:
-        'No coding, no command line. Each technical word is decoded in plain English the first time it appears, and again in the glossary at the back of your handout.',
+        'Projects, Skills, browser control, connectors, Excel, routines, Design, Artifacts, vibe coding, MCP, knowledge bases and multi-agent teams — each shown live, then done by you.',
+      metric: '14 Topics',
+      metricLabel: 'Shown live, then hands-on'
+    },
+    {
+      title: 'Build Things People Use',
+      subtitle: 'Not just answers in a chat window',
+      description:
+        'A dashboard your boss can open, a landing page with a hero section, a small HTML tool published as an Artifact and added to a company portal — built by describing what you want.',
       metric: '0 Code',
-      metricLabel: 'If you can use Office, you can do this'
+      metricLabel: 'You describe it, Claude builds it'
     },
     {
-      title: 'Real Files, Not Slideware',
-      subtitle: 'Everything lands in your own folder',
+      title: 'Human in the Loop',
+      subtitle: 'The golden rule of the course',
       description:
-        'A workbook with live formulas, a one-page management report, an 8-slide board deck with speaker notes, and an invoice register built from a scanned PDF.',
-      metric: '6+ Files',
-      metricLabel: 'Saved to 02 Outputs on your laptop'
-    },
-    {
-      title: 'Honest About the Limits',
-      subtitle: 'You still sign the work',
-      description:
-        'Every lab ends with a checkpoint you verify by hand. The capstone marks down any group that claims its agent needs no supervision.',
+        'AI prepares, a human approves. Every lab tells you what to check before anything is sent, paid, filed or published — and the capstone is judged on it.',
       metric: 'Human Sign-Off',
-      metricLabel: 'AI drafts · you review · you sign'
+      metricLabel: 'AI prepares · you approve'
     }
   ],
 
   prerequisites: [
     {
-      requirement: 'A laptop — Windows 10/11, or a Mac from 2020 or later',
-      why: 'You will be installing an application and creating real files.'
+      requirement: 'A laptop with administrator rights — Windows 10/11, or a Mac from 2020 or later',
+      why:
+        'Without admin rights Claude still installs, but Cowork will not run — and Cowork is how Claude works on your real files.'
     },
     {
-      requirement: 'Administrator rights, or your IT department’s permission to install software',
+      requirement: 'Claude Desktop installed, with Cowork switched on',
       why:
-        'Some company laptops block new installations. Check this before Day 1 — the app is Claude Desktop by Anthropic, from claude.com/download.'
+        'Download from claude.com/download. On Windows this includes the one-off Virtual Machine Platform step described on the right.'
     },
     {
       requirement: 'A paid Claude account — Pro, Max, Team or Enterprise',
+      why: 'Cowork, file creation, Skills and connectors are not available on the free plan.'
+    },
+    {
+      requirement: 'Google Chrome, with the Claude for Chrome extension',
+      why: 'Used on Day 1 for the browser-control labs, such as filling a Form B on the MyTax simulator.'
+    },
+    {
+      requirement: 'Microsoft Excel, Word and PowerPoint',
+      why: 'So you can open and check what Claude produces, and try Claude for Excel and PowerPoint.'
+    },
+    {
+      requirement: 'Your phone, and a free GitHub account (Day 2)',
       why:
-        'Cowork, file creation and skills are not available on the free plan, and they are the entire point of this course.'
-    },
-    {
-      requirement: 'A reliable internet connection',
-      why: 'Claude does its thinking on Anthropic’s servers, not on your laptop.'
-    },
-    {
-      requirement: 'Microsoft Excel, Word and PowerPoint installed',
-      why: 'So you can open and check what your AI colleague produces.'
-    },
-    {
-      requirement: 'A smartphone with the Claude mobile app (Day 2 only)',
-      why: 'Used in Module 5, when you learn to send work to Claude from your phone.'
+        'The phone is for Dispatch and the optional Telegram / WhatsApp labs. GitHub is where your vibe-coded web page goes live — sign up at github.com before you come.'
     }
   ],
 
   workshopDays: [
     {
       dayNumber: 1,
-      theme: 'Configure the Colleague',
-      subTitle: 'What an agent is · Setting one up · Prompt engineering · Excel',
+      theme: 'Plan, Set Up, Analyse',
+      subTitle: 'AI strategy · Better decisions · Claude foundations · Connect & automate',
       description:
-        'Day 1 is about the job description. You separate agents from chatbots and macros, build a working AI colleague in Cowork that can see one folder on your laptop, learn the five-part prompt recipe, and then spend two hours turning six months of deliberately imperfect sales data into a workbook whose totals are live formulas.',
+        'Day 1 starts with your business, not the tool: where AI fits, which problems to pick first, and how to ask questions that lead to decisions. Then Claude gets set up properly — projects, Skills, browser, connectors, Excel and routines — and you run the labs on your own laptop.',
       modules: [
         {
           id: 'd1-registration',
@@ -428,23 +450,66 @@ export const en: SiteContent = {
           startTime: '09:00',
           endTime: '09:30',
           title: 'Arrival & Setup Checkpoint',
-          handoutSource: 'Part 0',
+          handoutSource: 'Setup',
           format: 'Plenary',
           objective:
-            'Trainers walk the room clearing the four setup blockers: Claude Desktop installed, a paid plan showing, code execution and file creation switched ON, and the AI Workshop folder created with 01 Data, 02 Outputs and 03 Templates inside it.',
+            'Trainers walk the room: Claude Desktop installed, a paid plan showing, Cowork starting, Chrome extension added, and the participant pack unzipped into your AI Workshop folder.',
           stages: []
         },
         {
-          id: 'd1-m1',
+          id: 'd1-opening',
           day: 1,
           startTime: '09:30',
-          endTime: '11:00',
-          title: 'Module 1 — What an AI Agent Actually Is',
-          handoutSource: 'Module 1',
-          format: 'Lecture',
+          endTime: '10:15',
+          title: 'What AI Can Do for a Malaysian SME — Live',
+          handoutSource: 'Introduction',
+          format: 'Demonstration',
           objective:
-            'Separate the three ideas everybody arrives with: traditional automation, chatbot, and agent. Learn the four parts of an AI colleague, then watch a live demonstration end to end. Nothing to install — hands off the keyboard.',
-          stages: []
+            'Generative AI in plain English, what it does well and where it fails, and how real SMEs are using it. Then straight into live demos so you see the destination before the route.',
+          stages: [
+            {
+              id: 'd1-opening-s1',
+              promptCode: 'Demo',
+              title: 'NotebookLM',
+              durationMinutes: 10,
+              description: 'Drop in a stack of documents and get grounded answers, summaries and an audio briefing.'
+            },
+            {
+              id: 'd1-opening-s2',
+              promptCode: 'Demo',
+              title: 'YK Automation Portal and e-Invoice Explorer',
+              durationMinutes: 15,
+              description:
+                'Working tools built with AI at YK — and how an e-Invoice explorer is set up against MyInvois.'
+            }
+          ]
+        },
+        {
+          id: 'd1-strategy',
+          day: 1,
+          startTime: '10:15',
+          endTime: '11:00',
+          title: 'SME Strategy — Pick the Right Problems',
+          handoutSource: 'SME Strategy',
+          format: 'Hands-on',
+          objective:
+            'Where SMEs lose time, the four business goals every AI project must serve, and the Impact × Ease matrix. Map one process and put a human sign-off in the right place.',
+          stages: [
+            {
+              id: 'd1-strategy-s1',
+              promptCode: 'W1–W3',
+              title: 'Maturity, pain points, your top 3',
+              durationMinutes: 25,
+              description: 'Score up to ten recurring tasks and plot them to find the three worth starting with.'
+            },
+            {
+              id: 'd1-strategy-s2',
+              promptCode: 'W4',
+              title: 'Map and redesign a process',
+              durationMinutes: 20,
+              description: 'Quotation to collection, before and after — AI prepares, a human approves.'
+            }
+          ]
         },
         {
           id: 'd1-break-1',
@@ -460,47 +525,45 @@ export const en: SiteContent = {
           breakType: 'tea'
         },
         {
-          id: 'd1-m2',
+          id: 'd1-decisions',
           day: 1,
           startTime: '11:15',
-          endTime: '12:15',
-          title: 'Module 2 — Setting Up Your First AI Agent',
-          handoutSource: 'Module 2',
+          endTime: '12:30',
+          title: 'AI for Better Decisions',
+          handoutSource: 'Better Decisions',
           format: 'Hands-on',
           objective:
-            'Laptops open. Create your project in Cowork, write the Instructions block, connect exactly one folder, and see for yourself how Claude asks permission before it acts. By the end of this hour you have a working AI colleague that can read and write your files.',
+            'The data you already have, how to prepare it safely before uploading, and how to ask like a business owner. You see the exported Excel and the real Claude chat on screen, then do three new exercises yourself.',
           stages: [
             {
-              id: 'd1-m2-s1',
-              promptCode: 'P1',
-              title: 'Your project’s system prompt',
+              id: 'd1-decisions-s1',
+              promptCode: 'New',
+              title: 'Forklift rental — the business analyst brief',
               durationMinutes: 20,
               description:
-                'Paste the Sinar Jaya job description into Instructions word for word — you will write your own in Module 3.'
+                '412 forklifts, RM6m+ revenue: what would you analyse, and what information do you need?'
             },
             {
-              id: 'd1-m2-s2',
-              promptCode: 'P3',
-              title: 'Your first task',
-              durationMinutes: 15,
-              description:
-                'Ask a question that can only be answered by opening the file, and watch Claude decide by itself to read the folder.'
+              id: 'd1-decisions-s2',
+              promptCode: 'New',
+              title: 'Commission by staff per year, from the GL',
+              durationMinutes: 20,
+              description: 'From a raw GL listing to a staff-by-year commission table you can check.'
             },
             {
-              id: 'd1-m2-s3',
-              promptCode: 'P4',
-              title: 'Prove it can create a file',
-              durationMinutes: 15,
-              description:
-                'A small file written into 02 Outputs. If this works, everything else in the two days works.'
+              id: 'd1-decisions-s3',
+              promptCode: 'New',
+              title: 'Rental income by tenant',
+              durationMinutes: 20,
+              description: 'A yearly summary that flags every tenant as on time, late or missing.'
             }
           ]
         },
         {
           id: 'd1-lunch',
           day: 1,
-          startTime: '12:15',
-          endTime: '13:15',
+          startTime: '12:30',
+          endTime: '13:30',
           title: 'Lunch',
           handoutSource: '',
           format: 'Plenary',
@@ -510,39 +573,45 @@ export const en: SiteContent = {
           breakType: 'lunch'
         },
         {
-          id: 'd1-m3',
+          id: 'd1-foundations',
           day: 1,
-          startTime: '13:15',
-          endTime: '14:45',
-          title: 'Module 3 — Prompt Engineering',
-          handoutSource: 'Module 3',
-          format: 'Hands-on',
+          startTime: '13:30',
+          endTime: '15:00',
+          title: 'Foundations — Projects, CLAUDE.md and Skills',
+          handoutSource: 'Topics 1–2',
+          format: 'Laboratory',
           objective:
-            'Why prompts fail, and the five-part recipe that fixes them: Role, Task, Input, Output, Rules. You compare a weak prompt against the same request written properly, learn the three ways to give an agent your own knowledge, then write a system prompt for your own job and keep it for the capstone.',
+            'Where everything lives in Claude, standing instructions in CLAUDE.md, tokens and cost, choosing a model, and packaging know-how once as a Skill so the whole team can reuse it.',
           stages: [
             {
-              id: 'd1-m3-s1',
-              promptCode: 'P5 / P6',
-              title: 'The same request, weak and rewritten',
-              durationMinutes: 30,
+              id: 'd1-foundations-s1',
+              promptCode: 'Lab 1',
+              title: 'Fill sales orders from a list',
+              durationMinutes: 20,
               description:
-                '"Analyse my sales data and give me some insights" versus the five-part version — and the first clue about the state of the data.'
+                'One Word template, four customer orders — Claude produces every sales order and checks the maths.'
             },
             {
-              id: 'd1-m3-s2',
-              promptCode: 'P7',
-              title: 'Write your own system prompt',
-              durationMinutes: 40,
-              description:
-                'For a real task from your own job, not the worked example. You reuse this on Day 2 in the capstone.'
+              id: 'd1-foundations-s2',
+              promptCode: 'Labs 2–4',
+              title: 'Month-end project, file tidy-up, a reusable Skill',
+              durationMinutes: 35,
+              description: 'A “Monthly Close” project, file-name normalisation, and a variance-commentary Skill.'
+            },
+            {
+              id: 'd1-foundations-s3',
+              promptCode: 'Labs 5–10',
+              title: 'Pick-and-mix: SEO, diagrams, proposals, CP204, HR',
+              durationMinutes: 35,
+              description: 'The trainer picks the labs that match the room; the rest are in your pack.'
             }
           ]
         },
         {
           id: 'd1-break-2',
           day: 1,
-          startTime: '14:45',
-          endTime: '15:00',
+          startTime: '15:00',
+          endTime: '15:15',
           title: 'Refreshment break',
           handoutSource: '',
           format: 'Plenary',
@@ -552,54 +621,56 @@ export const en: SiteContent = {
           breakType: 'tea'
         },
         {
-          id: 'd1-lab1',
+          id: 'd1-connect',
           day: 1,
-          startTime: '15:00',
-          endTime: '17:00',
-          title: 'Lab 1 — Excel with an AI Colleague',
-          handoutSource: 'Lab 1',
+          startTime: '15:15',
+          endTime: '16:15',
+          title: 'Connect & Automate — Browser, Connectors, Plugins',
+          handoutSource: 'Topics 3–4',
           format: 'Laboratory',
           objective:
-            'Two hours, hands on the keyboard. Six months of raw invoice lines, deliberately imperfect in exactly the way real exported data is. Profile it before building anything on top of it, fix what you find, then build a summary workbook you can defend in front of a director.',
+            'Claude for Chrome uses the web the way you do. Connectors and plugins plug it into the apps where your work already lives.',
           stages: [
             {
-              id: 'd1-lab1-s1',
-              promptCode: 'P8',
-              title: 'Stage 1 — Look before you leap',
-              durationMinutes: 25,
-              description:
-                'Profile the file first: row counts, duplicates, blanks, and region names that appear twice with different spellings.'
-            },
-            {
-              id: 'd1-lab1-s2',
-              promptCode: 'P9–P11',
-              title: 'Stage 2 — Deal with the problems',
+              id: 'd1-connect-s1',
+              promptCode: 'Lab 11',
+              title: 'Compute YA 2025, then fill the e-B',
               durationMinutes: 30,
-              description:
-                'Decide what to fix, what to flag, and what to leave alone — with a record of every change.'
+              description: 'On the MyTax simulator — Claude fills the form, you check before anything is submitted.'
             },
             {
-              id: 'd1-lab1-s3',
-              promptCode: 'P12',
-              title: 'Stage 3 — Build the summary workbook',
-              durationMinutes: 35,
-              description:
-                'Live formulas, not typed values. Change one number in the source and watch the totals move — that test is the whole point.'
+              id: 'd1-connect-s2',
+              promptCode: 'Labs 12–14',
+              title: 'Live prices, a live API, vendor reconciliation',
+              durationMinutes: 30,
+              description: 'Read public pages, call an API, and match contracts to invoices.'
+            }
+          ]
+        },
+        {
+          id: 'd1-excel',
+          day: 1,
+          startTime: '16:15',
+          endTime: '17:00',
+          title: 'Excel, Routines and Your Mini CEO',
+          handoutSource: 'Topics 5–7',
+          format: 'Hands-on',
+          objective:
+            'Claude inside Excel for reconciliation and analysis, routines that run on a clock, and chained prompts that turn Claude into a market researcher, scenario planner and daily briefer.',
+          stages: [
+            {
+              id: 'd1-excel-s1',
+              promptCode: 'Labs 15–19',
+              title: 'Reconciliation, margin analysis, 3-way match',
+              durationMinutes: 25,
+              description: 'Two-ledger reconciliation and PO / GRN / invoice matching in minutes.'
             },
             {
-              id: 'd1-lab1-s4',
-              promptCode: 'P13',
-              title: 'Stage 4 — Charts and presentation',
+              id: 'd1-excel-s2',
+              promptCode: 'Labs 20–26',
+              title: 'A daily brief that emails itself',
               durationMinutes: 20,
-              description: 'Formatting that survives being emailed to somebody senior.'
-            },
-            {
-              id: 'd1-lab1-s5',
-              promptCode: 'Your own',
-              title: 'Stage 5 — Your exercise',
-              durationMinutes: 10,
-              description:
-                'Write this prompt yourself using the recipe, without copying one from the book.'
+              description: 'Set a routine once; it arrives every weekday before you do.'
             }
           ]
         }
@@ -607,10 +678,10 @@ export const en: SiteContent = {
     },
     {
       dayNumber: 2,
-      theme: 'Put It to Work',
-      subTitle: 'Word · PowerPoint · Scanned PDFs · Remote and automatic · Capstone',
+      theme: 'Build, Share, Scale',
+      subTitle: 'Design & Artifacts · Vibe coding · MCP · Knowledge base · Multi-agent · Capstone',
       description:
-        'Yesterday you taught your AI colleague to handle numbers. Today it handles words, pictures and paper — then you learn to send it work from your phone and set it to run without you. The day closes with a group capstone built for a real situation from somebody’s actual job, demonstrated live.',
+        'Yesterday Claude worked on your files. Today it makes things other people use — images, video, dashboards, web pages and small apps — then connects to your own systems, keeps a second brain, and grows into a team of agents. The day closes with a group capstone, demonstrated live.',
       modules: [
         {
           id: 'd2-recap',
@@ -618,54 +689,62 @@ export const en: SiteContent = {
           startTime: '09:00',
           endTime: '09:15',
           title: 'Recap and Objectives',
-          handoutSource: 'Day 2 opening',
+          handoutSource: 'Day 2 recap',
           format: 'Plenary',
-          objective:
-            'Before you touch the keyboard: everything today builds on a working setup from Module 2, so anything still broken gets fixed now. Fifteen minutes of fixing beats six hours of frustration.',
+          objective: 'Where we were, where we are going — and anything still broken from Day 1 gets fixed now.',
           stages: []
         },
         {
-          id: 'd2-lab2',
+          id: 'd2-design',
           day: 2,
           startTime: '09:15',
-          endTime: '11:00',
-          title: 'Lab 2 — Word Documents with an AI Colleague',
-          handoutSource: 'Lab 2',
-          format: 'Laboratory',
+          endTime: '10:15',
+          title: 'Create — Claude Design, Photos and Video',
+          handoutSource: 'Topic 8',
+          format: 'Hands-on',
           objective:
-            'Excel is judged on whether the numbers are right; Word is judged on whether it sounds right. Most of this lab is controlling tone, structure and length — starting by banning the three tells of AI-written text: empty openers, praise instead of facts, and hedging.',
+            'Turn a description or your data into on-brand visuals, set up a design system once, and watch a product photo edited and turned into a short video.',
           stages: [
             {
-              id: 'd2-lab2-s1',
-              promptCode: 'P14',
-              title: 'Stage 1 — The management report',
-              durationMinutes: 35,
-              description:
-                'A one-page report built from yesterday’s verified workbook, saved into 02 Outputs.'
-            },
-            {
-              id: 'd2-lab2-s2',
-              promptCode: 'P15–P16',
-              title: 'Stage 2 — Fixing what comes back',
-              durationMinutes: 30,
-              description:
-                'Version 2 is where the value is. Cut the adjectives, restore the numbers, tighten to one page.'
-            },
-            {
-              id: 'd2-lab2-s3',
-              promptCode: 'P17',
-              title: 'Stage 3 — Turn it into a reusable template',
-              durationMinutes: 25,
-              description:
-                'Your house style, saved into 03 Templates, so next month starts from a format you already approved.'
-            },
-            {
-              id: 'd2-lab2-s4',
-              promptCode: 'Your own',
-              title: 'Stage 4 — Your exercise',
+              id: 'd2-design-s1',
+              promptCode: 'Demo',
+              title: 'Photo editing, then into a video',
               durationMinutes: 15,
-              description:
-                'A debt collection letter from a prompt you write yourself — and a decision about what happens if a customer has more than one overdue invoice.'
+              description: 'A plain product photo, cleaned up and turned into a short clip for social media.'
+            },
+            {
+              id: 'd2-design-s2',
+              promptCode: 'Labs 27–28',
+              title: 'A landing page and a board one-pager',
+              durationMinutes: 40,
+              description: 'Styled by conversation, using a ready-made landing-page Skill.'
+            }
+          ]
+        },
+        {
+          id: 'd2-artifacts',
+          day: 2,
+          startTime: '10:15',
+          endTime: '11:00',
+          title: 'Artifacts — Working Tools Inside the Chat',
+          handoutSource: 'Topic 9',
+          format: 'Laboratory',
+          objective:
+            'An Artifact is a live page or mini-app Claude builds beside the chat. Build two, then add one as a card on the YK Automation Portal.',
+          stages: [
+            {
+              id: 'd2-artifacts-s1',
+              promptCode: 'New',
+              title: 'A landing page with a hero section and music',
+              durationMinutes: 20,
+              description: 'Your business, one page, background music — refined by conversation.'
+            },
+            {
+              id: 'd2-artifacts-s2',
+              promptCode: 'Labs 29–30',
+              title: 'A live dashboard from your numbers',
+              durationMinutes: 20,
+              description: 'Paste the figures, get a board-ready dashboard you can share by link.'
             }
           ]
         },
@@ -683,39 +762,44 @@ export const en: SiteContent = {
           breakType: 'tea'
         },
         {
-          id: 'd2-lab3',
+          id: 'd2-vibe',
           day: 2,
           startTime: '11:15',
-          endTime: '12:15',
-          title: 'Lab 3 — PowerPoint with an AI Colleague',
-          handoutSource: 'Lab 3',
+          endTime: '12:30',
+          title: 'Vibe Coding — From Prompt to Product',
+          handoutSource: 'Topic 10',
           format: 'Laboratory',
           objective:
-            'One hour, fast, because you already have the content. Never ask for a deck from nothing — ask for a deck from a document you have already checked, so your review is only about presentation.',
+            'Describe the intent in plain English and let Claude Code write, run and fix the code. Three builds, each a step up from the last.',
           stages: [
             {
-              id: 'd2-lab3-s1',
-              promptCode: 'P18',
-              title: 'The board deck',
-              durationMinutes: 35,
-              description:
-                'Eight slides with speaker notes on every one, for a 15-minute half-year review with two directors.'
+              id: 'd2-vibe-s1',
+              promptCode: 'Build 1',
+              title: 'An HTML tool, published and added to the portal',
+              durationMinutes: 20,
+              description: 'A small calculator or checker, published as an Artifact and linked from the portal.'
             },
             {
-              id: 'd2-lab3-s2',
-              promptCode: 'P19–P20',
-              title: 'Review and your own pitch deck',
-              durationMinutes: 25,
-              description:
-                'Every slide checked in Slide Show view for overflowing text, every figure traced back to your workbook.'
+              id: 'd2-vibe-s2',
+              promptCode: 'Build 2',
+              title: 'A full Next.js landing page on GitHub',
+              durationMinutes: 35,
+              description: 'Your own photos, your tools embedded, pushed to GitHub so it is live.'
+            },
+            {
+              id: 'd2-vibe-s3',
+              promptCode: 'Build 3',
+              title: 'A simple Next.js app',
+              durationMinutes: 20,
+              description: 'Idea → build → run → review → ship, the whole loop in one sitting.'
             }
           ]
         },
         {
           id: 'd2-lunch',
           day: 2,
-          startTime: '12:15',
-          endTime: '13:15',
+          startTime: '12:30',
+          endTime: '13:30',
           title: 'Lunch',
           handoutSource: '',
           format: 'Plenary',
@@ -725,47 +809,64 @@ export const en: SiteContent = {
           breakType: 'lunch'
         },
         {
-          id: 'd2-m4',
+          id: 'd2-mcp',
           day: 2,
-          startTime: '13:15',
+          startTime: '13:30',
           endTime: '14:15',
-          title: 'Module 4 — Scanned PDFs and Unstructured Data',
-          handoutSource: 'Module 4',
+          title: 'MCP and a Second Brain',
+          handoutSource: 'Topics 11–12',
           format: 'Hands-on',
           objective:
-            'The single most tedious task in most finance and admin departments: somebody reads a scanned supplier invoice and types the numbers into the accounting system. You replace the typing — and build the register that lets a human check the machine’s work in under two minutes.',
+            'MCP is one standard plug for any system. Then build an Obsidian vault Claude maintains, and make it cite the note every answer came from.',
           stages: [
             {
-              id: 'd2-m4-s1',
-              promptCode: 'P21',
-              title: 'Stage 1 — Read the invoice',
+              id: 'd2-mcp-s1',
+              promptCode: 'Labs 32–35',
+              title: 'Talk to Claude over Telegram or WhatsApp',
               durationMinutes: 15,
-              description:
-                'Why a scanned PDF is a photograph, not text, and what that means for accuracy.'
+              description: 'Experimental — shown live, optional to try.'
             },
             {
-              id: 'd2-m4-s2',
-              promptCode: 'P22',
-              title: 'Stage 2 — Fixed-format extraction',
-              durationMinutes: 20,
-              description:
-                'A JSON schema — a blank form filled in the same way every time — including an honest confidence rating and a list of fields a human should check.'
+              id: 'd2-mcp-s2',
+              promptCode: 'Labs 36–39',
+              title: 'Build and query your knowledge vault',
+              durationMinutes: 30,
+              description: 'Scattered notes into a linked vault, then grounded, cited answers.'
+            }
+          ]
+        },
+        {
+          id: 'd2-multiagent',
+          day: 2,
+          startTime: '14:15',
+          endTime: '15:15',
+          title: 'Multi-Agent Systems — A Team of Claudes',
+          handoutSource: 'Topic 13',
+          format: 'Laboratory',
+          objective:
+            'One lead agent plans and hands parts of a job to specialists — a researcher, a builder, a reviewer — then checks what comes back. It is three markdown files, not a software project.',
+          stages: [
+            {
+              id: 'd2-multiagent-s1',
+              promptCode: 'Labs 40–42',
+              title: 'Hire a team, run a job, ship a dashboard',
+              durationMinutes: 35,
+              description: 'Scaffold the team in one prompt and send one job through it.'
             },
             {
-              id: 'd2-m4-s3',
-              promptCode: 'P23',
-              title: 'Stage 3 — Into a spreadsheet',
+              id: 'd2-multiagent-s2',
+              promptCode: 'Labs 43–48',
+              title: 'Patterns: router, debate + judge, quality gate',
               durationMinutes: 25,
-              description:
-                'A two-sheet invoice register with live Quantity × Unit Price formulas, a variance column, amber highlighting on low-confidence fields, and blank Reviewed By / Review Date / Approved columns.'
+              description: 'Close review, customer-service routing, procurement and bids.'
             }
           ]
         },
         {
           id: 'd2-break-2',
           day: 2,
-          startTime: '14:15',
-          endTime: '14:30',
+          startTime: '15:15',
+          endTime: '15:30',
           title: 'Refreshment break',
           handoutSource: '',
           format: 'Plenary',
@@ -775,73 +876,36 @@ export const en: SiteContent = {
           breakType: 'tea'
         },
         {
-          id: 'd2-m5',
-          day: 2,
-          startTime: '14:30',
-          endTime: '15:00',
-          title: 'Module 5 — Working Remotely and Automatically',
-          handoutSource: 'Module 5',
-          format: 'Demonstration',
-          objective:
-            'Two ways to get work out of your AI colleague without sitting in front of your laptop: Dispatch, which is a message from your phone to a colleague sitting at your desk, and scheduled tasks, which are a standing instruction to that colleague. Includes the security conversation you need to have before enabling either at work.',
-          stages: [
-            {
-              id: 'd2-m5-s1',
-              promptCode: 'P24',
-              title: 'Your first message from your phone',
-              durationMinutes: 15,
-              description:
-                'Ask for the top three regions and their RM totals — from your phone, with your laptop awake across the room.'
-            },
-            {
-              id: 'd2-m5-s2',
-              promptCode: 'P25',
-              title: 'A weekly scheduled task',
-              durationMinutes: 15,
-              description:
-                'Describe the job once, set the timing in ordinary language, review what Claude proposes, confirm.'
-            }
-          ]
-        },
-        {
           id: 'd2-capstone',
           day: 2,
-          startTime: '15:00',
+          startTime: '15:30',
           endTime: '16:30',
-          title: 'Capstone Project — Build a Digital Colleague',
-          handoutSource: 'Capstone',
+          title: 'Capstone — The Month-End Cockpit',
+          handoutSource: 'Topic 14',
           format: 'Group build',
           objective:
-            'Groups of three or four. Ninety minutes to design and build a working AI colleague for a real business situation: reconciliation, HR document automation, scheduled sales reporting — or, best of all, a real task from somebody in the group’s actual job.',
+            'One Claude project a finance or operations team would actually run every month, using everything from the two days.',
           stages: [
             {
               id: 'd2-capstone-s1',
-              promptCode: 'P26',
-              title: 'Kickoff — let the agent interview you',
-              durationMinutes: 20,
+              promptCode: 'Capstone',
+              title: 'Project + Skill + routine + Artifact',
+              durationMinutes: 60,
               description:
-                'Claude asks up to eight questions before writing anything, then drafts the system prompt and stops for your approval.'
-            },
-            {
-              id: 'd2-capstone-s2',
-              promptCode: 'Group work',
-              title: 'Build',
-              durationMinutes: 70,
-              description:
-                'A group-written system prompt, at least two working prompts, at least one finished file — and a statement of three limits.'
+                'Standing instructions, a commentary Skill, a reminder routine and a close-status dashboard you demo to the room.'
             }
           ]
         },
         {
-          id: 'd2-presentations',
+          id: 'd2-close',
           day: 2,
           startTime: '16:30',
           endTime: '17:00',
-          title: 'Presentations & Close',
-          handoutSource: 'Capstone',
+          title: 'Demos, Cowork by Role, and Close',
+          handoutSource: 'Wrap-up',
           format: 'Plenary',
           objective:
-            'Five minutes per group, demonstrated live in front of the room. Assessed on whether it works, the quality of the system prompt, honesty about limits, realism, and whether a non-technical person in the audience can follow what you built.',
+            'Groups demo live. Then one ready-to-run Cowork recipe each for the CEO, HR, marketing, sales, finance and operations — and your plan for the first month back at work.',
           stages: []
         }
       ]
@@ -853,193 +917,168 @@ export const en: SiteContent = {
       id: 'faq-1',
       question: 'Do I need to know how to code?',
       answer:
-        'No. This handout is written for people who do not work in IT. Every technical word is explained in plain English the first time it appears, and again in the glossary. There is no command line and nothing to program — you write instructions in ordinary English. If you can use email and Microsoft Office, you can do everything in this course.',
+        'No. Even on Day 2, when we build web pages and small apps, you describe what you want in plain English and Claude writes the code. Every technical word is explained the first time it comes up. If you can use email and Microsoft Office, you can do everything in this course.',
       category: 'General'
     },
     {
       id: 'faq-2',
-      question: 'Do I need a paid Claude account?',
+      question: 'What will I see demonstrated live?',
       answer:
-        'Yes — Pro, Max, Team or Enterprise. The free plan can chat with you, but it cannot create Excel, Word, PowerPoint or PDF files and it cannot open folders on your computer. Those two abilities are the entire point of the course, so a paid plan is not optional here. Please have this sorted before Day 1.',
-      category: 'Requirements'
+        'Every topic is shown live before you try it yourself. Along the way you will see NotebookLM turning a stack of documents into grounded answers, the YK Automation Portal and an e-Invoice explorer built with AI, a product photo edited and turned into a short video, real Excel exports and Claude chats on screen, and a full website built and put online by describing it in plain English.',
+      category: 'Curriculum'
     },
     {
       id: 'faq-3',
-      question: 'What should I bring, and what should I do before Day 1?',
+      question: 'Do I need a paid Claude account?',
       answer:
-        'A laptop (Windows 10/11, or a Mac from 2020 or later) with Excel, Word and PowerPoint installed, plus your phone for Day 2. Before you arrive: install Claude Desktop from claude.com/download, sign in and confirm your plan, switch on Settings › Capabilities › Code execution and file creation, and create a Documents\\AI Workshop folder containing 01 Data, 02 Outputs and 03 Templates. Arrive with that done and you will be ahead of the room.',
+        'Yes — Pro, Max, Team or Enterprise. The free plan can chat, but it cannot run Cowork, create files, use Skills or connect to your apps, and those are the course. Please have this sorted before Day 1.',
       category: 'Requirements'
     },
     {
       id: 'faq-4',
-      question: 'My company laptop blocks new software. Is that a problem?',
+      question: 'What should I bring, and what should I do before Day 1?',
       answer:
-        'It is, and it is the one thing you cannot fix on the day. Many company laptops are locked down; if you see "Your administrator has blocked this app" you need your IT department to approve the installation. Send them this in advance: the application is Claude Desktop by Anthropic, downloaded from claude.com/download. On Team and Enterprise plans your Claude administrator also controls the code execution setting, so ask them to enable it at the same time.',
+        'A laptop with administrator rights (Windows 10/11, or a Mac from 2020 or later) with Excel, Word and PowerPoint, Google Chrome, and your phone. Before you arrive: install Claude Desktop from claude.com/download, sign in, make sure Cowork starts (on Windows this needs the one-off Virtual Machine Platform step we send you), add the Claude for Chrome extension, and create a free GitHub account for Day 2.',
       category: 'Requirements'
     },
     {
       id: 'faq-5',
-      question: 'How is this different from the AI Workshop for Accountants?',
+      question: 'My company laptop is locked down. Is that a problem?',
       answer:
-        'The accountants course is organised around accounting tasks — bank statements, Form E, SME tax. This one is organised around the agent itself: how to configure it, instruct it, and give it access, then prove the configuration works across Excel, Word, PowerPoint and scanned PDFs. It is not accounting-specific, and it suits any office role that produces documents from data. The two courses stand alone; taking both is a bonus, not a requirement.',
-      category: 'Curriculum'
+        'Probably, and it is the one thing we cannot fix on the day. Without administrator rights Claude installs but Cowork will not run, and virtual desktops (VDI) cannot host Cowork at all. Ask IT in advance to allow Claude Desktop by Anthropic and the Virtual Machine Platform feature — or bring a personal laptop.',
+      category: 'Requirements'
     },
     {
       id: 'faq-6',
       question: 'Can I use my own company data during the workshop?',
       answer:
-        'Everything in the labs runs on a fictional Malaysian company, Sinar Jaya Trading Sdn Bhd, so nothing confidential leaves the room. For the capstone you may use a real task from your own job — use non-confidential data, or real data with names replaced by codes. Appendix D of your handout carries a PDPA checklist to run through before you point any of this at real client work.',
+        'The labs run on fictional Malaysian companies, so nothing confidential leaves the room. Day 1 also covers how to prepare data safely before you upload it — export, remove what is not needed, replace names with codes. Use that on anything real you bring for the capstone.',
       category: 'Logistics'
     },
     {
       id: 'faq-7',
       question: 'What do I take home?',
       answer:
-        'The full participant handout — every step, including the small ones that are easy to forget, plus a plain-English glossary, a prompt library of all 26 prompts, a troubleshooting appendix and a Monday-morning action plan. You also keep everything you built: your configured project, your workbook, report, template, board deck and invoice register.',
+        'The participant pack: the full slide deck, all 48 labs with copy-paste prompts, the lab data files, ready-made Skills and the strategy worksheets. You also keep everything you built — your Claude projects, dashboard, landing page, published tool and agent team.',
       category: 'General'
     },
     {
       id: 'faq-8',
       question: 'Will the AI just do my job for me?',
       answer:
-        'No, and the course is blunt about that. It removes the typing; the judgement stays with you. Every lab ends with a checkpoint you verify by hand, the capstone marks down any group claiming its agent needs no supervision, and one rule survives every change in this technology: AI produces the draft, you review it, you sign it. Everything here makes you faster. Nothing here makes you less accountable.',
+        'No. It removes the typing; the judgement stays with you. The course has one golden rule — AI prepares, a human approves — and every lab says what to check before anything is sent, paid, filed or published. Everything here makes you faster. Nothing here makes you less accountable.',
       category: 'General'
     }
   ],
 
   featuredLabs: [
     {
-      code: 'Lab 1',
       day: 'Day 1',
-      title: 'Excel — A Workbook You Can Defend',
-      category: 'Data & Reporting',
+      duration: '20 min',
+      title: 'Fill Repetitive Documents in Bulk',
+      purpose:
+        'Sales orders, quotations, delivery notes and service forms get retyped from the same template every day — slow, and one typo away from a wrong invoice.',
+      how:
+        'Give Claude your own Word template and a list of orders. It fills one document per customer, works out the line totals, discount and grand total, numbers them in sequence and saves every file.',
+      helps:
+        'A morning of copy-and-paste becomes a few minutes of checking. The same method works for any form your company fills in again and again.',
+      beneficiaries: ['Sales', 'Admin', 'Customer service']
+    },
+    {
+      day: 'Day 1',
+      duration: '20 min',
+      title: 'Think Like a Senior Business Analyst',
+      purpose:
+        'Owners and accountants are often handed a set of numbers and asked “how is this business really doing?” — without knowing where to start.',
+      how:
+        'Brief Claude as a senior analyst with a few facts about the business. It sense-checks the numbers first, lays out what to analyse — revenue quality, unit costs, cash flow, profit trend, tax — and lists exactly what information it needs from you.',
+      helps:
+        'You start every review with a clear plan and a ready-to-send information request, instead of a blank page.',
+      beneficiaries: ['Business owners', 'Accounts', 'Advisors']
+    },
+    {
+      day: 'Day 1',
+      duration: '40 min',
+      title: 'Turn the Ledger Into Answers',
+      purpose:
+        'The answers to everyday questions — how much commission did each salesperson earn, which tenants or customers pay late — are buried in the general ledger.',
+      how:
+        'Hand Claude a raw GL export. It builds a staff-by-year commission table, and a payment summary that marks every month as on time, late or missing — with working Excel formulas, not typed numbers.',
+      helps:
+        'Commission checks and collection follow-ups that took days of filtering now take minutes, and every figure traces back to a ledger line.',
+      beneficiaries: ['Accounts', 'HR & payroll', 'Credit control']
+    },
+    {
+      day: 'Day 1',
+      duration: '30 min',
+      title: 'Match, Reconcile and Flag',
+      purpose:
+        'Bank reconciliations and matching purchase orders, goods received and supplier invoices are tedious — and mismatches slip through.',
+      how:
+        'Claude works inside Excel to reconcile two ledgers and run a three-way match of PO, GRN and invoice, then lists every difference with the reason it found.',
+      helps:
+        'Short deliveries, price differences and duplicate invoices are caught before payment, and month-end closes faster.',
+      beneficiaries: ['Accounts', 'Warehouse & store', 'Purchasing']
+    },
+    {
+      day: 'Day 1',
+      duration: '30 min',
+      title: 'Build a Structured Interview Kit',
+      purpose:
+        'Most SMEs interview on gut feel: different questions for each candidate, and no fair way to compare them afterwards.',
+      how:
+        'Describe the role. Claude drafts interview questions linked to the job, a scoring guide for each answer, and a Chinese version — then turns it into a simple tool interviewers can use.',
+      helps:
+        'Every candidate gets the same questions and is scored the same way, so hiring decisions are fairer, faster and easier to explain.',
+      beneficiaries: ['HR', 'Hiring managers', 'Business owners']
+    },
+    {
+      day: 'Day 1',
+      duration: '20 min',
+      title: 'A Morning Brief That Arrives by Itself',
+      purpose:
+        'Managers start the day hunting through emails, cash balances and news to work out what needs attention.',
+      how:
+        'Set up a routine once. Every weekday before you arrive, Claude gathers what matters — cash position, overdue items, industry news — and emails you a one-page brief.',
+      helps:
+        'You walk in knowing the three things that need a decision today. The work is done before office hours.',
+      beneficiaries: ['Business owners', 'Managers', 'Finance']
+    },
+    {
+      day: 'Day 2',
       duration: '2 hours',
-      description:
-        'Six months of raw invoice lines, deliberately imperfect in exactly the way real exported data is. Profile it before you build anything on top of it, decide what to fix and what to flag, then produce a summary workbook whose totals are live formulas rather than typed numbers.',
-      keyOutcome:
-        'Change one number in the source and the totals move — the test that separates a real workbook from a screenshot.',
-      samplePrompt: `ROLE: You are a management accountant preparing the monthly sales pack for the
-directors of Sinar Jaya Trading Sdn Bhd.
-
-TASK: Summarise the January to June 2026 sales performance.
-
-INPUT: Use only the file Sinar_Jaya_Sales_Data_Jan-Jun_2026.csv in the folder
-"01 Data". Do not use any other source.
-
-OUTPUT: Total sales in RM, the three highest-selling regions with their share,
-the three highest-selling salespeople, the best and worst month, and two things
-in the data you think are wrong or suspicious.
-
-RULES:
-- Show me the total figure you calculated so I can check it.
-- If a region name appears more than once with different spelling, do not merge
-  them silently - list them separately and flag it.
-- Do not give me recommendations yet. Facts only.`
+      title: 'Dashboards, Web Pages and Tools You Can Share',
+      purpose:
+        'Reports trapped in spreadsheets, and small tools the team needs but nobody has time to build.',
+      how:
+        'Describe what you want in plain English. Claude builds a live dashboard from your numbers, a landing page for your business, and a small calculator or checker — then publishes it, adds it to a company portal, or puts a full website online.',
+      helps:
+        'Information people can open by link on any device, and the small tools your team wished it had — without a developer.',
+      beneficiaries: ['Business owners', 'Marketing', 'Sales', 'Accounts']
     },
     {
-      code: 'Lab 2',
       day: 'Day 2',
-      title: 'Word — The Management Report, and Its Template',
-      category: 'Writing & House Style',
-      duration: '1 hour 45',
-      description:
-        'Excel is judged on whether the numbers are right; Word is judged on whether it sounds right. You ban the three tells of AI-written text — empty openers, praise instead of facts, hedging — get to version 2, then freeze the result as a reusable house template.',
-      keyOutcome:
-        'A one-page report your manager will read, plus a template so next month starts from a format you already approved.',
-      samplePrompt: `ROLE: You are the Finance and Admin Executive writing to the two directors.
-
-TASK: A one-page management report on the half-year sales performance.
-
-INPUT: Only the summary workbook you built in Lab 1. Every figure must come
-from that file - do not recalculate anything in your head.
-
-OUTPUT: A Word file in "02 Outputs". Headings, short paragraphs, one page.
-
-RULES:
-- No empty openers. Do not begin with "In today's business environment".
-- No adjectives about performance. Give me the number, not "impressive growth".
-- Do not hedge. Say what the data shows, or say you do not know.`
+      duration: '45 min',
+      title: 'Build a Second Brain for Your Team',
+      purpose:
+        'Company know-how lives in people’s heads, old emails and scattered files. When someone is on leave or resigns, the answers go with them.',
+      how:
+        'Turn scattered notes, SOPs and past cases into a linked Obsidian knowledge vault that Claude helps organise and keep up to date. Then ask it questions and make it cite the exact note each answer came from.',
+      helps:
+        'New staff find answers without interrupting seniors, procedures stay consistent, and every answer can be checked against its source.',
+      beneficiaries: ['Business owners', 'HR & training', 'Accounts', 'Operations']
     },
     {
-      code: 'Lab 3',
       day: 'Day 2',
-      title: 'PowerPoint — An 8-Slide Board Deck',
-      category: 'Presentations',
-      duration: '1 hour',
-      description:
-        'Fast, because you already have the content. The principle of this lab is one line long: never ask for a deck from nothing — ask for a deck from a document you have already checked, so your review is only about presentation.',
-      keyOutcome:
-        'Eight slides with speaker notes on every one, every figure traceable back to your workbook.',
-      samplePrompt: `ROLE: You are preparing slides for the two directors of Sinar Jaya Trading
-Sdn Bhd for a 15 minute half-year review meeting.
-
-INPUT: The management report you approved in Lab 2. Nothing else.
-
-OUTPUT: An 8-slide PowerPoint file in "02 Outputs", with speaker notes on
-every slide.
-
-RULES:
-- Six lines of text per slide maximum. If it does not fit, it goes in the notes.
-- Every chart must be built from a figure that appears in the report.
-- No slide may contain a number that is not in the report.`
-    },
-    {
-      code: 'Module 4',
-      day: 'Day 2',
-      title: 'Scanned PDFs — Invoice Data Without Typing',
-      category: 'Unstructured Data & OCR',
-      duration: '1 hour',
-      description:
-        'A supplier invoice that is a photograph, not text. You extract it against a fixed JSON schema — a blank form filled in the same way every time — with an honest confidence rating, then turn it into a register a human can check in under two minutes.',
-      keyOutcome:
-        'An invoice register with live variance formulas, amber flags on low-confidence fields, and blank Reviewed By / Approved columns. It removes the typing; the judgement stays with you.',
-      samplePrompt: `Extract this scanned invoice into the following fields:
-
-invoice_number, invoice_date, supplier_name, line_items[], sales_tax_amount,
-delivery_charge, total_payable, bank_account_number,
-extraction_confidence   (high, medium or low - your own honest assessment)
-fields_needing_review   (a list of any field a human should check)
-
-Give it to me as JSON. All amounts as plain numbers with two decimal places,
-no currency symbol and no thousands separator - so 16734.00, not RM 16,734.00.`
-    },
-    {
-      code: 'Module 5',
-      day: 'Day 2',
-      title: 'Dispatch & Scheduled Tasks',
-      category: 'Remote and Automatic',
-      duration: '30 minutes',
-      description:
-        'Two ways to get work out of your AI colleague without sitting in front of your laptop. Dispatch is a message from your phone to a colleague sitting at your desk. A scheduled task is a standing instruction to that colleague — every Monday at 8am, before you arrive.',
-      keyOutcome:
-        'Includes the security conversation: for a finance department, use Dispatch to read and summarise. Do the writing, sending and approving at your desk.',
-      samplePrompt: `Look in my AI Workshop folder, open the sales summary workbook, and tell me
-the three regions with the highest sales and their RM totals.
-
-Just reply here with the numbers. Do not create a file.
-
-[ Sent from your phone, with your laptop awake across the room. ]`
-    },
-    {
-      code: 'Capstone',
-      day: 'Day 2',
-      title: 'Build a Digital Colleague, Demo It Live',
-      category: 'Group Build',
-      duration: '90 min + demos',
-      description:
-        'Groups of three or four. Choose reconciliation, HR document automation, scheduled sales reporting — or, best of all, a real task from somebody in the group’s actual job. Ninety minutes to build, five minutes to present, demonstrated live in front of the room.',
-      keyOutcome:
-        'Assessed on whether it actually works, the quality of the system prompt, and honesty about limits. Groups claiming their agent needs no supervision score lowest.',
-      samplePrompt: `We are building an AI assistant for [scenario].
-
-Before we write any prompts, interview me. Ask me up to eight questions,
-one at a time, that you need answered in order to write a good system
-prompt for this job. Cover: who the users are, what the inputs are, what
-the outputs must look like, the house rules, and what would count as a
-serious mistake.
-
-After my answers, draft the system prompt. Then stop - do not start the
-work until we approve it.`
+      duration: '90 min',
+      title: 'A Team of AI Agents for the Month-End Close',
+      purpose:
+        'Month-end has many parts — reconciliations, variance commentary, reviews — that pile up on one or two people.',
+      how:
+        'Set up a lead agent that splits the close between specialists: one reconciles, one writes the commentary, one reviews for anything unsupported. You approve the plan first and sign off the result.',
+      helps:
+        'The close becomes a repeatable checklist that runs in parallel, with a human still approving every number that leaves the team.',
+      beneficiaries: ['Accounts', 'Finance managers', 'Audit']
     }
   ],
 
@@ -1047,22 +1086,22 @@ work until we approve it.`
     {
       title: 'Finance & Admin Executives',
       desc:
-        'The role the whole course is written around. Reports your manager keeps asking for, built by hand every month — this is where the two days pay for themselves first.'
+        'Reconciliations, GL analysis, sales orders, monthly packs. The Day 1 labs pay for themselves here first.'
     },
     {
       title: 'Operations & Office Managers',
       desc:
-        'Supplier invoices, letters, memos and weekly packs. Learn to configure one agent properly rather than writing one clever request at a time.'
+        'Supplier invoices, vendor checks, process maps and routines that run before you arrive.'
     },
     {
-      title: 'Team Leads Evaluating AI',
+      title: 'Business Owners & Team Leads',
       desc:
-        'You need to know what an agent can actually do, what it must never be trusted with, and what a sensible review step looks like before you roll it out.'
+        'Decide where AI fits, what to start with, and what a safe human sign-off looks like before you roll it out.'
     },
     {
       title: 'Professional Practices',
       desc:
-        'Audit, tax, secretarial and advisory teams that produce documents from data, and want a house style enforced by a template instead of by memory.'
+        'Audit, tax, secretarial and advisory teams who turn client data into analysis, letters and filings.'
     }
   ]
 };
