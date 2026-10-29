@@ -125,8 +125,8 @@ LANGS = {
             "A step-by-step handbook so you can do it all again at your desk",
         ],
         "facts": [
-            ("27–28 Oct 2026", "English · 9:00 AM – 5:00 PM"),
-            ("4–5 Nov 2026", "Mandarin · 9:00 AM – 5:00 PM"),
+            ("4–5 Nov 2026", "Mandarin · FULL", True),
+            ("24–25 Nov 2026", "Mandarin · 9:00 AM – 5:00 PM"),
             ("0 Code", "No IT background"),
             ("HRD Corp", "SBL-Khas"),
         ],
@@ -177,8 +177,8 @@ LANGS = {
             "一本逐步操作手册，回到座位可以自己重做一遍",
         ],
         "facts": [
-            ("10月27–28日", "英语 · 上午 9:00 – 下午 5:00"),
-            ("11月4–5日", "华语 · 上午 9:00 – 下午 5:00"),
+            ("11月4–5日", "华语 · 已满额", True),
+            ("11月24–25日", "华语 · 上午 9:00 – 下午 5:00"),
             ("零程式", "无需 IT 背景"),
             ("HRD Corp", "SBL-Khas 计划"),
         ],
@@ -206,8 +206,9 @@ def build_html(lang: str) -> str:
     takeaway_items = "\n".join(f"        <li>{t}</li>" for t in L["takeaways"])
 
     fact_items = "\n".join(
-        f"""      <div class="fact"><strong>{big}</strong><span>{small}</span></div>"""
-        for big, small in L["facts"]
+        f"""      <div class="fact{' full' if len(fact) > 2 and fact[2] else ''}">"""
+        f"""<strong>{fact[0]}</strong><span>{fact[1]}</span></div>"""
+        for fact in L["facts"]
     )
 
     # Chinese sets denser than English at the same point size, and the tight tracking
@@ -432,6 +433,10 @@ def build_html(lang: str) -> str:
     text-align: center;
   }}
   .fact strong {{ display: block; font-size: 12.5pt; font-weight: {heavy}; color: #0284C7; }}
+  /* A batch that has sold out stays on the flyer, struck through. */
+  .fact.full {{ background: #F4F2EE; border-color: #DCD8CF; }}
+  .fact.full strong {{ color: #8A8783; text-decoration: line-through; }}
+  .fact.full span {{ color: #8A8783; font-weight: 700; }}
   .fact span {{ display: block; font-size: 7.8pt; color: #55534E; margin-top: 0.6mm; }}
 
   /* ---- call to action ---- */

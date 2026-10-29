@@ -2,7 +2,7 @@ import React from 'react';
 import { Mail, Phone, MapPin, Globe } from 'lucide-react';
 import { Header } from './components/Header';
 import { LandingPage } from './components/LandingPage';
-import { HRD_CORP_INFO, ORGANIZER_INFO } from './data/workshopData';
+import { BatchId, HRD_CORP_INFO, ORGANIZER_INFO, isBatchFull } from './data/workshopData';
 import { LanguageProvider, useLanguage } from './i18n';
 
 // Contact details are language-neutral, so the rows are built once here and the
@@ -76,11 +76,18 @@ const Site: React.FC = () => {
                 {t.footer.workshopHeading}
               </h2>
               <ul className="space-y-2">
-                {t.schedule.batches.map((batch) => (
-                  <li key={batch.id} className="text-sky-400 font-semibold">
-                    {batch.datesLabel} · {batch.languageLabel}
-                  </li>
-                ))}
+                {t.schedule.batches.map((batch) =>
+                  isBatchFull(batch.id as BatchId) ? (
+                    <li key={batch.id} className="text-slate-500 font-semibold">
+                      <span className="line-through">{batch.datesLabel}</span> ·{' '}
+                      {t.registration.batchFullLabel}
+                    </li>
+                  ) : (
+                    <li key={batch.id} className="text-sky-400 font-semibold">
+                      {batch.datesLabel} · {batch.languageLabel}
+                    </li>
+                  )
+                )}
                 <li className="text-sky-400 font-semibold">{t.schedule.timeLabel}</li>
                 {t.footer.facts.map((fact) => (
                   <li key={fact}>{fact}</li>

@@ -26,13 +26,18 @@ export const ORGANIZER_INFO = {
  * The dates shown on the page live in ../i18n/*.ts, keyed by `id`.
  */
 export const BATCHES = [
-  { id: 'oct27', sheetLabel: '27 & 28 Oct 2026 (English)' },
-  { id: 'nov04', sheetLabel: '4 & 5 Nov 2026 (Mandarin)' }
+  { id: 'nov04', sheetLabel: '4 & 5 Nov 2026 (Mandarin)', full: true },
+  { id: 'nov24', sheetLabel: '24 & 25 Nov 2026 (Mandarin)', full: false }
 ] as const;
 
 export type BatchId = (typeof BATCHES)[number]['id'];
 
-export const DEFAULT_BATCH: BatchId = 'oct27';
+/** A full batch is still listed, struck through, but cannot be registered for. */
+export const isBatchFull = (id: BatchId): boolean =>
+  BATCHES.some((batch) => batch.id === id && batch.full);
+
+/** The first batch still taking registrations. */
+export const DEFAULT_BATCH: BatchId = (BATCHES.find((batch) => !batch.full) ?? BATCHES[0]).id;
 
 /** Venue. The address is not translated — it is what you give a driver or type into Maps. */
 export const WORKSHOP_VENUE = {

@@ -16,7 +16,7 @@ one row. Columns are matched by the header text in row 1:
 | Phone Number           | Phone                                        |
 | Company Name           | Company (`N/A` if left blank on the form)    |
 | HRD or Cash            | `HRD` or `Cash`                              |
-| Training Date          | `27 & 28 Oct 2026 (English)` or `4 & 5 Nov 2026 (Mandarin)` |
+| Training Date          | `4 & 5 Nov 2026 (Mandarin)` or `24 & 25 Nov 2026 (Mandarin)` |
 
 Any other column (e.g. a Status or Remarks column you add yourself) is left blank
 for you to fill in, and columns can be reordered freely. If **Training Date** is

@@ -198,6 +198,7 @@ export interface SiteContent {
       company: string;
     };
     batchNote: string;
+    batchFullLabel: string;
     paymentHrdc: string;
     paymentCash: string;
     pdpaNote: string;

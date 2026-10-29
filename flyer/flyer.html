@@ -196,6 +196,10 @@
     text-align: center;
   }
   .fact strong { display: block; font-size: 12.5pt; font-weight: 800; color: #0284C7; }
+  /* A batch that has sold out stays on the flyer, struck through. */
+  .fact.full { background: #F4F2EE; border-color: #DCD8CF; }
+  .fact.full strong { color: #8A8783; text-decoration: line-through; }
+  .fact.full span { color: #8A8783; font-weight: 700; }
   .fact span { display: block; font-size: 7.8pt; color: #55534E; margin-top: 0.6mm; }
 
   /* ---- call to action ---- */
@@ -303,8 +307,8 @@
   </div>
 
   <div class="facts">
-      <div class="fact"><strong>27–28 Oct 2026</strong><span>English · 9:00 AM – 5:00 PM</span></div>
-      <div class="fact"><strong>4–5 Nov 2026</strong><span>Mandarin · 9:00 AM – 5:00 PM</span></div>
+      <div class="fact full"><strong>4–5 Nov 2026</strong><span>Mandarin · FULL</span></div>
+      <div class="fact"><strong>24–25 Nov 2026</strong><span>Mandarin · 9:00 AM – 5:00 PM</span></div>
       <div class="fact"><strong>0 Code</strong><span>No IT background</span></div>
       <div class="fact"><strong>HRD Corp</strong><span>SBL-Khas</span></div>
   </div>

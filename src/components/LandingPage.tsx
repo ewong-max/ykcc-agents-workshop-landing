@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import {
+  BATCHES,
   BatchId,
   DEFAULT_BATCH,
+  isBatchFull,
   HRD_CORP_INFO,
   PRICING,
   WORKSHOP_VENUE
@@ -40,18 +42,18 @@ import {
 } from 'lucide-react';
 
 /**
- * ?batch=oct27 preselects that run of the course, so a link sent to someone who
- * wants the English batch opens with it already chosen. Anything else falls back
- * to the first batch.
+ * ?batch=nov24 preselects that run of the course, so a link sent to someone who
+ * wants those dates opens with them already chosen. Anything else — an unknown
+ * id, or a batch that has since filled up — falls back to the open batch.
  */
 const batchFromQuery = (): BatchId => {
   if (typeof window === 'undefined') return DEFAULT_BATCH;
   try {
     const wanted = new URLSearchParams(window.location.search).get('batch');
-    // 'nov05' was the Mandarin batch's first id, before the room clash moved it
-    // to 4-5 November; links already sent out keep working.
-    if (wanted === 'nov05') return 'nov04';
-    return wanted === 'oct27' || wanted === 'nov04' ? wanted : DEFAULT_BATCH;
+    const match = BATCHES.find((batch) => batch.id === wanted);
+    // Retired ids from links already sent out ('oct15', 'oct27', 'nov05'), and
+    // any batch since filled up, land on the batch still taking registrations.
+    return match && !match.full ? match.id : DEFAULT_BATCH;
   } catch {
     return DEFAULT_BATCH;
   }
@@ -789,14 +791,24 @@ export const LandingPage: React.FC = () => {
               {t.registration.heading}
             </h2>
             <p className="text-xs sm:text-sm text-[#555450] mt-2">
-              {t.schedule.batches.map((batch) => (
-                <span
-                  key={batch.id}
-                  className="bg-emerald-100 text-emerald-800 font-extrabold px-2 py-0.5 rounded-md border border-emerald-200 shadow-xs inline-block mr-1.5 mb-1"
-                >
-                  {batch.datesLabel} · {batch.languageLabel}
-                </span>
-              ))}{' '}
+              {t.schedule.batches.map((batch) =>
+                isBatchFull(batch.id as BatchId) ? (
+                  <span
+                    key={batch.id}
+                    className="bg-[#F0EEE9] text-[#8A8783] font-extrabold px-2 py-0.5 rounded-md border border-[#DCD8CF] inline-block mr-1.5 mb-1"
+                  >
+                    <span className="line-through">{batch.datesLabel}</span> ·{' '}
+                    {t.registration.batchFullLabel}
+                  </span>
+                ) : (
+                  <span
+                    key={batch.id}
+                    className="bg-emerald-100 text-emerald-800 font-extrabold px-2 py-0.5 rounded-md border border-emerald-200 shadow-xs inline-block mr-1.5 mb-1"
+                  >
+                    {batch.datesLabel} · {batch.languageLabel}
+                  </span>
+                )
+              )}{' '}
               <span className="inline-block mr-1">{t.schedule.timeLabel}.</span>
               {t.registration.introAt} {WORKSHOP_VENUE.address}
               {t.registration.introVenueSuffix} {t.registration.introSuffix}
@@ -1010,37 +1022,52 @@ export const LandingPage: React.FC = () => {
                     {t.registration.labels.batch} <span className="text-red-500">*</span>
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {t.schedule.batches.map((batch) => (
-                      <label
-                        key={batch.id}
-                        htmlFor={`reg-batch-${batch.id}`}
-                        className={`flex items-start gap-2 px-4 py-3 rounded-xl border-2 cursor-pointer transition-colors ${
-                          formData.batch === batch.id
-                            ? 'border-[#0284C7] bg-sky-50'
-                            : 'border-[#DCD8CF] bg-white hover:bg-[#F7F5F0]'
-                        }`}
-                      >
-                        <input
-                          id={`reg-batch-${batch.id}`}
-                          type="radio"
-                          name="batch"
-                          value={batch.id}
-                          checked={formData.batch === batch.id}
-                          onChange={() =>
-                            setFormData({ ...formData, batch: batch.id as BatchId })
-                          }
-                          className="accent-[#0284C7] mt-0.5"
-                        />
-                        <span className="min-w-0">
-                          <span className="block text-xs font-bold text-[#222126]">
-                            {batch.datesLabel}
+                    {t.schedule.batches.map((batch) => {
+                      const isFull = isBatchFull(batch.id as BatchId);
+                      return (
+                        <label
+                          key={batch.id}
+                          htmlFor={`reg-batch-${batch.id}`}
+                          className={`flex items-start gap-2 px-4 py-3 rounded-xl border-2 transition-colors ${
+                            isFull
+                              ? 'border-[#E6E3DB] bg-[#F4F2EE] cursor-not-allowed'
+                              : formData.batch === batch.id
+                                ? 'border-[#0284C7] bg-sky-50 cursor-pointer'
+                                : 'border-[#DCD8CF] bg-white hover:bg-[#F7F5F0] cursor-pointer'
+                          }`}
+                        >
+                          <input
+                            id={`reg-batch-${batch.id}`}
+                            type="radio"
+                            name="batch"
+                            value={batch.id}
+                            disabled={isFull}
+                            checked={formData.batch === batch.id}
+                            onChange={() =>
+                              setFormData({ ...formData, batch: batch.id as BatchId })
+                            }
+                            className="accent-[#0284C7] mt-0.5"
+                          />
+                          <span className="min-w-0">
+                            <span
+                              className={`block text-xs font-bold ${
+                                isFull ? 'text-[#8A8783] line-through' : 'text-[#222126]'
+                              }`}
+                            >
+                              {batch.datesLabel}
+                            </span>
+                            <span
+                              className={`block text-[11px] font-semibold mt-0.5 ${
+                                isFull ? 'text-[#8A8783]' : 'text-[#0284C7]'
+                              }`}
+                            >
+                              {batch.languageLabel}
+                              {isFull ? ` · ${t.registration.batchFullLabel}` : ''}
+                            </span>
                           </span>
-                          <span className="block text-[11px] text-[#0284C7] font-semibold mt-0.5">
-                            {batch.languageLabel}
-                          </span>
-                        </span>
-                      </label>
-                    ))}
+                        </label>
+                      );
+                    })}
                   </div>
                   <p className="text-[11px] text-[#777672] mt-2">{t.registration.batchNote}</p>
                 </div>

@@ -28,15 +28,15 @@ export const zh: SiteContent = {
   schedule: {
     batches: [
       {
-        id: 'oct27',
-        datesLabel: '2026年10月27日及28日',
-        datesShort: '10月27–28日',
-        languageLabel: '英语授课'
-      },
-      {
         id: 'nov04',
         datesLabel: '2026年11月4日及5日',
         datesShort: '11月4–5日',
+        languageLabel: '华语授课'
+      },
+      {
+        id: 'nov24',
+        datesLabel: '2026年11月24日及25日',
+        datesShort: '11月24–25日',
         languageLabel: '华语授课'
       }
     ],
@@ -68,7 +68,7 @@ export const zh: SiteContent = {
     ctaPrimary: '立即报名',
     ctaSecondary: '查看完整两天议程',
     stats: [
-      { value: '两个梯次', label: '10月27–28日（英语）· 11月4–5日（华语）' },
+      { value: '11月24–25日', label: '华语 · 上午9:00 – 下午5:00' },
       { value: '48 个实操', label: '学员资料包附可直接复制的提示词' },
       { value: '零编程', label: '无需 IT 背景' }
     ],
@@ -183,7 +183,7 @@ export const zh: SiteContent = {
     minuteSuffix: '分钟',
     footnote:
       '时间仅供参考。资料包共有 48 个实操——比两天能完成的更多——讲师会挑选最适合现场的部分，其余全部都在资料包里，回到办公桌后可以自行重做。',
-    footnoteDates: '课程日期：2026年10月27日及28日（英语）或 11月4日及5日（华语），上午9:00 – 下午5:00。',
+    footnoteDates: '课程日期：2026年11月24日及25日（华语），上午9:00 – 下午5:00。11月4日及5日梯次已满额。',
     cta: '立即报名'
   },
 
@@ -214,7 +214,8 @@ export const zh: SiteContent = {
       phone: '例如：+60 12-345 6789',
       company: '例如：Maju Jaya Trading Sdn Bhd'
     },
-    batchNote: '两个梯次课程内容完全相同，只是日期与授课语言不同。',
+    batchNote: '两个梯次课程内容完全相同，均以华语授课。11月4日及5日梯次已满额。',
+    batchFullLabel: '已满额',
     paymentHrdc: 'HRDC',
     paymentCash: '现金 CASH',
     pdpaNote: '🔒 你的个人资料将由 YKCC 依据马来西亚 PDPA 严格保密。',
@@ -281,7 +282,7 @@ export const zh: SiteContent = {
     intro: '报名前你需要知道的一切。',
     finalCtaHeading: '准备好不再凡事亲手做了吗？',
     finalCtaBody:
-      '立即报名，预留 2026年10月27日及28日（英语）或 11月4日及5日（华语）的座位。企业内训梯次可安排在贵公司举行，实操内容也能改用你们自己的文件。',
+      '立即报名，预留 2026年11月24日及25日（华语）的座位；11月4日及5日梯次已满额。企业内训梯次可安排在贵公司举行，实操内容也能改用你们自己的文件。',
     finalCta: '立即报名'
   },
 
