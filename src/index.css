@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+  font-family: "Plus Jakarta Sans", "Noto Sans SC", system-ui, sans-serif;
+}
+
 /* Anchor links land below the sticky header instead of behind it. */
 html {
   scroll-behavior: smooth;

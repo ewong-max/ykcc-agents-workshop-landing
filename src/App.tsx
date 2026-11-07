@@ -4,6 +4,9 @@ import { Header } from './components/Header';
 import { LandingPage } from './components/LandingPage';
 import { BatchId, HRD_CORP_INFO, ORGANIZER_INFO, isBatchFull } from './data/workshopData';
 import { LanguageProvider, useLanguage } from './i18n';
+import { NewSite } from './v2/NewSite';
+
+// The previous page (<Site />) is kept below for reference; the Nov 2026 redesign is <NewSite />.
 
 // Contact details are language-neutral, so the rows are built once here and the
 // footer only supplies the wording around them.
@@ -14,7 +17,7 @@ const CONTACT_ENTRIES = [
   { icon: MapPin, value: ORGANIZER_INFO.address, href: null }
 ].filter((entry) => entry.value);
 
-const Site: React.FC = () => {
+export const Site: React.FC = () => {
   const { t } = useLanguage();
 
   return (
@@ -145,7 +148,7 @@ const Site: React.FC = () => {
 export default function App() {
   return (
     <LanguageProvider>
-      <Site />
+      <NewSite />
     </LanguageProvider>
   );
 }
