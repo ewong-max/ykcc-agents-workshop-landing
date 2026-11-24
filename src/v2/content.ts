@@ -94,7 +94,7 @@ const zh: V2Content = {
     sub: '不是教你和 AI 聊天。从你公司的痛点出发，亲手设置一个会填表、对账、查邮件、做报表、写网页的 AI 智能代理 —— 最后带走你自己的项目。',
     ctaPrimary: '预留座位',
     ctaSecondary: '看看它能做什么',
-    fullTag: '11月4–5日班 已满额',
+    fullTag: '11月两班已满额 · 12月班开放报名',
     chips: ['华语授课', '零程式', '小班 10–15 人']
   },
   proof: [
@@ -209,7 +209,7 @@ const zh: V2Content = {
   },
   closing: {
     heading: '回到公司那天起，让 AI 替你做重复的工作',
-    text: '每班只收 10–15 人，上一班已满额。'
+    text: '每班只收 10–15 人，11月两班均已满额。'
   },
   footer: {
     tagline: '两天，从「和 AI 聊天」到「把工作交给 AI」。',
@@ -234,7 +234,7 @@ const en: V2Content = {
     sub: 'Not another “how to chat with AI” class. Start from your own business pain points, set up an AI agent that fills forms, reconciles, searches email, builds reports and web pages — and leave with your own working project.',
     ctaPrimary: 'Reserve a seat',
     ctaSecondary: 'See what it can do',
-    fullTag: '4–5 Nov class is FULL',
+    fullTag: 'Both Nov classes FULL · Dec now open',
     chips: ['Conducted in Mandarin', 'No coding', 'Small class of 10–15']
   },
   proof: [

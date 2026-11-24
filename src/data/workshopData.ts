@@ -26,8 +26,7 @@ export const ORGANIZER_INFO = {
  * The dates shown on the page live in ../i18n/*.ts, keyed by `id`.
  */
 export const BATCHES = [
-  { id: 'nov04', sheetLabel: '4 & 5 Nov 2026 (Mandarin)', full: true },
-  { id: 'nov24', sheetLabel: '24 & 25 Nov 2026 (Mandarin)', full: false }
+  { id: 'dec10', sheetLabel: '10 & 11 Dec 2026 (Mandarin)', full: false }
 ] as const;
 
 export type BatchId = (typeof BATCHES)[number]['id'];

@@ -125,8 +125,8 @@ LANGS = {
             "A step-by-step handbook so you can do it all again at your desk",
         ],
         "facts": [
-            ("4–5 Nov 2026", "Mandarin · FULL", True),
-            ("24–25 Nov 2026", "Mandarin · 9:00 AM – 5:00 PM"),
+            ("10–11 Dec 2026", "Mandarin · 9:00 AM – 5:00 PM"),
+            ("Hands-on", "Bring your laptop"),
             ("0 Code", "No IT background"),
             ("HRD Corp", "SBL-Khas"),
         ],
@@ -177,8 +177,8 @@ LANGS = {
             "一本逐步操作手册，回到座位可以自己重做一遍",
         ],
         "facts": [
-            ("11月4–5日", "华语 · 已满额", True),
-            ("11月24–25日", "华语 · 上午 9:00 – 下午 5:00"),
+            ("12月10–11日", "华语 · 上午 9:00 – 下午 5:00"),
+            ("实操为主", "请自备手提电脑"),
             ("零程式", "无需 IT 背景"),
             ("HRD Corp", "SBL-Khas 计划"),
         ],

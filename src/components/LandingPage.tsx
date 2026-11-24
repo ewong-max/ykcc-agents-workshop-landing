@@ -42,7 +42,7 @@ import {
 } from 'lucide-react';
 
 /**
- * ?batch=nov24 preselects that run of the course, so a link sent to someone who
+ * ?batch=dec10 preselects that run of the course, so a link sent to someone who
  * wants those dates opens with them already chosen. Anything else — an unknown
  * id, or a batch that has since filled up — falls back to the open batch.
  */

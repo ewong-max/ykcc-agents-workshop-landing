@@ -27,15 +27,9 @@ export const en: SiteContent = {
   schedule: {
     batches: [
       {
-        id: 'nov04',
-        datesLabel: '4 & 5 November 2026',
-        datesShort: '4–5 Nov',
-        languageLabel: 'Conducted in Mandarin'
-      },
-      {
-        id: 'nov24',
-        datesLabel: '24 & 25 November 2026',
-        datesShort: '24–25 Nov',
+        id: 'dec10',
+        datesLabel: '10 & 11 December 2026',
+        datesShort: '10–11 Dec',
         languageLabel: 'Conducted in Mandarin'
       }
     ],
@@ -67,7 +61,7 @@ export const en: SiteContent = {
     ctaPrimary: 'Register Now',
     ctaSecondary: 'See the full 2-day agenda',
     stats: [
-      { value: 'Nov 24–25', label: 'Mandarin · 9:00 AM – 5:00 PM' },
+      { value: 'Dec 10–11', label: 'Mandarin · 9:00 AM – 5:00 PM' },
       { value: '48 Labs', label: 'Copy-paste prompts in your pack' },
       { value: '0 Code', label: 'No IT background needed' }
     ],
@@ -193,7 +187,7 @@ export const en: SiteContent = {
     footnote:
       'Timings are indicative. The pack holds 48 labs — more than two days can cover — so the trainer picks the ones that fit the room, and every lab is in your pack to repeat at your own desk.',
     footnoteDates:
-      'Workshop dates: 24 & 25 November 2026, 9:00 AM – 5:00 PM. The 4 & 5 November batch is full.',
+      'Workshop dates: 10 & 11 December 2026, 9:00 AM – 5:00 PM.',
     cta: 'Register Now'
   },
 
@@ -225,7 +219,7 @@ export const en: SiteContent = {
       phone: 'e.g. +60 12-345 6789',
       company: 'e.g. Maju Jaya Trading Sdn Bhd'
     },
-    batchNote: 'Both batches are the same course, conducted in Mandarin. The 4 & 5 November batch is full.',
+    batchNote: 'Conducted in Mandarin. The November classes are done — these are the next available dates.',
     batchFullLabel: 'FULL',
     paymentHrdc: 'HRDC',
     paymentCash: 'CASH',
@@ -297,7 +291,7 @@ export const en: SiteContent = {
     intro: 'Everything you need to know before booking a seat.',
     finalCtaHeading: 'Ready to stop doing it all by hand?',
     finalCtaBody:
-      'Register now to reserve your seat on 24 & 25 November 2026 — the 4 & 5 November batch is full. Corporate in-house batches can be run at your office with the labs adapted to your own files.',
+      'Register now to reserve your seat on 10 & 11 December 2026. Corporate in-house batches can be run at your office with the labs adapted to your own files.',
     finalCta: 'Register Now'
   },
 
